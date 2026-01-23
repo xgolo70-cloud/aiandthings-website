@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const words = ["Page", "Design", "Studio", "Artifact", "Experience"];
 
@@ -36,177 +36,90 @@ const TextRotator: React.FC = () => {
     );
 };
 
-const FloatingArtifact: React.FC<{ 
-    src: string; 
-    className?: string; 
-    delay?: number;
-    depth?: number;
-    mousePos: { x: number; y: number };
-    blur?: string;
-}> = ({ src, className, delay = 0, depth = 1, mousePos, blur = "blur-none" }) => {
-    const { scrollY } = useScroll();
-    const scrollYControlled = useTransform(scrollY, [0, 1000], [0, 200 * depth]);
-    
-    // Calculate mouse-based offset - amplified for maximalist feel
-    const mouseX = (mousePos.x - 0.5) * 80 * depth;
-    const mouseY = (mousePos.y - 0.5) * 80 * depth;
-
-    return (
-        <motion.div 
-            style={{ 
-                y: scrollYControlled,
-                x: mouseX,
-                translateY: mouseY
-            }}
-            className={`absolute pointer-events-none select-none transition-transform duration-700 ease-out ${className}`}
-        >
-            <motion.img 
-                src={src}
-                alt=""
-                className={`w-full h-full object-contain ${blur}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    y: [0, -25, 0],
-                    rotate: [0, 8, 0]
-                }}
-                transition={{ 
-                    opacity: { duration: 1.5, delay },
-                    scale: { duration: 1.5, delay },
-                    y: { duration: 6 + delay, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 8 + delay, repeat: Infinity, ease: "easeInOut" }
-                }}
-            />
-        </motion.div>
-    );
-};
-
 const Hero: React.FC = () => {
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-  const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 500], [0, 150]);
-  const textScale = useTransform(scrollY, [0, 500], [1, 0.9]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-        setMousePos({
-            x: e.clientX / window.innerWidth,
-            y: e.clientY / window.innerHeight
-        });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden bg-white selection:bg-gold-500 selection:text-white">
+    <section className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden bg-white selection:bg-gold-200 selection:text-neutral-900">
         
-        {/* Rich Atmospheric Layer */}
+        {/* Clean Professional Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-             {/* Dynamic Mesh Gradients */}
-             <div className="absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] bg-gold-200/20 blur-[120px] rounded-full mix-blend-multiply" />
-             <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-neutral-200/40 blur-[100px] rounded-full mix-blend-multiply" />
+             {/* Subtle Grain Overlay */}
+             <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-10" />
              
-             {/* Heavy Grain */}
-             <div className="absolute inset-0 opacity-[0.07] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-10 mix-blend-overlay" />
+             {/* Subtle Grid */}
+             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[64px_64px]" />
              
-             {/* Complex Grid */}
-             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[80px_80px] md:bg-size-[120px_120px]" />
-             
-             {/* Artifact Constellation - Maximalist Density */}
-             <div className="absolute inset-0 z-0">
-                {/* 1. Deep Background Anchor */}
-                <FloatingArtifact 
-                    src="/hero-artifact.png" 
-                    className="top-[5%] left-[5%] w-[40vw] opacity-[0.4] rotate-180"
-                    depth={0.2}
-                    mousePos={mousePos}
-                    blur="blur-md"
-                />
-                
-                {/* 2. Main Centerpiece - Massive & Dominant */}
-                <FloatingArtifact 
-                    src="/hero-artifact.png" 
-                    className="top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140vw] md:w-[85vw] opacity-[0.8] mix-blend-overlay"
-                    depth={0.5}
-                    mousePos={mousePos}
-                    blur="blur-3xl"
-                />
-
-                {/* 3. Sharp Foreground Details */}
-                <FloatingArtifact 
-                    src="/hero-artifact.png" 
-                    className="bottom-[10%] right-[5%] w-[25vw] opacity-[0.8] mix-blend-hard-light"
-                    depth={1.2}
-                    delay={0.2}
-                    mousePos={mousePos}
-                    blur="blur-none"
-                />
-                <FloatingArtifact 
-                    src="/hero-artifact.png" 
-                    className="top-[20%] right-[15%] w-[15vw] opacity-[0.6]"
-                    depth={0.8}
-                    delay={0.4}
-                    mousePos={mousePos}
-                    blur="blur-sm"
-                />
-             </div>
+             {/* Very Subtle Ambient Light */}
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-50/50 blur-[120px] rounded-full pointer-events-none" />
+             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neutral-50/80 blur-[120px] rounded-full pointer-events-none" />
         </div>
 
-        <div className="relative z-20 w-full flex flex-col items-center justify-center pt-20">
-            {/* Super-sized Badge */}
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="mb-8 md:mb-16 inline-flex items-center gap-4 px-6 py-3 rounded-none bg-black text-white border border-gold-500/50 shadow-[0_0_30px_-10px_rgba(234,179,8,0.3)] backdrop-blur-md"
-            >
-                <span className="w-2 h-2 bg-gold-500 flex animate-pulse" />
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.4em]">2026 Collection</span>
-            </motion.div>
-
-            {/* Typography - Screen Domination */}
-            <motion.div 
-                style={{ y: textY, scale: textScale }}
-                className="flex flex-col items-center text-center mix-blend-difference text-white"
-            >
-                <div className="overflow-hidden">
-                    <motion.span 
-                        initial={{ y: "100%" }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="block text-2xl md:text-4xl lg:text-5xl font-black tracking-[0.5em] md:tracking-[0.8em] uppercase mb-4 md:mb-8 text-neutral-900 md:text-neutral-900"
-                    >
-                        Absolute
-                    </motion.span>
-                </div>
+        <div className="max-w-7xl mx-auto relative z-20 w-full pt-12">
+            <div className="flex flex-col items-center text-center">
                 
-                <h1 className="font-display text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-black tracking-tighter leading-[0.75] uppercase text-neutral-950">
-                   <TextRotator />
-                </h1>
-            </motion.div>
+                {/* Professional Badge */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-100 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500"
+                >
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                    2026 Collection
+                </motion.div>
 
-            {/* Content Bottom */}
-            <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="mt-16 md:mt-24 flex flex-col items-center gap-8 md:gap-12 relative z-30"
-            >
-                <p className="text-xl md:text-3xl text-neutral-600 max-w-3xl text-center font-light leading-relaxed px-6">
-                    We craft <span className="font-serif italic text-gold-600 font-normal">monumental</span> digital experiences that defy convention and define the future.
-                </p>
+                {/* Typography Block */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col items-center space-y-4 mb-10"
+                >
+                    <span className="text-xs md:text-sm font-bold tracking-[0.3em] text-neutral-400 uppercase">
+                        Absolute
+                    </span>
+                    <div className="relative">
+                        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] text-neutral-950 uppercase">
+                            <TextRotator />
+                        </h1>
+                    </div>
+                </motion.div>
 
-                <div className="flex flex-col sm:flex-row gap-6 w-full px-6 md:px-0 justify-center">
-                    <button className="bg-neutral-950 text-white px-12 py-6 md:py-8 text-sm md:text-base font-bold uppercase tracking-[0.25em] hover:bg-gold-600 transition-colors shadow-2xl hover:shadow-gold-500/20 active:scale-95 duration-300 w-full sm:w-auto">
+                {/* Subline */}
+                <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-base md:text-lg text-neutral-500 max-w-lg mx-auto font-light leading-relaxed px-4 mb-12"
+                >
+                    Crafting digital artifacts where <span className="text-neutral-900 font-medium">precision</span> meets <span className="text-neutral-900 font-medium">aesthetics</span>.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col sm:flex-row gap-4 justify-center"
+                >
+                    <button className="bg-neutral-950 text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-all active:scale-95">
                         Start Project
                     </button>
-                    <button className="bg-white border-2 border-neutral-950 text-neutral-950 px-12 py-6 md:py-8 text-sm md:text-base font-bold uppercase tracking-[0.25em] hover:bg-neutral-50 transition-colors active:scale-95 duration-300 w-full sm:w-auto">
-                        View Showreel
+                    <button className="bg-white border border-neutral-200 text-neutral-600 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:border-neutral-400 hover:text-neutral-900 transition-all active:scale-95">
+                        View Work
                     </button>
-                </div>
-            </motion.div>
+                </motion.div>
+            </div>
         </div>
+        
+        {/* Minimal Scroll Hint */}
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        >
+            <div className="w-px h-12 bg-neutral-200" />
+        </motion.div>
     </section>
   );
 };
