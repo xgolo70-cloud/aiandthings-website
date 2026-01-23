@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Star } from 'lucide-react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const words = ["Page", "Design", "Studio", "Artifact", "Experience"];
 
@@ -38,28 +38,16 @@ const TextRotator: React.FC = () => {
 };
 
 const Hero: React.FC = () => {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden bg-white selection:bg-gold-200 selection:text-neutral-900">
         
         {/* Cinematic Background Layer */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-             {/* Background Image - Full Impact */}
-             <motion.div 
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 0.4, scale: 1 }}
-                transition={{ duration: 2, ease: "easeOut" }}
-                className="absolute inset-0 bg-[url('/history-bg.png')] bg-cover bg-center grayscale [mask-image:radial-gradient(circle_at_center,black_40%,transparent_100%)] md:[mask-image:radial-gradient(circle_at_center,black_50%,transparent_100%)]" 
-             />
-
              {/* Subtle Grain Overlay */}
              <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-10" />
              
              {/* Static Professional Grid */}
-             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[40px_40px] md:bg-size-[64px_64px] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-12">
