@@ -11,19 +11,25 @@ const Contact = dynamic(() => import('@/components/sections/Contact'));
 const Philosophy = dynamic(() => import('@/components/sections/Philosophy'));
 const Process = dynamic(() => import('@/components/sections/Process'));
 const FAQ = dynamic(() => import('@/components/sections/FAQ'));
+const Metrics = dynamic(() => import('@/components/sections/Metrics'));
+const Insights = dynamic(() => import('@/components/sections/Insights'));
+const CTABanner = dynamic(() => import('@/components/sections/CTABanner'));
 
 export default function Home() {
   return (
     <>
       <Hero />
       <TrustedBy />
+      <Metrics />
       <Philosophy />
       <Work />
       <Services />
+      <Insights />
       <Process />
       <Studio />
       <Testimonials />
       <FAQ />
+      <CTABanner />
       <About />
       <Contact />
     </>

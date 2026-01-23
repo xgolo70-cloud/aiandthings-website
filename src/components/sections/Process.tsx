@@ -68,7 +68,7 @@ export default function Process() {
                   </p>
                   
                   {/* Decorative corner accent */}
-                  <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-transparent group-hover:border-r-gold-50 transition-all duration-700" />
+                  <div className="absolute top-0 right-0 w-0 h-0 border-t-40 border-r-40 border-t-transparent border-r-transparent group-hover:border-r-gold-50 transition-all duration-700" />
                 </div>
               </Reveal>
             ))}
