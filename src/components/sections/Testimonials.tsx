@@ -24,31 +24,46 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 px-6 bg-white border-t border-neutral-100">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center">
+    <section className="py-32 px-6 bg-white border-t border-neutral-100 relative overflow-hidden">
+        {/* Ambient background blur */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gold-50/20 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-24 text-center">
             <Reveal width="100%">
-                 <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-display text-neutral-950">
-                    Client Stories.
+                 <span className="text-gold-500 text-[10px] uppercase tracking-[0.4em] font-bold mb-6 block">
+                    Voices from the Future
+                </span>
+            </Reveal>
+            <Reveal width="100%" delay={0.1}>
+                 <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 font-display text-neutral-950 leading-[0.85]">
+                    Client <br className="md:hidden" />
+                    <span className="font-serif italic text-gold-500 font-normal">Stories.</span>
                 </h2>
             </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {testimonials.map((item, index) => (
                 <Reveal key={index} delay={index * 0.1}>
-                    <div className="p-10 rounded-4xl bg-neutral-50 hover:bg-white border border-transparent hover:border-neutral-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col justify-between">
-                        <div className="mb-8">
-                            <div className="flex gap-1 mb-6 text-orange-400">
-                                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                    <div className="group relative p-10 bg-white border border-neutral-100 hover:border-gold-200 transition-all duration-700 h-full flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.02)]">
+                        {/* Hover elements */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                            <div className="absolute inset-0 bg-gold-50/5" />
+                            <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                        </div>
+
+                        <div className="mb-10 relative z-10">
+                            <div className="flex gap-1.5 mb-8 text-gold-500">
+                                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" strokeWidth={0} />)}
                             </div>
-                            <p className="text-xl md:text-2xl font-light text-neutral-800 leading-relaxed italic">
+                            <p className="text-xl md:text-2xl font-serif italic text-neutral-800 leading-relaxed font-normal group-hover:text-neutral-950 transition-colors">
                                 &quot;{item.quote}&quot;
                             </p>
                         </div>
-                        <div>
-                            <p className="font-bold text-neutral-950 font-display text-lg">{item.author}</p>
-                            <p className="text-sm text-neutral-500 uppercase tracking-wider font-medium">{item.role}</p>
+                        <div className="relative z-10 pt-8 border-t border-neutral-100 group-hover:border-gold-200/50 transition-colors">
+                            <p className="font-bold text-neutral-950 uppercase tracking-widest text-xs mb-1">{item.author}</p>
+                            <p className="text-[10px] text-gold-600 uppercase tracking-widest font-bold">{item.role}</p>
                         </div>
                     </div>
                 </Reveal>

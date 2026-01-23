@@ -36,7 +36,7 @@ export default function TrustedBy() {
                 {[...logos, ...logos, ...logos].map((logo, i) => (
                     <span 
                         key={i} 
-                        className="text-3xl md:text-4xl font-display font-bold text-neutral-300 hover:text-neutral-950 transition-colors duration-300 cursor-default select-none"
+                        className="text-3xl md:text-4xl font-display font-bold text-neutral-300 hover:text-gold-500 transition-colors duration-300 cursor-default select-none group-hover/marquee:text-neutral-200 group-hover/marquee:hover:text-gold-500"
                     >
                         {logo}
                     </span>
