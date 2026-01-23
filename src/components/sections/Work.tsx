@@ -11,28 +11,28 @@ const projects = [
     title: "NeuroCore Analytics",
     description: "Enterprise-grade predictive analytics dashboard for financial institutions.",
     year: "2024",
-    image: "/assets/images/ai_platform_project_1769192363142.png"
+    image: "/images/ai_platform_project_1769192363142.png"
   },
   {
     category: "Mobile App",
     title: "Vantage Health",
     description: "Patient companion app with real-time biometric tracking and AI consultation.",
     year: "2023",
-    image: "/assets/images/health_tech_project_1769192377210.png"
+    image: "/images/health_tech_project_1769192377210.png"
   },
   {
     category: "Web Design",
     title: "Lumina Studios",
     description: "Immersive portfolio experience for an award-winning architectural firm.",
     year: "2023",
-    image: "/assets/images/architecture_design_project_1769192398877.png"
+    image: "/images/architecture_design_project_1769192398877.png"
   },
   {
     category: "Branding",
     title: "Echo Systems",
     description: "Complete brand identity and design system for a robotics startup.",
     year: "2024",
-    image: "/assets/images/branding_identity_project_1769192413853.png"
+    image: "/images/branding_identity_project_1769192413853.png"
   }
 ];
 
