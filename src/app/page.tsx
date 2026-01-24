@@ -14,12 +14,14 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ'));
 const Metrics = dynamic(() => import('@/components/sections/Metrics'));
 const Insights = dynamic(() => import('@/components/sections/Insights'));
 const CTABanner = dynamic(() => import('@/components/sections/CTABanner'));
+const ParticleScrollWrapper = dynamic(() => import('@/components/sections/ParticleScrollWrapper'));
 
 export default function Home() {
   return (
     <>
       <Hero />
       <TrustedBy />
+      <ParticleScrollWrapper />
       <Metrics />
       <Philosophy />
       <Work />
