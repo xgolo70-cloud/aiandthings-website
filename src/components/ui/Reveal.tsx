@@ -26,10 +26,7 @@ export default function Reveal({ children, width = "fit-content", className, del
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: overflowVisible ? "visible" : "hidden", height: fullHeight ? "100%" : "auto" }} className={className}>
       <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
+        variants={revealVariants}
         initial="hidden"
         animate={mainControls}
         transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
@@ -40,3 +37,8 @@ export default function Reveal({ children, width = "fit-content", className, del
     </div>
   );
 }
+
+const revealVariants = {
+  hidden: { opacity: 0, y: 75 },
+  visible: { opacity: 1, y: 0 },
+};

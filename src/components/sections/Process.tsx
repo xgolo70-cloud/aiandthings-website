@@ -33,12 +33,12 @@ export default function Process() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="sticky top-40">
             <Reveal>
-              <span className="text-gold-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">The Laboratory</span>
+              <span className="text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">The Laboratory</span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-950 font-display leading-[0.85] mb-12">
                  How <br />
-                 <span className="font-serif italic text-gold-500 font-normal">Artifacts</span> <br />
+                 <span className="font-serif italic text-accent-500 font-normal">Artifacts</span> <br />
                  Are Born.
               </h2>
             </Reveal>
@@ -53,9 +53,9 @@ export default function Process() {
           <div className="space-y-6">
             {steps.map((step, i) => (
               <Reveal key={i} delay={i * 0.1} width="100%">
-                <div className="group relative p-12 bg-white border border-neutral-100 rounded-sm hover:border-gold-300 transition-all duration-700">
+                <div className="group relative p-12 bg-white border border-neutral-100 rounded-sm hover:border-accent-300 transition-all duration-700">
                   <div className="flex justify-between items-start mb-8">
-                    <span className="text-gold-400 font-serif italic text-3xl">0{i + 1}</span>
+                    <span className="text-accent-400 font-serif italic text-3xl">0{i + 1}</span>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 bg-neutral-50 px-3 py-1 rounded-full">
                       {step.tag}
                     </span>
@@ -68,7 +68,7 @@ export default function Process() {
                   </p>
                   
                   {/* Decorative corner accent */}
-                  <div className="absolute top-0 right-0 w-0 h-0 border-t-40 border-r-40 border-t-transparent border-r-transparent group-hover:border-r-gold-50 transition-all duration-700" />
+                  <div className="absolute top-0 right-0 w-0 h-0 border-t-40 border-r-40 border-t-transparent border-r-transparent group-hover:border-r-accent-50 transition-all duration-700" />
                 </div>
               </Reveal>
             ))}
@@ -77,7 +77,7 @@ export default function Process() {
       </div>
       
       {/* Dynamic line animation */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-200/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-accent-200/20 to-transparent" />
     </section>
   );
 }

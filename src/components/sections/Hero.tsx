@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
@@ -26,7 +28,7 @@ const TextRotator: React.FC = () => {
                         duration: 0.8, 
                         ease: [0.16, 1, 0.3, 1]
                     }}
-                    className="font-serif italic text-gold-500 block px-2 md:px-4 whitespace-nowrap leading-tight"
+                    className="font-serif italic text-accent-500 block px-2 md:px-4 whitespace-nowrap leading-tight"
                 >
                     {words[index]}
                 </motion.span>
@@ -88,7 +90,7 @@ const Hero: React.FC = () => {
   }, [x, y]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden bg-white selection:bg-gold-200 selection:text-neutral-900 perspective-[1000px]">
+    <section className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden bg-white selection:bg-accent-200 selection:text-neutral-900 perspective-[1000px]">
         
         {/* Interactive Spotlight & Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -97,14 +99,14 @@ const Hero: React.FC = () => {
              {/* Mouse Follower Light */}
              <motion.div 
                 style={{ left: x, top: y }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-200/20 blur-[100px] rounded-full mix-blend-multiply opacity-50"
+                className="absolute -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-200/20 blur-[100px] rounded-full mix-blend-multiply opacity-50"
              />
              
              {/* Dynamic Drawing Lines - Subtle Geometry */}
              <svg className="absolute inset-0 w-full h-full opacity-20">
                 <motion.circle 
                     cx="50%" cy="50%" r="20%" 
-                    className="stroke-gold-400 fill-none stroke-[0.5]"
+                    className="stroke-accent-400 fill-none stroke-[0.5]"
                     initial={{ pathLength: 0, rotate: 0 }}
                     animate={{ pathLength: 1, rotate: 360 }}
                     transition={{ duration: 10, ease: "linear", repeat: Infinity }}
@@ -125,7 +127,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-neutral-100 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 shadow-sm backdrop-blur-sm"
                 >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse" />
                     2026 Collection
                 </motion.div>
 
@@ -166,7 +168,7 @@ const Hero: React.FC = () => {
                     <MagneticButton className="bg-neutral-950 text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-lg hover:shadow-xl active:scale-95">
                         Start Project
                     </MagneticButton>
-                    <MagneticButton className="bg-white border border-neutral-200 text-neutral-600 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:border-gold-300 hover:text-gold-600 transition-colors active:scale-95">
+                    <MagneticButton className="bg-white border border-neutral-200 text-neutral-600 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:border-accent-300 hover:text-accent-600 transition-colors active:scale-95">
                         View Work
                     </MagneticButton>
                 </motion.div>

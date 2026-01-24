@@ -32,12 +32,12 @@ export default function Insights() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div>
             <Reveal>
-              <span className="text-gold-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Thought Leadership</span>
+              <span className="text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Thought Leadership</span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-950 font-display leading-[0.85]">
                 Latest <br />
-                <span className="font-serif italic text-gold-500 font-normal">Insights.</span>
+                <span className="font-serif italic text-accent-500 font-normal">Insights.</span>
               </h2>
             </Reveal>
           </div>
@@ -57,10 +57,10 @@ export default function Insights() {
                 className="group flex flex-col md:grid md:grid-cols-12 items-center py-12 md:py-16 border-b border-neutral-100 hover:bg-neutral-50/50 transition-colors px-4 md:px-8"
               >
                 <div className="md:col-span-2 mb-4 md:mb-0">
-                  <span className="text-gold-500 font-serif italic text-xl">{item.category}</span>
+                  <span className="text-accent-500 font-serif italic text-xl">{item.category}</span>
                 </div>
                 <div className="md:col-span-8 mb-6 md:mb-0">
-                  <h3 className="text-3xl md:text-5xl font-black text-neutral-950 uppercase tracking-tighter leading-none group-hover:text-gold-600 transition-colors">
+                  <h3 className="text-3xl md:text-5xl font-black text-neutral-950 uppercase tracking-tighter leading-none group-hover:text-accent-600 transition-colors">
                     {item.title}
                   </h3>
                 </div>

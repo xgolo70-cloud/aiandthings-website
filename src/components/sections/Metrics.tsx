@@ -22,7 +22,7 @@ export default function Metrics() {
                   <span className="text-6xl md:text-8xl font-black tracking-tighter text-neutral-950 font-display">
                     {stat.value}
                   </span>
-                  <span className="text-2xl md:text-3xl font-serif italic text-gold-500 ml-1">
+                  <span className="text-2xl md:text-3xl font-serif italic text-accent-500 ml-1">
                     {stat.suffix}
                   </span>
                 </div>

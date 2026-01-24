@@ -32,11 +32,11 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-24">
           <Reveal width="100%">
-            <span className="text-gold-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Common Inquiries</span>
+            <span className="text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Common Inquiries</span>
           </Reveal>
           <Reveal width="100%" delay={0.1}>
             <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-950 font-display">
-               The <span className="font-serif italic text-gold-500 font-normal">Details.</span>
+               The <span className="font-serif italic text-accent-500 font-normal">Details.</span>
             </h2>
           </Reveal>
         </div>
@@ -48,10 +48,10 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full py-8 flex items-center justify-between text-left group"
               >
-                <span className="text-xl md:text-2xl font-black text-neutral-900 uppercase tracking-tighter group-hover:text-gold-600 transition-colors">
+                <span className="text-xl md:text-2xl font-black text-neutral-900 uppercase tracking-tighter group-hover:text-accent-600 transition-colors">
                   {item.q}
                 </span>
-                <div className="ml-4 text-gold-500">
+                <div className="ml-4 text-accent-500">
                   {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
               </button>
