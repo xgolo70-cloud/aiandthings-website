@@ -59,7 +59,15 @@ export default function Team() {
             viewport={{ once: true }}
             className="mb-16 text-right"
         >
-            <span className="text-xs text-zinc-500 mb-4 block font-light team-heading-reveal">مؤسسو التغيير</span>
+            <div className="flex items-center justify-end gap-3 mb-8 group/label team-heading-reveal">
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet shadow-[0_0_10px_#7c3aed]" />
+                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-500">
+                    <span className="text-zinc-800 font-mono text-base">[</span>
+                    <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">مؤسسو التغيير</span>
+                    <span className="text-zinc-800 font-mono text-base">]</span>
+                </div>
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-cyan shadow-[0_0_10px_#06b6d4]" />
+            </div>
             <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-4 pt-2 team-heading-reveal">
                 العقول <br/> <span className="text-zinc-500">خلف العمل</span>
             </h2>
@@ -79,9 +87,11 @@ export default function Team() {
                         </div>
 
                         <div className="relative z-10">
-                             <span className="text-xs text-zinc-600 font-light block group-hover:text-electric-violet transition-colors">
-                                 {founder.roleEn}
-                             </span>
+                             <div className="flex items-center gap-2 text-zinc-600 font-light group-hover:text-electric-violet transition-colors">
+                                 <span className="text-zinc-800 font-mono text-xs">[</span>
+                                 <span className="text-[10px] font-bold tracking-widest uppercase">{founder.roleEn}</span>
+                                 <span className="text-zinc-800 font-mono text-xs">]</span>
+                             </div>
                         </div>
                         
                         <div className="text-right relative z-10">

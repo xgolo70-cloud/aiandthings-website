@@ -204,8 +204,16 @@ export default function InteractiveHero() {
       <canvas ref={canvasRef} className="absolute inset-0 z-0 bg-transparent opacity-60" />
       
       <div className="relative z-10 text-center px-6">
-          <motion.div className="hero-text mb-4">
-              <span className="text-[10px] font-mono text-zinc-500 uppercase mb-4 block">ai and things</span>
+          <motion.div className="hero-text mb-8">
+              <div className="flex items-center justify-center gap-3 group/label">
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet animate-pulse" />
+                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.3em] uppercase text-zinc-500">
+                    <span className="text-zinc-800 font-mono text-base">[</span>
+                    <span className="px-2 group-hover/label:text-white transition-colors cursor-default">ai and things</span>
+                    <span className="text-zinc-800 font-mono text-base">]</span>
+                </div>
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-pulse" />
+              </div>
           </motion.div>
           
           <motion.h1 
@@ -261,7 +269,11 @@ export default function InteractiveHero() {
                  transition={{ delay: 2, duration: 1 }}
                  className="mt-16 flex flex-col items-center gap-4"
                >
-                  <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest arabic-impact">تصفح للأسفل</span>
+                   <div className="flex items-center gap-3 group/scroll">
+                      <span className="text-zinc-800 font-mono text-xs">[</span>
+                      <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-[0.2em] arabic-impact group-hover/scroll:text-zinc-400 transition-colors">تصفح للأسفل</span>
+                      <span className="text-zinc-800 font-mono text-xs">]</span>
+                   </div>
                   <motion.div 
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

@@ -38,7 +38,14 @@ function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: Ser
         </div>
         
         <div className="mt-auto text-right">
-            <span className="text-xs text-zinc-500 mb-4 block font-light">التخصص الفني</span>
+            <div className="flex items-center gap-3 mb-4 group/label">
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet shadow-[0_0_10px_#7c3aed]" />
+                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-500">
+                    <span className="text-zinc-800 font-mono text-base">[</span>
+                    <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">التخصص الفني</span>
+                    <span className="text-zinc-800 font-mono text-base">]</span>
+                </div>
+            </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2 pt-1 leading-relaxed">{title}</h3>
             <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-normal max-w-sm">{desc}</p>
         </div>
@@ -74,7 +81,15 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-16 text-right"
         >
-            <span className="text-xs text-zinc-500 mb-4 block font-light services-heading-reveal">مجالات التميز</span>
+            <div className="flex items-center justify-end gap-3 mb-8 group/label services-heading-reveal">
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet shadow-[0_0_10px_#7c3aed]" />
+                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-500">
+                    <span className="text-zinc-800 font-mono text-base">[</span>
+                    <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">مجالات التميز</span>
+                    <span className="text-zinc-800 font-mono text-base">]</span>
+                </div>
+                <div className="w-1.5 h-1.5 rounded-full bg-electric-cyan shadow-[0_0_10px_#06b6d4]" />
+            </div>
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2 services-heading-reveal">
                 الخبرات <br/> <span className="text-zinc-500">الأساسية</span>
             </h2>
