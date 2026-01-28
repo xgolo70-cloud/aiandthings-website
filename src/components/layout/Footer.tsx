@@ -115,10 +115,10 @@ export default function Footer() {
 
         {/* Large Decorative Text - Cinematic Reveal */}
         <div className="mt-32 mb-10 text-center relative overflow-hidden select-none pointer-events-none footer-brand-chars">
-          <h2 className="text-[12vw] font-bold text-white/5 uppercase tracking-tighter leading-none arabic-impact flex justify-center gap-[0.2em]">
-            {"الذكاء والأشياء".split("").map((char, i) => (
+          <h2 className="text-[12vw] font-bold text-white/5 uppercase tracking-tighter leading-none arabic-impact flex justify-center gap-[0.3em]">
+            {"الذكاء والأشياء".split(" ").map((word, i) => (
                 <span key={i} className="footer-brand-char inline-block">
-                    {char === " " ? "\u00A0" : char}
+                    {word}
                 </span>
             ))}
           </h2>

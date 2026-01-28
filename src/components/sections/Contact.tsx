@@ -16,7 +16,7 @@ export default function Contact() {
     const magneticItems = document.querySelectorAll('.magnetic-target');
     
     magneticItems.forEach((item) => {
-      item.addEventListener('mousemove', (e: any) => {
+      item.addEventListener('mousemove', ((e: MouseEvent) => {
         const rect = item.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
@@ -27,7 +27,7 @@ export default function Contact() {
           duration: 0.5,
           ease: "power2.out"
         });
-      });
+      }) as EventListener);
       
       item.addEventListener('mouseleave', () => {
         gsap.to(item, {
@@ -85,7 +85,7 @@ export default function Contact() {
 
             <div className="flex flex-col gap-6 items-start relative">
                 {/* Brand Signature Vertical */}
-                <div className="absolute -right-12 top-0 bottom-0 flex flex-col justify-center pointer-events-none opacity-20 hidden xl:flex">
+                <div className="absolute -right-12 top-0 bottom-0 justify-center pointer-events-none opacity-20 hidden xl:flex">
                     <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.5em] rotate-180 [writing-mode:vertical-rl]">AIANDTHINGS // BRANCH_ENTRY_001</span>
                 </div>
 

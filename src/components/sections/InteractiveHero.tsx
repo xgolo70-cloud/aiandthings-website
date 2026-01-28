@@ -182,17 +182,17 @@ export default function InteractiveHero() {
             className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.4] arabic-impact mb-6 relative z-20 pt-2 pb-10 overflow-visible flex flex-col items-center"
           >
               <div className="headline-line overflow-hidden py-1">
-                  {"نحول الأفكار إلى".split("").map((char, i) => (
-                    <span key={i} className="inline-block hover-char transition-all duration-300">
-                      {char === " " ? "\u00A0" : char}
+                  {"نحول الأفكار إلى".split(" ").map((word, i) => (
+                    <span key={i} className="inline-block hover-char transition-all duration-300 mx-[0.15em]">
+                      {word}
                     </span>
                   ))}
               </div>
               <div className="headline-line overflow-hidden py-1">
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">
-                    {"واقع رقمي ذكي".split("").map((char, i) => (
-                      <span key={i} className="inline-block hover-char transition-all duration-300">
-                        {char === " " ? "\u00A0" : char}
+                    {"واقع رقمي ذكي".split(" ").map((word, i) => (
+                      <span key={i} className="inline-block hover-char transition-all duration-300 mx-[0.15em]">
+                        {word}
                       </span>
                     ))}
                   </span>
