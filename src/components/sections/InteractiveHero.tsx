@@ -37,24 +37,24 @@ class Particle {
     const dx = mouse.x - this.x;
     const dy = mouse.y - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
-    const forceDirectionX = dx / distance;
-    const forceDirectionY = dy / distance;
-    const maxDistance = mouse.radius;
-    const force = (maxDistance - distance) / maxDistance;
-    const directionX = forceDirectionX * force * this.density;
-    const directionY = forceDirectionY * force * this.density;
-
+    
     if (distance < mouse.radius) {
+      const forceDirectionX = dx / distance;
+      const forceDirectionY = dy / distance;
+      const force = (mouse.radius - distance) / mouse.radius;
+      const directionX = forceDirectionX * force * this.density;
+      const directionY = forceDirectionY * force * this.density;
+      
       this.x -= directionX;
       this.y -= directionY;
     } else {
       if (this.x !== this.baseX) {
-        const dxBack = this.x - this.baseX;
-        this.x -= dxBack / 15;
+        let dxBack = this.x - this.baseX;
+        this.x -= dxBack / 20;
       }
       if (this.y !== this.baseY) {
-        const dyBack = this.y - this.baseY;
-        this.y -= dyBack / 15;
+        let dyBack = this.y - this.baseY;
+        this.y -= dyBack / 20;
       }
     }
   }
@@ -94,6 +94,25 @@ export default function InteractiveHero() {
       for (let i = 0; i < particles.length; i++) {
         particles[i].draw();
         particles[i].update(mouse);
+
+        // Neural connections
+        for (let j = i; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.strokeStyle = particles[i].color;
+                ctx.globalAlpha = (1 - (distance / 100)) * 0.15;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+                ctx.closePath();
+                ctx.globalAlpha = 1;
+            }
+        }
       }
       requestAnimationFrame(animate);
     }
@@ -165,13 +184,24 @@ export default function InteractiveHero() {
   return (
     <section ref={containerRef} className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-zinc-950 pt-32">
       
-      {/* Deep Space Gradient Background */}
-      <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-electric-violet blur-[120px] rounded-full mix-blend-screen opacity-40 animate-float" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-electric-cyan blur-[120px] rounded-full mix-blend-screen opacity-40 animate-float" style={{ animationDelay: '-5s' }} />
+      {/* Deep Space Gradient Background - Enhanced Nebula */}
+      <div className="absolute inset-0 z-0">
+          {/* Base Glows */}
+          <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-electric-violet/20 blur-[140px] rounded-full mix-blend-screen animate-float opacity-50" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-electric-cyan/20 blur-[140px] rounded-full mix-blend-screen animate-float opacity-50" style={{ animationDelay: '-5s' }} />
+          
+          {/* Secondary Atmospheric Accents */}
+          <div className="absolute top-1/4 right-1/4 w-[30%] h-[30%] bg-emerald-500/10 blur-[100px] rounded-full mix-blend-overlay animate-pulse" />
+          <div className="absolute bottom-1/4 left-1/4 w-[25%] h-[25%] bg-white/5 blur-[80px] rounded-full mix-blend-soft-light animate-float" style={{ animationDuration: '15s' }} />
+
+          {/* Precision Grid Overlay */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+          
+          {/* Interactive Vignette */}
+          <div className="absolute inset-0 bg-radial-vignette opacity-60 pointer-events-none" />
       </div>
 
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 bg-transparent" />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 bg-transparent opacity-60" />
       
       <div className="relative z-10 text-center px-6">
           <motion.div className="hero-text mb-4">
