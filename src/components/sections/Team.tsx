@@ -3,6 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SpotlightCard from '../ui/SpotlightCard';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const founders = [
   {
@@ -29,6 +33,23 @@ const founders = [
 ];
 
 export default function Team() {
+  React.useEffect(() => {
+    gsap.fromTo(".team-heading-reveal", 
+      { opacity: 0, clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", y: 30 },
+      { 
+        opacity: 1, 
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", 
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".team-heading-reveal",
+          start: "top 90%",
+        }
+      }
+    );
+  }, []);
+
   return (
     <section id="studio" className="py-40 px-6 relative bg-zinc-950 overflow-hidden mesh-gradient-tech">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -38,8 +59,8 @@ export default function Team() {
             viewport={{ once: true }}
             className="mb-16 text-right"
         >
-            <span className="text-xs text-zinc-500 mb-4 block font-light">مؤسسو التغيير</span>
-            <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-4 pt-2">
+            <span className="text-xs text-zinc-500 mb-4 block font-light team-heading-reveal">مؤسسو التغيير</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-4 pt-2 team-heading-reveal">
                 العقول <br/> <span className="text-zinc-500">خلف العمل</span>
             </h2>
         </motion.div>

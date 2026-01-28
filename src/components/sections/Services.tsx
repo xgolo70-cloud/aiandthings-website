@@ -4,6 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Brain, Palette } from 'lucide-react';
 import SpotlightCard from '../ui/SpotlightCard';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ServiceCardProps {
   title: string;
@@ -44,6 +48,23 @@ function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: Ser
 }
 
 export default function Services() {
+  React.useEffect(() => {
+    gsap.fromTo(".services-heading-reveal", 
+      { opacity: 0, clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", y: 30 },
+      { 
+        opacity: 1, 
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", 
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".services-heading-reveal",
+          start: "top 90%",
+        }
+      }
+    );
+  }, []);
+
   return (
     <section id="services" className="py-40 bg-zinc-950 relative overflow-hidden border-t border-white/5 mesh-gradient-tech">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -53,11 +74,11 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-16 text-right"
         >
-            <span className="text-xs text-zinc-500 mb-4 block font-light">مجالات التميز</span>
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2">
+            <span className="text-xs text-zinc-500 mb-4 block font-light services-heading-reveal">مجالات التميز</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2 services-heading-reveal">
                 الخبرات <br/> <span className="text-zinc-500">الأساسية</span>
             </h2>
-            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
+            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed services-heading-reveal">
                 حلول رقمية متكاملة مصممة بدقة لتلبي متطلبات المستقبل الذكي.
             </p>
         </motion.div>

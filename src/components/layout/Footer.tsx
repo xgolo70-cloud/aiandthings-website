@@ -1,7 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Command, Github, Twitter, Linkedin } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const footerLinks = {
   sitemap: [
@@ -19,6 +23,25 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  useEffect(() => {
+    gsap.fromTo(".footer-brand-char", 
+      { opacity: 0, scale: 0.5, filter: "blur(10px)", y: 20 },
+      { 
+        opacity: 0.1, 
+        scale: 1, 
+        filter: "blur(0px)", 
+        y: 0,
+        duration: 1.5,
+        stagger: 0.05,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".footer-brand-chars",
+          start: "top 95%",
+        }
+      }
+    );
+  }, []);
+
   return (
     <footer className="relative bg-zinc-950 pt-32 pb-12 px-6 overflow-hidden border-t border-white/5 mesh-gradient-tech">
       <div className="absolute bottom-0 left-0 w-full h-[300px] bg-linear-to-t from-electric-violet/10 to-transparent pointer-events-none" />
@@ -90,7 +113,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Large Decorative Text - Cinematic Reveal */}
+        <div className="mt-32 mb-10 text-center relative overflow-hidden select-none pointer-events-none footer-brand-chars">
+          <h2 className="text-[12vw] font-bold text-white/5 uppercase tracking-tighter leading-none arabic-impact flex justify-center gap-[0.2em]">
+            {"الذكاء والأشياء".split("").map((char, i) => (
+                <span key={i} className="footer-brand-char inline-block">
+                    {char === " " ? "\u00A0" : char}
+                </span>
+            ))}
+          </h2>
+        </div>
         <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-8 text-[11px] font-bold text-zinc-600 arabic-impact">
                 <p>© 2026 الذكاء والأشياء</p>

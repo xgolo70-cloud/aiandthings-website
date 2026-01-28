@@ -101,9 +101,50 @@ export default function InteractiveHero() {
     init();
     animate();
 
+    // GSAP Cinematic Introduction
+    const tl = gsap.timeline();
+
+    tl.fromTo(".headline-line span", 
+        { 
+          opacity: 0, 
+          y: 50, 
+          filter: "blur(20px)",
+          scale: 1.2
+        }, 
+        { 
+          opacity: 1, 
+          y: 0, 
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1.5, 
+          ease: "expo.out", 
+          stagger: 0.03 
+        }
+    );
+
+    tl.fromTo(".hero-text", 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 2, ease: "power4.out", stagger: 0.4 },
+        "-=1"
+    );
+
+    // Dynamic Floating Interaction
     const handleMouseMove = (e: MouseEvent) => {
         mouse.x = e.x;
         mouse.y = e.y;
+        
+        // Subtle tilt for the text
+        const xPos = (e.clientX / window.innerWidth) - 0.5;
+        const yPos = (e.clientY / window.innerHeight) - 0.5;
+        
+        gsap.to(".hero-text", {
+          x: xPos * 20,
+          y: yPos * 20,
+          rotateY: xPos * 10,
+          rotateX: -yPos * 10,
+          duration: 1,
+          ease: "power2.out"
+        });
     }
 
     const handleResize = () => {
@@ -114,12 +155,6 @@ export default function InteractiveHero() {
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
-    
-    // GSAP Introduction
-    gsap.fromTo(".hero-text", 
-        { opacity: 0, y: 40, scale: 0.9 }, 
-        { opacity: 1, y: 0, scale: 1, duration: 2, ease: "expo.out", stagger: 0.3 }
-    );
 
     return () => {
         window.removeEventListener('mousemove', handleMouseMove);
@@ -143,9 +178,25 @@ export default function InteractiveHero() {
               <span className="text-[10px] font-mono text-zinc-500 uppercase mb-4 block">ai and things</span>
           </motion.div>
           
-          <motion.h1 className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.4] arabic-impact mb-6 relative z-20 pt-2 pb-10 overflow-visible">
-              نحول الأفكار إلى <br/>
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">واقع رقمي ذكي</span>
+          <motion.h1 
+            className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.4] arabic-impact mb-6 relative z-20 pt-2 pb-10 overflow-visible flex flex-col items-center"
+          >
+              <div className="headline-line overflow-hidden py-1">
+                  {"نحول الأفكار إلى".split("").map((char, i) => (
+                    <span key={i} className="inline-block hover-char transition-all duration-300">
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+              </div>
+              <div className="headline-line overflow-hidden py-1">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">
+                    {"واقع رقمي ذكي".split("").map((char, i) => (
+                      <span key={i} className="inline-block hover-char transition-all duration-300">
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    ))}
+                  </span>
+              </div>
           </motion.h1>
 
           <motion.div className="hero-text mt-12 flex flex-col items-center gap-8">

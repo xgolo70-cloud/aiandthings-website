@@ -1,12 +1,63 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Send, MapPin, Mail, Github, Twitter } from 'lucide-react';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Contact() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Magnetic Effect Logic
+    const magneticItems = document.querySelectorAll('.magnetic-target');
+    
+    magneticItems.forEach((item) => {
+      item.addEventListener('mousemove', (e: any) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        gsap.to(item, {
+          x: x * 0.4,
+          y: y * 0.4,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        gsap.to(item, {
+          x: 0,
+          y: 0,
+          duration: 1,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    // ScrollTrigger Title Reveal
+    gsap.fromTo(".contact-heading-reveal", 
+      { opacity: 0, clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", y: 30 },
+      { 
+        opacity: 1, 
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", 
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".contact-heading-reveal",
+          start: "top 90%",
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section id="contact" className="py-40 bg-zinc-950 relative overflow-hidden mesh-gradient-tech">
+    <section id="contact" ref={containerRef} className="py-40 bg-zinc-950 relative overflow-hidden mesh-gradient-tech">
       {/* Dynamic Signal Waves Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-electric-cyan/20 rounded-full animate-ping-slow" />
@@ -24,11 +75,11 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-right"
           >
-            <span className="text-xs text-zinc-500 mb-4 block font-light">تواصل معنا</span>
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed arabic-impact pb-4 pt-2">
+            <span className="text-xs text-zinc-500 mb-4 block font-light contact-heading-reveal">تواصل معنا</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed arabic-impact pb-4 pt-2 contact-heading-reveal">
                 لنبدأ <br/> <span className="text-zinc-500">التواصل</span>
             </h2>
-            <p className="text-zinc-400 text-lg font-light max-w-md leading-relaxed mb-16">
+            <p className="text-zinc-400 text-lg font-light max-w-md leading-relaxed mb-16 contact-heading-reveal">
                 نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أرسل إشارتك وسنعاود الاتصال بك.
             </p>
 
@@ -77,24 +128,25 @@ export default function Contact() {
                 </motion.div>
             </div>
 
-            <div className="mt-20 flex gap-4 justify-start">
-                {[
-                  { Icon: Twitter, label: 'twitter' },
-                  { Icon: Github, label: 'github' }
-                ].map(({ Icon, label }, i) => (
-                    <motion.a 
-                        key={i} 
-                        href="#" 
-                        whileHover={{ y: -5 }}
-                        className="flex items-center gap-3 px-4 py-2 rounded-lg border border-white/5 bg-white/2 hover:border-white/20 transition-all group/social"
-                    >
-                        <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">[</span>
-                        <Icon size={14} className="text-zinc-500 group-hover/social:text-white transition-colors" />
-                        <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest hidden md:block group-hover/social:text-white transition-colors">{label}</span>
-                        <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">]</span>
-                    </motion.a>
-                ))}
-            </div>
+                {/* Social Links with Magnetic Tags */}
+                <div className="mt-20 flex gap-4 justify-start">
+                    {[
+                      { Icon: Twitter, label: 'twitter' },
+                      { Icon: Github, label: 'github' }
+                    ].map(({ Icon, label }, i) => (
+                        <motion.a 
+                            key={i} 
+                            href="#" 
+                            className="flex items-center gap-3 px-4 py-2 rounded-lg border border-white/5 bg-white/2 hover:border-white/20 transition-all group/social magnetic-target"
+                        >
+                            <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">[</span>
+                            <Icon size={14} className="text-zinc-500 group-hover/social:text-white transition-colors" />
+                            <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest hidden md:block group-hover/social:text-white transition-colors">{label}</span>
+                            <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">]</span>
+                        </motion.a>
+                    ))}
+                </div>
+
           </motion.div>
 
           {/* Minimal Form */}
@@ -155,9 +207,8 @@ export default function Contact() {
                     </div>
 
                     <motion.button 
-                        whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-6 bg-white text-black rounded-2xl font-bold uppercase text-sm hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all flex items-center justify-center gap-4 group/btn relative overflow-hidden"
+                        className="w-full py-6 bg-white text-black rounded-2xl font-bold uppercase text-sm hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all flex items-center justify-center gap-4 group/btn relative overflow-hidden magnetic-target"
                     >
                         <span className="relative z-10">إرسال الطلب</span>
                         <Send size={16} className="relative z-10 group-hover/btn:translate-x-[-4px] group-hover/btn:translate-y-[-2px] transition-transform" />
