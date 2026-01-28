@@ -32,39 +32,67 @@ export default function Contact() {
                 نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أرسل إشارتك وسنعاود الاتصال بك.
             </p>
 
-            <div className="flex flex-col gap-6 items-start">
+            <div className="flex flex-col gap-6 items-start relative">
+                {/* Brand Signature Vertical */}
+                <div className="absolute -right-12 top-0 bottom-0 flex flex-col justify-center pointer-events-none opacity-20 hidden xl:flex">
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.5em] rotate-180 [writing-mode:vertical-rl]">AIANDTHINGS // BRANCH_ENTRY_001</span>
+                </div>
+
                 <motion.div 
                     whileHover={{ x: -10 }}
-                    className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-cyan/30 transition-all duration-500"
+                    className="flex items-center gap-6 group glass-vibrant p-4 pr-8 rounded-2xl border border-white/5 hover:border-electric-cyan/30 transition-all duration-500 relative overflow-hidden"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors">
+                    {/* Data Background Coordinates */}
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[40px] font-mono tracking-tighter text-white opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.07] transition-opacity">
+                        33.3152 N 44.3661 E
+                    </div>
+
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors relative z-10">
                         <MapPin size={16} className="text-electric-cyan" />
                     </div>
-                    <div className="text-right">
-                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">الموقع</span>
-                        <p className="text-sm text-white font-medium">بغداد، العراق // عالمي</p>
+                    <div className="text-right relative z-10">
+                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">الموقع الرسمي</span>
+                        <p className="text-sm text-white font-medium">بغداد، العراق // جودة عالمية</p>
                     </div>
                 </motion.div>
 
                 <motion.div 
                     whileHover={{ x: -10 }}
-                    className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-violet/30 transition-all duration-500"
+                    className="flex items-center gap-6 group glass-vibrant p-4 pr-8 rounded-2xl border border-white/5 hover:border-electric-violet/30 transition-all duration-500 relative overflow-hidden"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors">
+                    {/* Live Status Indicator Overlay */}
+                    <div className="absolute right-0 top-0 w-1 h-full bg-emerald-500/0 group-hover:bg-emerald-500/20 transition-all" />
+                    
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors relative z-10">
                         <Mail size={16} className="text-electric-violet" />
+                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-20"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
+                        </span>
                     </div>
-                    <div className="text-right">
-                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">البريد المباشر</span>
+                    <div className="text-right relative z-10">
+                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">اتصال مباشر</span>
                         <p className="text-sm text-white font-medium">hello@aiandthings.com</p>
                     </div>
                 </motion.div>
             </div>
 
-            <div className="mt-20 flex gap-8 justify-start">
-                {[Twitter, Github].map((Icon, i) => (
-                    <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                        <Icon size={16} />
-                    </a>
+            <div className="mt-20 flex gap-4 justify-start">
+                {[
+                  { Icon: Twitter, label: 'twitter' },
+                  { Icon: Github, label: 'github' }
+                ].map(({ Icon, label }, i) => (
+                    <motion.a 
+                        key={i} 
+                        href="#" 
+                        whileHover={{ y: -5 }}
+                        className="flex items-center gap-3 px-4 py-2 rounded-lg border border-white/5 bg-white/2 hover:border-white/20 transition-all group/social"
+                    >
+                        <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">[</span>
+                        <Icon size={14} className="text-zinc-500 group-hover/social:text-white transition-colors" />
+                        <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest hidden md:block group-hover/social:text-white transition-colors">{label}</span>
+                        <span className="text-zinc-700 font-mono text-xs group-hover/social:text-white transition-colors">]</span>
+                    </motion.a>
                 ))}
             </div>
           </motion.div>
