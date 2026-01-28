@@ -83,15 +83,15 @@ body::before {
 /* Arabic Typography Optimization */
 .arabic-text {
     font-family: var(--font-alexandria);
-    line-height: 1.6;
+    line-height: 1.7;
     letter-spacing: 0;
 }
 
 .arabic-heading {
     font-family: var(--font-alexandria);
     font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    line-height: 1.4;
+    letter-spacing: 0;
 }
 
 /* Scrollbar */

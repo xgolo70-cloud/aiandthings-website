@@ -35,7 +35,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-[-0.05em] leading-[0.9] text-white max-w-5xl mx-auto shadow-2xl">
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-[-0.05em] text-white max-w-5xl mx-auto shadow-2xl">
               Crafting <span className="text-transparent bg-clip-text bg-linear-to-br from-white via-white to-white/40 group-hover:from-electric-violet group-hover:to-electric-cyan transition-all duration-1000">digital </span> 
               experiences.
             </h1>

@@ -42,7 +42,7 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center">
                   <Command size={16} />
                 </div>
-                <span className="text-xl font-bold arabic-heading tracking-tight">الذكاء والأشياء</span>
+                <span className="text-xl font-bold arabic-heading">الذكاء والأشياء</span>
             </div>
             <p className="text-zinc-500 text-base leading-relaxed mb-8 max-w-sm font-light">
                 نبني الواجهات الرقمية التي تتجاوز المألوف. دمج بين دقة الهندسة وجماليات الفضاء

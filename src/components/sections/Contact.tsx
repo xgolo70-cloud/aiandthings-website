@@ -24,7 +24,7 @@ export default function Contact() {
             <span className="text-zinc-500 font-mono text-xs uppercase tracking-normal block mb-4">
                 تواصل معنا
             </span>
-            <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 arabic-heading leading-tight">
+            <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 arabic-heading">
                 لنبدأ <br/> بناء <span className="text-zinc-500">المستقبل</span>
             </h2>
             <p className="text-zinc-600 text-xl font-light max-w-md leading-relaxed mb-12 arabic-text">

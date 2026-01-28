@@ -36,10 +36,10 @@ export default function InteractiveHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight text-white mb-8 arabic-heading leading-[1.1]"
+            className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight text-white mb-8 arabic-heading pb-4"
           >
             نصنع <span className="text-zinc-500">المستقبل</span> <br className="hidden md:block"/>
-            بكل <span className="text-transparent bg-clip-text bg-linear-to-br from-white to-zinc-500">دقة وإتقان</span>
+            بكل <span className="text-transparent bg-clip-text bg-linear-to-br from-white to-zinc-500 pr-1">دقة وإتقان</span>
           </motion.h1>
 
           {/* Subtext */}

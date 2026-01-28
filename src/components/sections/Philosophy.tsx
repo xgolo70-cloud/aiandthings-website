@@ -5,74 +5,84 @@ import { motion } from 'framer-motion';
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="py-32 bg-zinc-50 border-y border-zinc-200 text-black relative overflow-hidden">
+    <section id="philosophy" className="py-32 bg-white relative overflow-hidden">
       
-      {/* Background Texture for subtle paper feel */}
-      <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
          
-         {/* Eyebrow */}
-         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10"
-         >
-             <span className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-normal bg-white px-4 py-2 rounded-full border border-zinc-200">
-                فلسفتنا في العمل
-             </span>
-         </motion.div>
+         {/* Capsule Container */}
+         <div className="relative w-full rounded-[3rem] overflow-hidden bg-red-950 border border-white/10 shadow-2xl shadow-red-900/20 text-center">
+            
+            {/* Geometric Pattern Background */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none" />
+            
+            {/* Subtle Gradient Overlay for Depth */}
+            <div className="absolute inset-0 bg-linear-to-b from-red-900/0 via-red-950/50 to-red-950/80 pointer-events-none" />
 
-         {/* Main Heading */}
-         <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-7xl font-bold leading-[1.1] max-w-4xl mx-auto arabic-heading text-zinc-900 mb-12"
-         >
-            نحن لا نتبع المتداول، <br />
-            بل <span className="relative inline-block text-zinc-500">
-                نخلق المعايير
-                <span className="absolute bottom-2 left-0 w-full h-[0.1em] bg-zinc-300 opacity-50" />
-            </span>
-         </motion.h2>
-
-         {/* Description */}
-         <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto mb-16"
-         >
-             <p className="text-xl md:text-2xl font-light leading-relaxed text-zinc-600 arabic-text">
-                في عالم مليء بالضجيج الرقمي، نختار الوضوح. <br className="hidden md:block" />
-                تصميماتنا ليست مجرد واجهات، بل حلول ذكية تخدم أهدافك بدقة متناهية.
-             </p>
-         </motion.div>
-
-         {/* Minimalist Grid of Values */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            {[
-                { title: "الدقة", desc: "اهتمام بأدق التفاصيل لضمان الجودة." },
-                { title: "السرعة", desc: "أداء فائق وتجربة مستخدم سلسة." },
-                { title: "الابتكار", desc: "حلول إبداعية تسبق عصرها." }
-            ].map((item, i) => (
-                <motion.div 
-                    key={i}
+            <div className="relative z-10 px-8 py-20 md:p-24 flex flex-col items-center">
+                
+                {/* Eyebrow */}
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="p-8 bg-white border border-zinc-100 rounded-xl shadow-[0_4px_20px_-12px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] transition-shadow duration-300"
+                    className="mb-10"
                 >
-                    <h3 className="text-xl font-bold mb-3 text-zinc-900 arabic-heading">{item.title}</h3>
-                    <p className="text-zinc-500 font-light arabic-text">{item.desc}</p>
+                    <span className="text-red-200 font-mono text-xs md:text-sm uppercase tracking-widest bg-red-900/30 px-6 py-2 rounded-full border border-red-500/20 backdrop-blur-md">
+                        فلسفتنا في العمل
+                    </span>
                 </motion.div>
-            ))}
+
+                {/* Main Heading */}
+                <motion.h2 
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    viewport={{ once: true }}
+                    className="text-4xl md:text-7xl font-bold max-w-4xl mx-auto arabic-heading text-white mb-12 drop-shadow-lg"
+                >
+                    نحن لا نتبع المتداول، <br />
+                    بل <span className="text-transparent bg-clip-text bg-linear-to-r from-red-200 to-rose-400 pr-1">
+                        نخلق المعايير
+                    </span>
+                </motion.h2>
+
+                {/* Description */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="max-w-2xl mx-auto mb-20"
+                >
+                    <p className="text-xl md:text-2xl font-light leading-relaxed text-red-100/90 arabic-text">
+                        في عالم مليء بالضجيج الرقمي، نختار الوضوح. <br className="hidden md:block" />
+                        تصميماتنا ليست مجرد واجهات، بل حلول ذكية تخدم أهدافك بدقة متناهية.
+                    </p>
+                </motion.div>
+
+                {/* Cards Grid - Glass Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+                    {[
+                        { title: "الدقة", desc: "اهتمام بأدق التفاصيل لضمان الجودة." },
+                        { title: "السرعة", desc: "أداء فائق وتجربة مستخدم سلسة." },
+                        { title: "الابتكار", desc: "حلول إبداعية تسبق عصرها." }
+                    ].map((item, i) => (
+                        <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="group p-8 rounded-2xl bg-white/3 border border-white/8 hover:bg-white/8 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                        >
+                            <h3 className="text-2xl font-bold mb-4 text-white arabic-heading group-hover:text-red-300 transition-colors">{item.title}</h3>
+                            <p className="text-red-200/70 font-light arabic-text leading-relaxed">{item.desc}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+
          </div>
 
       </div>
