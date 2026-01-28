@@ -11,7 +11,7 @@ const footerLinks = {
     { name: 'أعمالنا', href: '/works' },
     { name: 'الخبرات', href: '/#services' },
     { name: 'الفريق', href: '/about' },
-    { name: 'المدونة', href: '#' },
+    { name: 'المدونة', href: '/blog' },
   ],
   company: [
     { name: 'عن نيكسوس', href: '/about' },
