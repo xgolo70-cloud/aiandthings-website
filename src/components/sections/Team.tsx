@@ -2,11 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import SpotlightCard from '../ui/SpotlightCard';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const founders = [
   {
@@ -20,107 +15,71 @@ const founders = [
     name: "حسان زيني",
     nameEn: "Hassan Zaini",
     role: "المؤسس الشريك / المدير الإبداعي",
-    roleEn: "Creative Director / Visual Soul",
+    roleEn: "Creative Director",
     desc: "حارس الرؤية الجمالية والنماذج التفاعلية المبتكرة."
   },
   {
     name: "أحمد صبحي",
     nameEn: "Ahmed Sobhi",
     role: "المؤسس الشريك / مدير الأتمتة",
-    roleEn: "Automation & Data Director",
+    roleEn: "Automation Director",
     desc: "سيد الكفاءة الخوارزمية والإستراتيجية القائمة على المنطق."
   }
 ];
 
 export default function Team() {
-  React.useEffect(() => {
-    gsap.fromTo(".team-heading-reveal", 
-      { opacity: 0, clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", y: 30 },
-      { 
-        opacity: 1, 
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", 
-        y: 0,
-        duration: 1.5,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".team-heading-reveal",
-          start: "top 90%",
-        }
-      }
-    );
-  }, []);
-
   return (
-    <section id="studio" className="py-40 px-6 relative bg-zinc-950 overflow-hidden mesh-gradient-tech">
+    <section id="team" className="py-32 px-6 relative bg-zinc-50 overflow-hidden border-t border-zinc-200 text-black">
+      
+      {/* Background Texture */}
+      <div className="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply pointer-events-none" />
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12 text-right"
+            className="mb-20 text-right"
         >
-            <div className="flex items-center justify-end gap-6 mb-6 group/label team-heading-reveal">
-                <div className="h-px w-12 bg-linear-to-r from-transparent to-electric-violet opacity-30" />
-                <div className="flex items-center gap-4 text-sm md:text-base font-bold tracking-[0.4em] uppercase text-zinc-400">
-                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-violet transition-colors">[</span>
-                    <span className="arabic-impact px-4 group-hover/label:text-white transition-colors cursor-default relative">
-                        مؤسسو التغيير
-                        <span className="absolute -bottom-2 left-0 w-full h-px bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-right" />
-                    </span>
-                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-cyan transition-colors">]</span>
-                </div>
-                <div className="h-px w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-30" />
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-white leading-[0.9] arabic-impact pb-0 pt-0 team-heading-reveal">
-                العقول <br/> <span className="text-zinc-500">خلف العمل</span>
+            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest block mb-4">
+                القيادة
+            </span>
+            <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-tight arabic-heading">
+                العقول <span className="text-zinc-400">المدبرة</span>
             </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {founders.map((founder, i) => (
-                <SpotlightCard 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {founders.map((founder) => (
+                <div 
                   key={founder.name} 
-                  delay={i * 0.1}
-                  className="glass-vibrant rounded-2xl group transition-all hover:-translate-y-2 duration-500"
+                  className="group relative bg-white border border-zinc-200 rounded-2xl p-8 hover:border-zinc-900 transition-all duration-500 hover:shadow-xl"
                 >
-                    <div className="relative h-full min-h-[500px] flex flex-col p-12 justify-between overflow-hidden">
-                        {/* Biometric Scanner Effect */}
-                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-electric-violet/50 to-transparent blur-sm animate-scanner" />
-                        </div>
-
-                        <div className="relative z-10">
-                             <div className="flex items-center gap-3 text-sm font-bold tracking-widest text-zinc-500 group-hover:text-electric-violet transition-all duration-500">
-                                 <span className="text-zinc-800 font-mono text-lg">[</span>
-                                 <span className="uppercase">{founder.roleEn}</span>
-                                 <span className="text-zinc-800 font-mono text-lg">]</span>
+                    <div className="flex flex-col h-full justify-between">
+                        <div className="mb-8">
+                             <div className="flex items-center gap-3 text-xs font-bold tracking-widest text-zinc-400 mb-4 uppercase">
+                                 <span>{founder.roleEn}</span>
                              </div>
-                        </div>
-                        
-                        <div className="text-right relative z-10">
-                            <p className="text-zinc-400 text-sm mb-4 font-bold">{founder.role}</p>
-                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2">
+                             <h3 className="text-3xl font-bold text-zinc-900 mb-4 arabic-heading">
                                 {founder.name}
                             </h3>
-                            <p className="text-zinc-400 text-base leading-relaxed font-normal max-w-[240px]">
+                            <p className="text-zinc-500 text-lg leading-relaxed font-light">
                                 {founder.desc}
                             </p>
                         </div>
-
-                        {/* Detail Decor */}
-                        <div className="absolute top-12 left-12 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10">
-                             <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center">
-                                 <div className="w-1 h-1 rounded-full bg-electric-violet animate-pulse" />
-                             </div>
+                        
+                        <div className="w-full h-px bg-zinc-100 group-hover:bg-zinc-900 transition-colors duration-500" />
+                        
+                        <div className="pt-6 text-right">
+                           <span className="text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                               {founder.role}
+                           </span>
                         </div>
                     </div>
-                </SpotlightCard>
+                </div>
             ))}
         </div>
       </div>
-      
-      {/* Background Decor */}
-      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-linear-to-tl from-zinc-900/20 to-transparent blur-[120px] pointer-events-none" />
     </section>
   );
 }

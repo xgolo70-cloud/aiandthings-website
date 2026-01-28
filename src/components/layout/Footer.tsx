@@ -1,187 +1,136 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { Command, Github, Twitter, Linkedin, ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import React from 'react';
+import { Command, Github, Twitter, Linkedin, Globe } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+
+import Link from 'next/link';
 
 const footerLinks = {
   sitemap: [
-    { name: 'أعمالنا', href: '#works' },
-    { name: 'الخبرات', href: '#services' },
-    { name: 'الفريق', href: '#studio-collective' },
+    { name: 'أعمالنا', href: '/works' },
+    { name: 'الخبرات', href: '/#services' },
+    { name: 'الفريق', href: '/about' },
+    { name: 'المدونة', href: '#' },
   ],
   company: [
-    { name: 'عن نيكسوس', href: '#' },
-    { name: 'المعماريّة', href: '#' },
-    { name: 'سياسة الخصوصيّة', href: '#' },
-    { name: 'الأمن', href: '#' },
+    { name: 'عن نيكسوس', href: '/about' },
+    { name: 'المعماريّة', href: '/#philosophy' },
+    { name: 'الوظائف', href: '#' },
+    { name: 'التواصل', href: '/#contact' },
+  ],
+  legal: [
+    { name: 'الخصوصية', href: '#' },
+    { name: 'الشروط', href: '#' },
+    { name: 'الأمان', href: '#' },
   ]
 };
 
 export default function Footer() {
-  useEffect(() => {
-    // Reveal animation for footer elements
-    gsap.fromTo(".footer-reveal", 
-      { opacity: 0, y: 30 },
-      { 
-        opacity: 1, 
-        y: 0,
-        duration: 1.2,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".footer-container",
-          start: "top 85%",
-        }
-      }
-    );
-
-    // Decorative brand reveal
-    gsap.fromTo(".footer-brand-word", 
-      { opacity: 0, filter: "blur(20px)" },
-      { 
-        opacity: 0.04, 
-        filter: "blur(0px)", 
-        duration: 2.5,
-        stagger: 0.2,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: ".footer-brand-chars",
-          start: "top 95%",
-        }
-      }
-    );
-  }, []);
-
   return (
-    <footer dir="rtl" className="relative bg-black pt-24 pb-12 px-6 overflow-hidden border-t border-white/[0.03] footer-container text-right">
-      {/* Cinematic Background Atmosphere */}
-      <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-electric-violet/5 blur-[160px] rounded-[100%] mix-blend-screen" />
-          {/* Precision Grid Overlay */}
-          <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
+    <footer dir="rtl" className="bg-black pt-24 pb-12 border-t border-white/10 text-white relative overflow-hidden">
+      
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row gap-12 lg:gap-24 mb-20 text-right">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
           
-          {/* Brand Column - Anchored Right in RTL */}
-          <div className="flex-1 lg:max-w-xs footer-reveal order-1">
-              <div className="flex items-center justify-end gap-3 mb-8 group">
-                  <span className="text-2xl font-bold text-white arabic-impact">الذكاء والأشياء</span>
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Command size={20} className="text-white" />
-                  </div>
-              </div>
-              <p className="text-zinc-400 text-base leading-relaxed mb-8">
-                  نبني البنية التحتية الرقمية للمستقبل، حيث الهندسة الدقيقة تلتقي بالإبداع الذي لا يعرف الحدود.
-              </p>
-              <div className="flex justify-end gap-4">
-                  {[Twitter, Github, Linkedin].map((Icon, i) => (
-                      <motion.a 
-                        key={i} 
-                        href="#" 
-                        whileHover={{ y: -3, scale: 1.1 }}
-                        className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/20 transition-all duration-300"
-                      >
-                          <Icon size={16} />
-                      </motion.a>
-                  ))}
-              </div>
+          {/* Brand Column */}
+          <div className="md:col-span-4 lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center">
+                  <Command size={16} />
+                </div>
+                <span className="text-xl font-bold arabic-heading tracking-tight">الذكاء والأشياء</span>
+            </div>
+            <p className="text-zinc-500 text-base leading-relaxed mb-8 max-w-sm font-light">
+                نبني الواجهات الرقمية التي تتجاوز المألوف. دمج بين دقة الهندسة وجماليات الفضاء
+            </p>
+            <div className="flex gap-4">
+                {[Twitter, Github, Linkedin].map((Icon, i) => (
+                    <a 
+                      key={i} 
+                      href="#" 
+                      className="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 transition-all"
+                    >
+                        <Icon size={16} />
+                    </a>
+                ))}
+            </div>
           </div>
 
-          {/* Navigation - Symmetrical Center */}
-          <div className="flex gap-12 lg:gap-24 footer-reveal order-2">
-              <div>
-                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
-                      <span className="group-hover/col:text-electric-violet transition-colors">التنقّل</span>
-                      <span className="text-zinc-800">[</span> 
-                      <span className="w-1.5 h-1.5 bg-electric-violet rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(139,92,246,0.5)]" />
-                      <span className="text-zinc-800">]</span>
-                  </div>
-                  <ul className="flex flex-col gap-5">
-                      {footerLinks.sitemap.map((link) => (
-                          <li key={link.name}>
-                              <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                                  <span className="text-base font-medium">{link.name}</span>
-                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-electric-violet" />
-                              </a>
-                          </li>
-                      ))}
-                  </ul>
-              </div>
-
-              <div>
-                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
-                      <span className="group-hover/col:text-electric-cyan transition-colors">الشركة</span>
-                      <span className="text-zinc-800">[</span> 
-                      <span className="w-1.5 h-1.5 bg-electric-cyan rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
-                      <span className="text-zinc-800">]</span>
-                  </div>
-                  <ul className="flex flex-col gap-5">
-                      {footerLinks.company.map((link) => (
-                          <li key={link.name}>
-                              <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                                  <span className="text-base font-medium">{link.name}</span>
-                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-electric-cyan" />
-                              </a>
-                          </li>
-                      ))}
-                  </ul>
-              </div>
+          {/* Links Column 1 */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h3 className="text-white font-bold mb-6 text-sm">القائمة</h3>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.sitemap.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-zinc-500 hover:text-white transition-colors text-sm font-light">
+                     {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Newsletter HUD - Anchored Left in RTL */}
-          <div className="flex-1 lg:max-w-sm footer-reveal order-3 lg:mr-auto">
-              <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
-                  <span className="group-hover/col:text-brand-blue transition-colors">المجلة التقنية</span>
-                  <span className="text-zinc-800">[</span> 
-                  <span className="w-1.5 h-1.5 bg-brand-blue rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                  <span className="text-zinc-800">]</span>
-              </div>
-              <p className="text-zinc-400 text-base mb-6">
-                  كن أول من يتلقى أحدث الابتكارات التقنية.
-              </p>
-              <div className="relative group p-[1px] rounded-2xl bg-white/5 overflow-hidden">
-                  <div className="absolute inset-0 bg-linear-to-r from-electric-violet/20 via-transparent to-electric-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="relative flex bg-black/40 backdrop-blur-md rounded-[15px] p-1.5 border border-white/5 group-hover:border-white/10 transition-colors">
+          {/* Links Column 2 */}
+           <div className="md:col-span-2 lg:col-span-2">
+            <h3 className="text-white font-bold mb-6 text-sm">الشركة</h3>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-zinc-500 hover:text-white transition-colors text-sm font-light">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+           {/* Newsletter */}
+           <div className="md:col-span-4 lg:col-span-3">
+              <h3 className="text-white font-bold mb-6 text-sm">التحديثات</h3>
+              <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-4">
+                <p className="text-zinc-500 text-xs mb-4 leading-relaxed">
+                  اشترك في نشرتنا البريدية للحصول على آخر الأخبار.
+                </p>
+                <div className="relative group">
                     <input 
                         type="email" 
-                        placeholder="البريد الإلكتروني" 
-                        className="w-full bg-transparent px-5 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-600"
+                        placeholder="example@email.com" 
+                        className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30 transition-all text-right placeholder:text-zinc-700"
                     />
-                    <button className="px-6 py-3 rounded-xl text-sm font-bold bg-white/5 border border-white/10 text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all duration-500 whitespace-nowrap">
-                        اشتراك
-                    </button>
-                  </div>
+                </div>
               </div>
-          </div>
-        </div>
+           </div>
 
-        {/* Cinematic Backdrop Logo */}
-        <div className="mt-12 mb-4 text-center select-none pointer-events-none footer-brand-chars">
-          <h2 className="text-[14vw] font-bold text-white/[0.03] uppercase tracking-tighter leading-none arabic-impact footer-brand-chars">
-             الذكاء والأشياء
-          </h2>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.03] flex flex-col md:flex-row-reverse justify-between items-center gap-6 footer-reveal">
-            <div className="flex items-center gap-8 text-xs font-bold text-zinc-500 arabic-impact tracking-widest">
-                <p>© 2026 الذكاء والأشياء</p>
-                <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
-                <a href="#" className="hover:text-white transition-colors">اتفاقية الخدمة</a>
-            </div>
-            <div className="flex items-center gap-4">
-                <div className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.03] flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em]">اتصال نشط</span>
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-600 order-2 md:order-1">
+                <p>© 2026 الذكاء والأشياء. جميع الحقوق محفوظة</p>
+                <div className="flex gap-4">
+                   {footerLinks.legal.map(link => (
+                     <Link key={link.name} href={link.href} className="hover:text-zinc-400 transition-colors">{link.name}</Link>
+                   ))}
                 </div>
             </div>
+
+            {/* System Status - Clean */}
+            <div className="flex items-center gap-3 order-1 md:order-2">
+                <div className="flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-white/5 rounded-full">
+                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                   <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-mono">Systems Normal</span>
+                </div>
+                 <div className="flex items-center gap-2 text-zinc-600">
+                    <Globe size={12} />
+                    <span className="text-[10px] font-mono">Riyadh, SA</span>
+                 </div>
+            </div>
+
         </div>
       </div>
     </footer>

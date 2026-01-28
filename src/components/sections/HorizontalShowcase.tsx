@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,19 +13,19 @@ const works = [
     title: "مشروع النبراس",
     category: "الذكاء الاصطناعي / تصميم الهوية",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop&q=80",
-    desc: "نظام رؤية حاسوبية ذكي مخصص لتحليل البيانات الصناعية الكبرى."
+    desc: "نظام رؤية حاسوبية ذكي مخصص لتحليل البيانات الصناعية الكبرى"
   },
   {
     title: "منصة التفاعل",
     category: "تطوير الويب / تجربة المستخدم",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&q=80",
-    desc: "إعادة ابتكار التفاعل الرقمي بين الإنسان والآلة."
+    desc: "إعادة ابتكار التفاعل الرقمي بين الإنسان والآلة"
   },
   {
       title: "أتمتة الغد",
       category: "تحليل البيانات / أتمتة",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&q=80",
-      desc: "خوارزميات متطورة تعمل في الخلفية لجعل كل شيء أسهل."
+      desc: "خوارزميات متطورة تعمل في الخلفية لجعل كل شيء أسهل"
   }
 ];
 
@@ -69,7 +70,7 @@ export default function HorizontalShowcase() {
       <div ref={containerRef} className="flex flex-nowrap h-screen items-center px-[20vw] gap-[10vw]">
         {works.map((work, i) => (
           <div key={i} className="shrink-0 w-[70vw] md:w-[60vw] lg:w-[45vw] group">
-            <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50 backdrop-blur-sm shadow-2xl group-hover:border-electric-violet/50 transition-all duration-500">
+            <Link href="/works" className="block relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50 backdrop-blur-sm shadow-2xl group-hover:border-electric-violet/50 transition-all duration-500 cursor-pointer">
               <Image 
                 src={work.image}
                 alt={work.title}
@@ -85,15 +86,15 @@ export default function HorizontalShowcase() {
                   <span className="text-[10px] font-bold text-zinc-400 uppercase mb-3 block arabic-impact">{work.category}</span>
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-relaxed pb-2">{work.title}</h3>
               </div>
-            </div>
+            </Link>
             <div className="mt-8 max-w-sm mr-auto text-right">
                 <p className="text-zinc-300 text-lg md:text-xl font-normal leading-relaxed">
                     {work.desc}
                 </p>
-                <button className="mt-6 flex items-center gap-4 text-[11px] font-bold text-white uppercase group-hover:gap-6 transition-all arabic-impact">
+                <Link href="/works" className="mt-6 flex items-center gap-4 text-[11px] font-bold text-white uppercase group-hover:gap-6 transition-all arabic-impact w-fit">
                     <span>عرض التفاصيل</span>
                     <div className="w-8 h-px bg-white/20 group-hover:w-12 transition-all" />
-                </button>
+                </Link>
             </div>
           </div>
         ))}
@@ -101,9 +102,9 @@ export default function HorizontalShowcase() {
         {/* Call to Action Item */}
         <div className="shrink-0 w-[40vw] flex flex-col items-center justify-center text-center">
              <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 leading-relaxed pb-12 pt-4">جاهز لتبدأ <br/> قصتك معنا؟</h2>
-             <button className="px-12 py-5 bg-white text-black rounded-full font-bold text-sm hover:bg-electric-cyan hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+             <Link href="#contact" className="px-12 py-5 bg-white text-black rounded-full font-bold text-sm hover:bg-electric-cyan hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                  تواصل الآن
-             </button>
+             </Link>
         </div>
       </div>
     </section>

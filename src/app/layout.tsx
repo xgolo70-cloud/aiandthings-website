@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Instrument_Sans, Alexandria } from 'next/font/google';
-import './globals.css';
+import './globals.css'; // Global styles
 import Layout from '@/components/layout/Layout';
 import SmoothScroll from '@/components/ui/SmoothScroll';
 import CustomCursor from '@/components/ui/CustomCursor';

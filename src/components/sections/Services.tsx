@@ -2,136 +2,105 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Brain, Palette } from 'lucide-react';
-import SpotlightCard from '../ui/SpotlightCard';
+import { Code, Brain, Palette, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+import Link from 'next/link';
+// ... imports
+
 interface ServiceCardProps {
   title: string;
   desc: string;
   icon: React.ElementType;
-  delay?: number;
   className?: string;
+  href?: string;
 }
 
-function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: ServiceCardProps) {
+function ServiceCard({ title, desc, icon: Icon, className = "", href = "/#contact" }: ServiceCardProps) {
   return (
-    <SpotlightCard delay={delay} className={`${className} glass-vibrant rounded-2xl group relative overflow-hidden`}>
-      {/* Interactive Data Particles */}
-      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-linear-to-b from-transparent via-electric-cyan/20 to-transparent animate-data-flow" style={{ animationDelay: '0s' }} />
-          <div className="absolute top-0 left-2/4 w-px h-full bg-linear-to-b from-transparent via-electric-violet/20 to-transparent animate-data-flow" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-0 left-3/4 w-px h-full bg-linear-to-b from-transparent via-electric-cyan/20 to-transparent animate-data-flow" style={{ animationDelay: '0.5s' }} />
-      </div>
-
-      <div className="relative h-full flex flex-col p-12 lg:p-16 z-10">
-        <div className="mb-12">
-            <motion.div 
-              whileHover={{ rotate: 5, scale: 1.1 }}
-              className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 transition-transform"
-            >
-                <Icon size={20} className="text-zinc-500 group-hover:text-electric-violet transition-colors" />
-            </motion.div>
+    <Link href={href} className={`${className} block bg-zinc-900/50 border border-white/10 rounded-2xl p-8 lg:p-12 hover:bg-zinc-900/80 transition-all duration-500 group`}>
+        <div className="mb-8 p-3 w-fit rounded-lg bg-zinc-800/50 border border-white/5 group-hover:border-white/20 transition-colors">
+            <Icon size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
         </div>
         
-        <div className="mt-auto text-right">
-            <div className="flex items-center gap-4 mb-6 group/label">
-                <div className="flex items-center gap-2 text-sm font-bold tracking-[0.2em] uppercase text-zinc-500">
-                    <span className="text-zinc-800 font-mono text-lg group-hover/label:text-electric-violet transition-colors">[</span>
-                    <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">التخصص الفني</span>
-                    <span className="text-zinc-800 font-mono text-lg transition-colors">]</span>
-                </div>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2 pt-1 leading-relaxed">{title}</h3>
-            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-normal max-w-sm">{desc}</p>
+        <h3 className="text-2xl font-bold text-white mb-4 arabic-heading">{title}</h3>
+        <p className="text-zinc-400 leading-relaxed font-light mb-8 max-w-sm">{desc}</p>
+
+        <div className="flex items-center text-sm text-zinc-500 font-medium group-hover:text-white transition-colors gap-2 cursor-pointer">
+            <span>اكتشف المزيد</span>
+            <ArrowRight size={16} className="group-hover:-translate-x-1 transition-transform" />
         </div>
-      </div>
-    </SpotlightCard>
+    </Link>
   );
 }
 
 export default function Services() {
-  React.useEffect(() => {
-    gsap.fromTo(".services-heading-reveal", 
-      { opacity: 0, clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", y: 30 },
-      { 
-        opacity: 1, 
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", 
-        y: 0,
-        duration: 1.5,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".services-heading-reveal",
-          start: "top 90%",
-        }
-      }
-    );
-  }, []);
-
   return (
-    <section id="services" className="py-40 bg-zinc-950 relative overflow-hidden border-t border-white/5 mesh-gradient-tech">
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="services" className="py-32 bg-zinc-950 text-white relative overflow-hidden border-t border-white/10">
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-right"
+            className="mb-20 text-right"
         >
-            <div className="flex items-center justify-end gap-6 mb-12 group/label services-heading-reveal">
-                <div className="h-[1px] w-12 bg-linear-to-r from-transparent to-electric-violet opacity-30" />
-                <div className="flex items-center gap-4 text-sm md:text-base font-bold tracking-[0.4em] uppercase text-zinc-400">
-                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-violet transition-colors">[</span>
-                    <span className="arabic-impact px-4 group-hover/label:text-white transition-colors cursor-default relative">
-                        مجالات التميز
-                        <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-right" />
-                    </span>
-                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-cyan transition-colors">]</span>
-                </div>
-                <div className="h-[1px] w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-30" />
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2 services-heading-reveal">
-                الخبرات <br/> <span className="text-zinc-500">الأساسية</span>
+            <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest block mb-4">
+                مجالاتنا
+            </span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 arabic-heading">
+                الخبرات <span className="text-zinc-600">الأساسية</span>
             </h2>
-            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed services-heading-reveal">
+            <p className="text-zinc-400 text-xl font-light max-w-2xl leading-relaxed">
                 حلول رقمية متكاملة مصممة بدقة لتلبي متطلبات المستقبل الذكي.
             </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 bg-transparent">
-            <ServiceCard 
-                title="هندسة الويب المتطورة" 
-                desc="بناء بنى تحتية رقمية قوية وقابلة للتوسع. معمارية تركز على الأداء الفائق وتجربة المستخدم السلسة."
-                icon={Code}
-                className="md:col-span-8 h-full"
-                delay={0}
-            />
-
-            <ServiceCard 
-                title="تكامل الذكاء الاصطناعي" 
-                desc="تنفيذ وكلاء عصبيين مخصصين وأتمتة ذكية."
-                icon={Brain}
-                className="md:col-span-4 h-full"
-                delay={0.1}
-            />
-
-            <ServiceCard 
-                title="التوجيه الإبداعي" 
-                desc="تصميم واجهات عالمية تعتمد على العمق والفيزياء."
-                icon={Palette}
-                className="md:col-span-4 h-full"
-                delay={0.2}
-            />
-            
-            <div className="md:col-span-8 glass-vibrant flex items-center justify-center p-20 rounded-2xl group relative overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="text-center group cursor-pointer relative z-10">
-                    <h3 className="text-4xl md:text-6xl font-bold text-white/50 group-hover:text-white transition-colors duration-500">هل لديك فكرة؟</h3>
-                    <p className="mt-4 text-xs font-light text-electric-cyan">لنصنعها معاً</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="md:col-span-8">
+                <ServiceCard 
+                    title="هندسة الويب المتطورة" 
+                    desc="بناء بنى تحتية رقمية قوية وقابلة للتوسع. معمارية تركز على الأداء الفائق وتجربة المستخدم السلسة."
+                    icon={Code}
+                    className="h-full"
+                    href="/works"
+                />
             </div>
+
+            <div className="md:col-span-4">
+                <ServiceCard 
+                    title="تكامل الذكاء الاصطناعي" 
+                    desc="تنفيذ وكلاء عصبيين مخصصين وأتمتة ذكية."
+                    icon={Brain}
+                    className="h-full"
+                    href="/#contact"
+                />
+            </div>
+
+            <div className="md:col-span-4">
+                <ServiceCard 
+                    title="التوجيه الإبداعي" 
+                    desc="تصميم واجهات عالمية تعتمد على العمق والفيزياء."
+                    icon={Palette}
+                    className="h-full"
+                    href="/works"
+                />
+            </div>
+            
+            <Link href="#contact" className="block md:col-span-8 bg-zinc-100 rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between group overflow-hidden relative cursor-pointer hover:bg-white transition-colors duration-500">
+                <div className="relative z-10 flex-1">
+                    <h3 className="text-3xl md:text-5xl font-bold text-zinc-900 mb-2 arabic-heading">هل لديك مشروع؟</h3>
+                    <p className="text-zinc-500 font-light">دعنا نبني شيئاً استثنائياً معاً</p>
+                </div>
+                <div className="relative z-10 mt-8 md:mt-0">
+                    <div className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <ArrowRight size={24} className="-rotate-45" />
+                    </div>
+                </div>
+            </Link>
         </div>
       </div>
     </section>
