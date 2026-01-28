@@ -22,7 +22,7 @@ export default function Contact() {
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed arabic-impact pb-4 pt-2">
                 لنبدأ <br/> <span className="text-zinc-500">التواصل</span>
             </h2>
-            <p className="text-zinc-400 text-lg font-light max-w-md mr-auto leading-relaxed mb-16">
+            <p className="text-zinc-400 text-lg font-light max-w-md leading-relaxed mb-16">
                 نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أرسل إشارتك وسنعاود الاتصال بك.
             </p>
 

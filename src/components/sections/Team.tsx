@@ -63,7 +63,7 @@ export default function Team() {
                             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2">
                                 {founder.name}
                             </h3>
-                            <p className="text-zinc-400 text-base leading-relaxed font-normal max-w-[240px] mr-auto">
+                            <p className="text-zinc-400 text-base leading-relaxed font-normal max-w-[240px]">
                                 {founder.desc}
                             </p>
                         </div>

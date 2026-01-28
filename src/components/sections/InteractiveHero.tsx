@@ -149,7 +149,7 @@ export default function InteractiveHero() {
           </motion.h1>
 
           <motion.div className="hero-text mt-12 flex flex-col items-center gap-8">
-              <p className="text-zinc-400 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+              <p className="text-zinc-400 text-lg md:text-xl font-normal max-w-2xl leading-relaxed">
                   نحن نبني المستقبل بالتفاصيل، حيث تلتقي الهندسة بالإبداع والذكاء الاصطناعي.
               </p>
               

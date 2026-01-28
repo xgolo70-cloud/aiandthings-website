@@ -30,7 +30,7 @@ function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: Ser
         <div className="mt-auto text-right">
             <span className="text-xs text-zinc-500 mb-4 block font-light">التخصص الفني</span>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2 pt-1 leading-relaxed">{title}</h3>
-            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-normal max-w-sm mr-auto">{desc}</p>
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-normal max-w-sm">{desc}</p>
         </div>
       </div>
     </SpotlightCard>
@@ -51,7 +51,7 @@ export default function Services() {
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2">
                 الخبرات <br/> <span className="text-zinc-500">الأساسية</span>
             </h2>
-            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mr-auto leading-relaxed">
+            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
                 حلول رقمية متكاملة مصممة بدقة لتلبي متطلبات المستقبل الذكي.
             </p>
         </motion.div>
