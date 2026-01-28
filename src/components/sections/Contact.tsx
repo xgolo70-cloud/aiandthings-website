@@ -32,35 +32,35 @@ export default function Contact() {
                 نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أرسل إشارتك وسنعاود الاتصال بك.
             </p>
 
-            <div className="flex flex-col gap-6 items-end">
+            <div className="flex flex-col gap-6 items-start">
                 <motion.div 
-                    whileHover={{ x: -10 }}
+                    whileHover={{ x: 10 }}
                     className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-cyan/30 transition-all duration-500"
                 >
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors order-last">
+                        <MapPin size={16} className="text-electric-cyan" />
+                    </div>
                     <div className="text-right">
                         <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">الموقع</span>
                         <p className="text-sm text-white font-medium">بغداد، العراق // عالمي</p>
                     </div>
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors">
-                        <MapPin size={16} className="text-electric-cyan" />
-                    </div>
                 </motion.div>
 
                 <motion.div 
-                    whileHover={{ x: -10 }}
+                    whileHover={{ x: 10 }}
                     className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-violet/30 transition-all duration-500"
                 >
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors order-last">
+                        <Mail size={16} className="text-electric-violet" />
+                    </div>
                     <div className="text-right">
                         <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">البريد المباشر</span>
                         <p className="text-sm text-white font-medium">hello@aiandthings.com</p>
                     </div>
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors">
-                        <Mail size={16} className="text-electric-violet" />
-                    </div>
                 </motion.div>
             </div>
 
-            <div className="mt-20 flex gap-8 justify-end">
+            <div className="mt-20 flex gap-8 justify-start">
                 {[Twitter, Github].map((Icon, i) => (
                     <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                         <Icon size={16} />
