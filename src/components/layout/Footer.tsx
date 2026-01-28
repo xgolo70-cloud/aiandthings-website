@@ -59,7 +59,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-black pt-24 pb-12 px-6 overflow-hidden border-t border-white/5 footer-container">
+    <footer className="relative bg-black pt-12 pb-10 px-6 overflow-hidden border-t border-white/5 footer-container">
       {/* Cinematic Background Atmosphere */}
       <div className="absolute inset-0 z-0">
           <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-electric-violet/10 blur-[140px] rounded-full mix-blend-screen animate-pulse" />
@@ -70,7 +70,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 text-right">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-10 text-right">
           
           {/* Brand & Manifesto */}
           <div className="md:col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-right footer-reveal">
@@ -163,7 +163,7 @@ export default function Footer() {
         </div>
 
         {/* Cinematic Brand Reveal - Background Text */}
-        <div className="mt-12 mb-8 text-center relative pointer-events-none footer-brand-chars">
+        <div className="mt-4 mb-4 text-center relative pointer-events-none footer-brand-chars">
           <h2 className="text-[14vw] font-bold text-white/5 uppercase tracking-tighter leading-none arabic-impact flex justify-center gap-[0.2em] whitespace-nowrap overflow-hidden">
             {"الذكاء والأشياء".split(" ").map((word, i) => (
                 <span key={i} className="footer-brand-word inline-block">
