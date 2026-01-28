@@ -44,7 +44,7 @@ export default function Footer() {
                 </div>
                 <span className="text-xl font-bold arabic-heading">الذكاء والأشياء</span>
             </div>
-            <p className="text-zinc-500 text-base leading-relaxed mb-8 max-w-sm font-light">
+            <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-sm arabic-text">
                 نبني الواجهات الرقمية التي تتجاوز المألوف. دمج بين دقة الهندسة وجماليات الفضاء
             </p>
             <div className="flex gap-4">
@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {footerLinks.sitemap.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-zinc-500 hover:text-white transition-colors text-sm font-light">
+                  <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors text-sm font-medium arabic-text">
                      {link.name}
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-zinc-500 hover:text-white transition-colors text-sm font-light">
+                  <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors text-sm font-medium arabic-text">
                     {link.name}
                   </Link>
                 </li>

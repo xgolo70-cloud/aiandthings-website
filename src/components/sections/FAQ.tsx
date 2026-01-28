@@ -40,7 +40,7 @@ export default function FAQ() {
         <Reveal>
            <div className="flex items-center gap-2 mb-6">
               <div className="h-px w-8 bg-brand-dark" />
-              <span className="text-[10px] font-bold uppercase tracking-normal text-brand-dark arabic-impact">
+              <span className="text-[10px] font-bold uppercase tracking-normal text-brand-dark arabic-text">
                   قاعدة المعرفة
               </span>
           </div>
@@ -61,10 +61,10 @@ export default function FAQ() {
                         className="w-full flex items-center justify-between p-6 md:p-8 hover:bg-neutral-50 transition-colors text-left"
                     >
                         <div className="flex items-center gap-6">
-                            <span className="text-[10px] font-mono text-neutral-400 w-12 shrink-0">
+                            <span className="text-[10px] text-neutral-400 w-12 shrink-0">
                                 {item.id}
                             </span>
-                            <span className="text-lg md:text-xl font-bold text-neutral-900 font-mono tracking-tight group-hover:text-brand-accent transition-colors">
+                            <span className="text-lg md:text-xl font-bold text-neutral-900 arabic-heading tracking-tight group-hover:text-brand-accent transition-colors">
                                 {item.q}
                             </span>
                         </div>
@@ -85,14 +85,14 @@ export default function FAQ() {
                                 <div className="px-6 md:px-8 pb-8 pt-0 pl-24 hidden md:block">
                                     <div className="flex gap-4">
                                         <Terminal size={16} className="text-brand-accent shrink-0 mt-1" />
-                                        <p className="text-neutral-500 text-sm leading-relaxed max-w-2xl font-mono">
+                                        <p className="text-neutral-500 text-sm leading-relaxed max-w-2xl arabic-text">
                                             {item.a}
                                         </p>
                                     </div>
                                 </div>
                                 {/* Mobile view without large padding */}
                                 <div className="px-6 pb-8 pt-0 md:hidden">
-                                     <p className="text-neutral-500 text-sm leading-relaxed font-mono pl-12 border-l border-neutral-100 ml-3">
+                                     <p className="text-neutral-500 text-sm leading-relaxed arabic-text pl-12 border-l border-neutral-100 ml-3">
                                         {item.a}
                                      </p>
                                 </div>

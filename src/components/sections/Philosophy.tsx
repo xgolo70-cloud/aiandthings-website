@@ -28,21 +28,21 @@ export default function Philosophy() {
                     viewport={{ once: true }}
                     className="mb-10"
                 >
-                    <span className="text-red-200 font-mono text-xs md:text-sm uppercase tracking-widest bg-red-900/30 px-6 py-2 rounded-full border border-red-500/20 backdrop-blur-md">
+                    <span className="text-red-200 arabic-text text-xs md:text-sm uppercase tracking-widest bg-red-900/30 px-6 py-2 rounded-full border border-red-500/20 backdrop-blur-md">
                         فلسفتنا في العمل
                     </span>
                 </motion.div>
 
                 {/* Main Heading */}
                 <motion.h2 
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-7xl font-bold max-w-4xl mx-auto arabic-heading text-white mb-12 drop-shadow-lg"
+                    className="text-5xl md:text-8xl font-bold max-w-5xl mx-auto arabic-heading text-white mb-12"
                 >
                     نحن لا نتبع المتداول، <br />
-                    بل <span className="text-transparent bg-clip-text bg-linear-to-r from-red-200 to-rose-400 pr-1">
+                    بل <span className="text-transparent bg-clip-text bg-linear-to-r from-red-100 via-white to-red-200 pr-1">
                         نخلق المعايير
                     </span>
                 </motion.h2>
@@ -76,8 +76,8 @@ export default function Philosophy() {
                             viewport={{ once: true }}
                             className="group p-8 rounded-2xl bg-white/3 border border-white/8 hover:bg-white/8 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                         >
-                            <h3 className="text-2xl font-bold mb-4 text-white arabic-heading group-hover:text-red-300 transition-colors">{item.title}</h3>
-                            <p className="text-red-200/70 font-light arabic-text leading-relaxed">{item.desc}</p>
+                            <h3 className="text-3xl font-bold mb-4 text-white arabic-heading group-hover:text-red-100 transition-colors">{item.title}</h3>
+                            <p className="text-red-100/60 arabic-text leading-relaxed text-lg">{item.desc}</p>
                         </motion.div>
                     ))}
                 </div>

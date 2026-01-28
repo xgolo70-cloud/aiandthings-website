@@ -64,7 +64,7 @@ export default function HorizontalShowcase() {
     <section ref={sectionRef} id="works" className="relative overflow-hidden bg-zinc-950 pb-20 mesh-gradient-tech">
       <div className="absolute top-20 right-20 z-10">
           <span className="text-xs text-zinc-500 mb-4 block font-light">أعمال مختارة</span>
-          <h2 className="text-5xl md:text-7xl font-bold text-white arabic-impact leading-relaxed pb-12 pt-4">أعمالنا</h2>
+          <h2 className="text-5xl md:text-7xl font-bold text-white arabic-text leading-relaxed pb-12 pt-4">أعمالنا</h2>
       </div>
 
       <div ref={containerRef} className="flex flex-nowrap h-screen items-center px-[20vw] gap-[10vw]">
@@ -83,7 +83,7 @@ export default function HorizontalShowcase() {
               <div className="absolute -inset-full bg-linear-to-r from-transparent via-white/10 to-transparent rotate-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
               
               <div className="absolute bottom-10 right-10 text-right">
-                  <span className="text-[10px] font-bold text-zinc-400 uppercase mb-3 block arabic-impact">{work.category}</span>
+                  <span className="text-[10px] font-bold text-zinc-400 uppercase mb-3 block arabic-text">{work.category}</span>
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-relaxed pb-2">{work.title}</h3>
               </div>
             </Link>
@@ -91,7 +91,7 @@ export default function HorizontalShowcase() {
                 <p className="text-zinc-300 text-lg md:text-xl font-normal leading-relaxed">
                     {work.desc}
                 </p>
-                <Link href="/works" className="mt-6 flex items-center gap-4 text-[11px] font-bold text-white uppercase group-hover:gap-6 transition-all arabic-impact w-fit">
+                <Link href="/works" className="mt-6 flex items-center gap-4 text-[11px] font-bold text-white uppercase group-hover:gap-6 transition-all arabic-text w-fit">
                     <span>عرض التفاصيل</span>
                     <div className="w-8 h-px bg-white/20 group-hover:w-12 transition-all" />
                 </Link>

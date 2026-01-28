@@ -33,7 +33,7 @@ export default function Testimonials() {
       
       <div className="container mx-auto px-6 relative z-10">
           <div className="flex justify-between items-end mb-20 border-b border-white/20 pb-6">
-              <span className="text-xs font-bold uppercase tracking-normal text-neutral-400 arabic-impact">سجلات النقل</span>
+              <span className="text-xs font-bold uppercase tracking-normal text-neutral-400 arabic-text">سجلات النقل</span>
               <div className="flex gap-4">
                   <button onClick={prev} className="hover:text-brand-accent transition-colors"><ArrowLeft /></button>
                   <button onClick={next} className="hover:text-brand-accent transition-colors"><ArrowRight /></button>
@@ -54,8 +54,8 @@ export default function Testimonials() {
                           &quot;{testimonials[index].quote}&quot;
                       </h2>
                       <div className="flex flex-col md:flex-row gap-4 items-baseline">
-                          <span className="text-xl font-mono text-brand-accent">{testimonials[index].author}</span>
-                          <span className="text-sm font-mono text-neutral-500">{testimonials[index].role}</span>
+                          <span className="text-xl arabic-text text-brand-accent">{testimonials[index].author}</span>
+                          <span className="text-sm arabic-text text-neutral-500">{testimonials[index].role}</span>
                       </div>
                   </motion.div>
               </AnimatePresence>

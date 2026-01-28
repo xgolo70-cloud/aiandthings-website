@@ -23,7 +23,7 @@ export default function TrustedBy() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-              <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] block mb-4">
+              <span className="text-zinc-600 arabic-text text-[10px] uppercase tracking-[0.3em] block mb-4">
                   Success Partners
               </span>
               <h2 className="text-4xl md:text-6xl font-bold text-white arabic-heading">

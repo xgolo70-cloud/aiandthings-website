@@ -20,11 +20,11 @@ export default function About() {
           <div className="flex flex-col justify-center space-y-12">
               <div className="pl-8 border-l-2 border-brand-accent">
                   <p className="text-3xl font-light leading-snug text-neutral-800">
-                      We are an engineering unit dedicated to the fabrication of <span className="font-serif italic text-brand-accent">intelligent digital infrastructure.</span>
+                      We are an engineering unit dedicated to the fabrication of <span className="arabic-text italic text-brand-accent">intelligent digital infrastructure.</span>
                   </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 text-xs font-mono uppercase tracking-normal text-neutral-400">
+              <div className="grid grid-cols-2 gap-8 text-xs arabic-text uppercase tracking-normal text-neutral-400">
                   <div className="p-6 bg-neutral-50">
                       Computational Efficiency
                   </div>

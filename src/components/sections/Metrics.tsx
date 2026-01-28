@@ -22,7 +22,7 @@ export default function Metrics() {
              
              {/* Tiny Label Overlay */}
              <div className="absolute top-1/2 left-4 md:left-20 -translate-y-1/2 mix-blend-difference text-white">
-                 <span className="text-sm md:text-xl font-mono uppercase tracking-widest block rotate-90 md:rotate-0 origin-left">
+                 <span className="text-sm md:text-xl arabic-text uppercase tracking-widest block rotate-90 md:rotate-0 origin-left">
                      {metric.label}
                  </span>
              </div>

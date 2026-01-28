@@ -33,13 +33,13 @@ export default function InteractiveHero() {
 
           {/* Main Title - Clean & Arabic Optimized */}
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight text-white mb-8 arabic-heading pb-4"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tight text-white mb-8 arabic-heading pb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
           >
-            نصنع <span className="text-zinc-500">المستقبل</span> <br className="hidden md:block"/>
-            بكل <span className="text-transparent bg-clip-text bg-linear-to-br from-white to-zinc-500 pr-1">دقة وإتقان</span>
+            نصنع <span className="text-zinc-600">المستقبل</span> <br className="hidden md:block"/>
+            بكل <span className="text-transparent bg-clip-text bg-linear-to-br from-white via-white to-zinc-600 pr-1">دقة وإتقان</span>
           </motion.h1>
 
           {/* Subtext */}
@@ -59,10 +59,10 @@ export default function InteractiveHero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col md:flex-row items-center gap-4"
           >
-              <button className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-colors duration-300 w-full md:w-auto arabic-text">
+              <button className="px-10 py-5 bg-white text-black font-bold rounded-xl hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full md:w-auto arabic-text shadow-[0_20px_40px_-15px_rgba(255,255,255,0.3)]">
                   ابدأ مشروعك
               </button>
-              <Link href="/works" className="px-8 py-4 bg-transparent border border-white/10 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300 w-full md:w-auto arabic-text inline-flex justify-center">
+              <Link href="/works" className="px-10 py-5 bg-zinc-900/40 backdrop-blur-xl border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full md:w-auto arabic-text inline-flex justify-center">
                   تصفح أعمالنا
               </Link>
           </motion.div>
