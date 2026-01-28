@@ -32,7 +32,7 @@ export default function Process() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section ref={targetRef} id="process" className="relative h-[300vh] bg-neutral-900 text-white">
+    <section ref={targetRef} id="process" className="relative h-[300vh] bg-black text-white">
       
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-20 pl-[10vw]">
@@ -42,7 +42,7 @@ export default function Process() {
                    {step.id}
                </span>
                <div className="relative z-10 glass-panel p-12 border-l border-white/20">
-                   <h3 className="text-6xl md:text-8xl font-bold mb-8">
+                   <h3 className="text-6xl md:text-8xl font-bold mb-8 arabic-heading">
                        {step.title}
                    </h3>
                    <p className="text-xl md:text-2xl font-light text-neutral-400 max-w-2xl leading-relaxed">

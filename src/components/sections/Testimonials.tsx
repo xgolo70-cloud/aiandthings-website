@@ -29,7 +29,7 @@ export default function Testimonials() {
   const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="bg-neutral-900 text-white py-40 overflow-hidden relative">
+    <section id="testimonials" className="bg-black text-white py-40 overflow-hidden relative border-t border-white/5">
       
       <div className="container mx-auto px-6 relative z-10">
           <div className="flex justify-between items-end mb-20 border-b border-white/20 pb-6">
@@ -50,7 +50,7 @@ export default function Testimonials() {
                     transition={{ duration: 0.5 }}
                     className="w-full"
                   >
-                      <h2 className="text-[4vw] md:text-[5vw] font-bold leading-relaxed tracking-tight mb-8 pb-10 pt-4 overflow-visible">
+                      <h2 className="text-[4vw] md:text-[5vw] font-bold leading-relaxed tracking-tight mb-8 pb-10 pt-4 overflow-visible arabic-heading">
                           &quot;{testimonials[index].quote}&quot;
                       </h2>
                       <div className="flex flex-col md:flex-row gap-4 items-baseline">
