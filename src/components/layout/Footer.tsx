@@ -102,16 +102,16 @@ export default function Footer() {
           {/* Navigation Columns */}
           <div className="md:col-span-4 lg:col-span-2 footer-reveal">
               <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-xs">[</span>
-                  <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest arabic-impact">التنقّل</span>
-                  <span className="text-zinc-800 font-mono text-xs">]</span>
+                  <span className="text-zinc-800 font-mono text-sm">[</span>
+                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">التنقّل</span>
+                  <span className="text-zinc-800 font-mono text-sm">]</span>
               </div>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-5">
                   {footerLinks.sitemap.map((link) => (
                       <li key={link.name}>
-                          <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                              <span className="text-sm font-medium">{link.name}</span>
-                              <ArrowUpRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                              <span className="text-base font-medium">{link.name}</span>
+                              <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                           </a>
                       </li>
                   ))}
@@ -120,16 +120,16 @@ export default function Footer() {
 
           <div className="md:col-span-4 lg:col-span-2 footer-reveal">
               <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-xs">[</span>
-                  <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest arabic-impact">الشركة</span>
-                  <span className="text-zinc-800 font-mono text-xs">]</span>
+                  <span className="text-zinc-800 font-mono text-sm">[</span>
+                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">الشركة</span>
+                  <span className="text-zinc-800 font-mono text-sm">]</span>
               </div>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-5">
                   {footerLinks.company.map((link) => (
                       <li key={link.name}>
-                          <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                              <span className="text-sm font-medium">{link.name}</span>
-                              <ArrowUpRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                              <span className="text-base font-medium">{link.name}</span>
+                              <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                           </a>
                       </li>
                   ))}
@@ -139,22 +139,22 @@ export default function Footer() {
           {/* Newsletter Redesign */}
           <div className="md:col-span-12 lg:col-span-3 footer-reveal">
                <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-xs">[</span>
-                  <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest arabic-impact">المجلة التقنية</span>
-                  <span className="text-zinc-800 font-mono text-xs">]</span>
+                  <span className="text-zinc-800 font-mono text-sm">[</span>
+                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">المجلة التقنية</span>
+                  <span className="text-zinc-800 font-mono text-sm">]</span>
               </div>
-              <p className="text-zinc-500 text-sm mb-6 leading-relaxed">
+              <p className="text-zinc-500 text-base mb-6 leading-relaxed">
                   أنضم لـ 10,000+ مهندس ومبدع.
               </p>
               <div className="relative group">
                   <div className="absolute inset-0 bg-linear-to-r from-electric-violet/20 to-electric-cyan/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative flex bg-zinc-900/50 backdrop-blur-xl border border-white/5 rounded-2xl p-1.5 focus-within:border-white/20 transition-all">
+                  <div className="relative flex bg-zinc-900/50 backdrop-blur-xl border border-white/5 rounded-2xl p-2 focus-within:border-white/20 transition-all">
                     <input 
                         type="email" 
                         placeholder="البريد الإلكتروني" 
-                        className="w-full bg-transparent px-4 py-3 text-sm text-white focus:outline-none text-right"
+                        className="w-full bg-transparent px-4 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-600"
                     />
-                    <button className="bg-white text-black px-6 py-3 rounded-xl text-xs font-bold hover:bg-electric-cyan transition-all shrink-0">
+                    <button className="bg-white text-black px-6 py-3 rounded-xl text-sm font-bold hover:bg-electric-cyan transition-all shrink-0">
                         اشتراك
                     </button>
                   </div>
@@ -174,18 +174,18 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 footer-reveal">
-            <div className="flex items-center gap-8 text-[11px] font-bold text-zinc-600 arabic-impact tracking-widest">
+            <div className="flex items-center gap-8 text-xs font-bold text-zinc-500 arabic-impact tracking-widest">
                 <p>© 2026 الذكاء والأشياء</p>
                 <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
                 <a href="#" className="hover:text-white transition-colors">الأمن السحابي</a>
             </div>
             
             <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[10px] font-mono font-bold text-zinc-500">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="tracking-widest uppercase">Systems Online</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs font-mono font-bold text-zinc-400">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <span className="tracking-widest uppercase">Systems Active</span>
                 </div>
-                <span className="text-[10px] font-bold text-zinc-800 uppercase tracking-widest font-mono">v2.4.0</span>
+                <span className="text-xs font-bold text-zinc-700 uppercase tracking-widest font-mono">v2.4.0</span>
             </div>
         </div>
       </div>
