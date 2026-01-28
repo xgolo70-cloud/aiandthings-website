@@ -104,7 +104,7 @@ export default function InteractiveHero() {
     // GSAP Cinematic Introduction
     const tl = gsap.timeline();
 
-    tl.fromTo(".headline-line span", 
+    tl.fromTo(".word-span", 
         { 
           opacity: 0, 
           y: 50, 
@@ -118,7 +118,7 @@ export default function InteractiveHero() {
           scale: 1,
           duration: 1.5, 
           ease: "expo.out", 
-          stagger: 0.03 
+          stagger: 0.1 
         }
     );
 
@@ -181,17 +181,17 @@ export default function InteractiveHero() {
           <motion.h1 
             className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.4] arabic-impact mb-6 relative z-20 pt-2 pb-10 overflow-visible flex flex-col items-center"
           >
-              <div className="headline-line overflow-hidden py-1">
+              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center gap-x-4">
                   {"نحول الأفكار إلى".split(" ").map((word, i) => (
-                    <span key={i} className="inline-block hover-char transition-all duration-300 mx-[0.15em]">
+                    <span key={i} className="word-span inline-block hover-char transition-all duration-300">
                       {word}
                     </span>
                   ))}
               </div>
-              <div className="headline-line overflow-hidden py-1">
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">
+              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2 flex flex-wrap justify-center gap-x-4">
                     {"واقع رقمي ذكي".split(" ").map((word, i) => (
-                      <span key={i} className="inline-block hover-char transition-all duration-300 mx-[0.15em]">
+                      <span key={i} className="word-span inline-block hover-char transition-all duration-300">
                         {word}
                       </span>
                     ))}
