@@ -10,23 +10,23 @@ import { ChevronRight, Terminal } from 'lucide-react';
 const questions = [
   {
     id: "KB_01",
-    q: "Project Timeline Estimation",
-    a: "Standard deployment cycles range from 8-14 weeks depending on architectural complexity. High-fidelity artifacts require rigorous testing phases."
+    q: "ما هي المدة المتوقعة لتنفيذ المشروع؟",
+    a: "تتراوح دورات التنفيذ القياسية بين 8 إلى 14 أسبوعاً، اعتماداً على التعقيد المعماري. تتطلب المخرجات عالية الدقة مراحل اختبار صارمة لضمان الجودة."
   },
   {
     id: "KB_02",
-    q: "Target Industries",
-    a: "Our systems are sector-agnostic. We engineer digital solutions for finance, frontier tech, and high-end retail, prioritizing depth over breadth."
+    q: "ما هي القطاعات التي تستهدفونها؟",
+    a: "أنظمتنا مرنة وقادرة على التكيف مع مختلف القطاعات. نحن نهندس حلولاً رقمية للتمويل، التكنولوجيا الرائدة، والتجزئة الفاخرة، مع إعطاء الأولوية للعمق في التنفيذ."
   },
   {
     id: "KB_03",
-    q: "Cost Structure",
-    a: "Engagements are bespoke and project-based. We provide detailed technical specifications and fixed-cost proposals after the initial Discovery phase."
+    q: "كيف يتم تحديد هيكل التكاليف؟",
+    a: "التعاقدات لدينا مصممة حسب الطلب وبناءً على المشروع. نقدم مواصفات تقنية دقيقة وعروض تكلفة ثابتة بعد انتهاء مرحلة الاكتشاف (Discovery phase) الأولية."
   },
   {
     id: "KB_04",
-    q: "Maintenance Protocols",
-    a: "All deployed artifacts include a standard maintenance ecosystem. We monitor latency, uptime, and aesthetic integrity post-launch."
+    q: "هل توفرون بروتوكولات صيانة بعد الإطلاق؟",
+    a: "جميع مخرجاتنا تتضمن نظام صيانة قياسي. نقوم بمراقبة السرعة، الكفاءة، والأداء، وضمان السلامة الجمالية للمنتج بعد الإطلاق."
   }
 ];
 
