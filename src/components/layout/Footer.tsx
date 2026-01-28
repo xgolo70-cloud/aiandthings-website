@@ -77,7 +77,7 @@ export default function Footer() {
                     <Command size={20} className="text-white" />
                   </div>
               </div>
-              <p className="text-zinc-600 text-base leading-relaxed mb-8">
+              <p className="text-zinc-400 text-base leading-relaxed mb-8">
                   نبني البنية التحتية الرقمية للمستقبل، حيث الهندسة الدقيقة تلتقي بالإبداع الذي لا يعرف الحدود.
               </p>
               <div className="flex justify-end gap-4">
@@ -86,7 +86,7 @@ export default function Footer() {
                         key={i} 
                         href="#" 
                         whileHover={{ y: -3, scale: 1.1 }}
-                        className="w-10 h-10 rounded-full bg-white/5 border border-white/[0.05] flex items-center justify-center text-zinc-600 hover:text-white hover:border-white/10 transition-all duration-300"
+                        className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/20 transition-all duration-300"
                       >
                           <Icon size={16} />
                       </motion.a>
@@ -97,18 +97,18 @@ export default function Footer() {
           {/* Navigation - Symmetrical Center */}
           <div className="flex gap-12 lg:gap-24 footer-reveal order-2">
               <div>
-                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
-                      <span>التنقّل</span>
-                      <span>[</span> 
-                      <span className="w-1.5 h-1.5 bg-electric-violet rounded-full inline-block animate-pulse" />
-                      <span>]</span>
+                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
+                      <span className="group-hover/col:text-electric-violet transition-colors">التنقّل</span>
+                      <span className="text-zinc-800">[</span> 
+                      <span className="w-1.5 h-1.5 bg-electric-violet rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(139,92,246,0.5)]" />
+                      <span className="text-zinc-800">]</span>
                   </div>
                   <ul className="flex flex-col gap-5">
                       {footerLinks.sitemap.map((link) => (
                           <li key={link.name}>
-                              <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                              <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
                                   <span className="text-base font-medium">{link.name}</span>
-                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-electric-violet" />
                               </a>
                           </li>
                       ))}
@@ -116,18 +116,18 @@ export default function Footer() {
               </div>
 
               <div>
-                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
-                      <span>الشركة</span>
-                      <span>[</span> 
-                      <span className="w-1.5 h-1.5 bg-electric-cyan rounded-full inline-block animate-pulse" />
-                      <span>]</span>
+                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
+                      <span className="group-hover/col:text-electric-cyan transition-colors">الشركة</span>
+                      <span className="text-zinc-800">[</span> 
+                      <span className="w-1.5 h-1.5 bg-electric-cyan rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
+                      <span className="text-zinc-800">]</span>
                   </div>
                   <ul className="flex flex-col gap-5">
                       {footerLinks.company.map((link) => (
                           <li key={link.name}>
-                              <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                              <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
                                   <span className="text-base font-medium">{link.name}</span>
-                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-electric-cyan" />
                               </a>
                           </li>
                       ))}
@@ -137,24 +137,24 @@ export default function Footer() {
 
           {/* Newsletter HUD - Anchored Left in RTL */}
           <div className="flex-1 lg:max-w-sm footer-reveal order-3 lg:mr-auto">
-              <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
-                  <span>المجلة التقنية</span>
-                  <span>[</span> 
-                  <span className="w-1.5 h-1.5 bg-brand-blue rounded-full inline-block animate-pulse" />
-                  <span>]</span>
+              <div className="flex items-center justify-end gap-2 mb-8 text-zinc-500 font-mono text-sm uppercase tracking-widest">
+                  <span className="group-hover/col:text-brand-blue transition-colors">المجلة التقنية</span>
+                  <span className="text-zinc-800">[</span> 
+                  <span className="w-1.5 h-1.5 bg-brand-blue rounded-full inline-block animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                  <span className="text-zinc-800">]</span>
               </div>
-              <p className="text-zinc-600 text-base mb-6">
+              <p className="text-zinc-400 text-base mb-6">
                   كن أول من يتلقى أحدث الابتكارات التقنية.
               </p>
-              <div className="relative group p-[1px] rounded-2xl bg-white/[0.03] overflow-hidden">
+              <div className="relative group p-[1px] rounded-2xl bg-white/5 overflow-hidden">
                   <div className="absolute inset-0 bg-linear-to-r from-electric-violet/20 via-transparent to-electric-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="relative flex bg-black/40 backdrop-blur-md rounded-[15px] p-1.5">
+                  <div className="relative flex bg-black/40 backdrop-blur-md rounded-[15px] p-1.5 border border-white/5 group-hover:border-white/10 transition-colors">
                     <input 
                         type="email" 
                         placeholder="البريد الإلكتروني" 
-                        className="w-full bg-transparent px-5 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-700"
+                        className="w-full bg-transparent px-5 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-600"
                     />
-                    <button className="px-6 py-3 rounded-xl text-sm font-bold bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-500 whitespace-nowrap">
+                    <button className="px-6 py-3 rounded-xl text-sm font-bold bg-white/5 border border-white/10 text-zinc-300 hover:bg-white hover:text-black hover:border-white transition-all duration-500 whitespace-nowrap">
                         اشتراك
                     </button>
                   </div>
