@@ -18,7 +18,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none">
         
         <motion.div 
             initial={{ y: -50, opacity: 0 }}

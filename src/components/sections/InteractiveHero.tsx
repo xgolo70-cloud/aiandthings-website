@@ -128,7 +128,7 @@ export default function InteractiveHero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-zinc-950">
+    <section ref={containerRef} className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-zinc-950 pt-32">
       
       {/* Deep Space Gradient Background */}
       <div className="absolute inset-0 z-0 opacity-40">
@@ -143,9 +143,9 @@ export default function InteractiveHero() {
               <span className="text-[10px] font-mono text-zinc-500 uppercase mb-4 block">ai and things</span>
           </motion.div>
           
-          <motion.h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.4] arabic-impact mb-8 relative z-20 pt-4 pb-12 overflow-visible">
+          <motion.h1 className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.3] arabic-impact mb-6 relative z-20 pt-2 pb-6 overflow-visible">
               نحول الأفكار إلى <br/>
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-8 pt-4">واقع رقمي ذكي</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">واقع رقمي ذكي</span>
           </motion.h1>
 
           <motion.div className="hero-text mt-12 flex flex-col items-center gap-8">
