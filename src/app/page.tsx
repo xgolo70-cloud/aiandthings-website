@@ -16,15 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useEffect(() => {
-    // Cinematic Section Stacking Effect
-    const sections = document.querySelectorAll('.stacking-section');
+    // Cinematic Section Stacking Effect - Restricted to Hero -> Philosophy
+    const hero = document.querySelector('.hero-stack');
     
-    sections.forEach((section, i) => {
-      if (i === sections.length - 1) return; // Don't animate the last section scaling down
-
-      gsap.to(section, {
+    if (hero) {
+      gsap.to(hero, {
         scrollTrigger: {
-          trigger: section,
+          trigger: hero,
           start: "top top",
           end: "bottom top",
           scrub: true,
@@ -35,16 +33,17 @@ export default function Home() {
         opacity: 0.5,
         ease: "none"
       });
-    });
+    }
   }, []);
 
   return (
     <main className="relative bg-black">
-      <div className="stacking-section sticky top-0 z-10 w-full min-h-screen">
+      {/* Stacking Transition: Hero to Philosophy */}
+      <div className="hero-stack sticky top-0 z-10 w-full min-h-screen">
         <InteractiveHero />
       </div>
       
-      <div className="stacking-section sticky top-0 z-20 w-full min-h-screen shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative z-20 w-full min-h-screen shadow-[0_-20px_50px_rgba(0,0,0,0.5)] bg-black">
         <Philosophy />
       </div>
 
@@ -52,23 +51,23 @@ export default function Home() {
         <HorizontalShowcase />
       </div>
 
-      <div className="stacking-section sticky top-0 z-40 w-full min-h-screen shadow-[0_-20px_50px_rgba(0,0,0,0.5)] bg-black">
+      <div className="relative z-40 w-full bg-black">
         <Services />
       </div>
 
-      <div className="stacking-section sticky top-0 z-50 w-full min-h-screen shadow-[0_-20px_50px_rgba(0,0,0,0.5)] bg-black">
+      <div className="relative z-50 w-full bg-black">
         <Team />
       </div>
 
-      <div className="stacking-section sticky top-0 z-60 w-full min-h-screen shadow-[0_-20px_50px_rgba(0,0,0,0.5)] bg-black">
+      <div className="relative z-60 w-full bg-black">
         <Studio />
       </div>
 
-      <div className="relative z-70 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative z-70 bg-black">
         <TrustedBy />
       </div>
 
-      <div className="relative z-80 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative z-80 bg-black">
         <Contact />
       </div>
     </main>
