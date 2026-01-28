@@ -38,12 +38,11 @@ function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: Ser
         </div>
         
         <div className="mt-auto text-right">
-            <div className="flex items-center gap-3 mb-4 group/label">
-                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet shadow-[0_0_10px_#7c3aed]" />
-                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-500">
-                    <span className="text-zinc-800 font-mono text-base">[</span>
+            <div className="flex items-center gap-4 mb-6 group/label">
+                <div className="flex items-center gap-2 text-sm font-bold tracking-[0.2em] uppercase text-zinc-500">
+                    <span className="text-zinc-800 font-mono text-lg group-hover/label:text-electric-violet transition-colors">[</span>
                     <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">التخصص الفني</span>
-                    <span className="text-zinc-800 font-mono text-base">]</span>
+                    <span className="text-zinc-800 font-mono text-lg transition-colors">]</span>
                 </div>
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2 pt-1 leading-relaxed">{title}</h3>
@@ -81,14 +80,17 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-16 text-right"
         >
-            <div className="flex items-center justify-end gap-3 mb-8 group/label services-heading-reveal">
-                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet shadow-[0_0_10px_#7c3aed]" />
-                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-500">
-                    <span className="text-zinc-800 font-mono text-base">[</span>
-                    <span className="arabic-impact px-2 group-hover/label:text-zinc-300 transition-colors cursor-default">مجالات التميز</span>
-                    <span className="text-zinc-800 font-mono text-base">]</span>
+            <div className="flex items-center justify-end gap-6 mb-12 group/label services-heading-reveal">
+                <div className="h-[1px] w-12 bg-linear-to-r from-transparent to-electric-violet opacity-30" />
+                <div className="flex items-center gap-4 text-sm md:text-base font-bold tracking-[0.4em] uppercase text-zinc-400">
+                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-violet transition-colors">[</span>
+                    <span className="arabic-impact px-4 group-hover/label:text-white transition-colors cursor-default relative">
+                        مجالات التميز
+                        <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-right" />
+                    </span>
+                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-cyan transition-colors">]</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-electric-cyan shadow-[0_0_10px_#06b6d4]" />
+                <div className="h-[1px] w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-30" />
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-4 pt-2 services-heading-reveal">
                 الخبرات <br/> <span className="text-zinc-500">الأساسية</span>

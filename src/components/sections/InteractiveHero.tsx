@@ -204,15 +204,18 @@ export default function InteractiveHero() {
       <canvas ref={canvasRef} className="absolute inset-0 z-0 bg-transparent opacity-60" />
       
       <div className="relative z-10 text-center px-6">
-          <motion.div className="hero-text mb-8">
-              <div className="flex items-center justify-center gap-3 group/label">
-                <div className="w-1.5 h-1.5 rounded-full bg-electric-violet animate-pulse" />
-                <div className="flex items-center gap-1 text-[11px] font-bold tracking-[0.3em] uppercase text-zinc-500">
-                    <span className="text-zinc-800 font-mono text-base">[</span>
-                    <span className="px-2 group-hover/label:text-white transition-colors cursor-default">ai and things</span>
-                    <span className="text-zinc-800 font-mono text-base">]</span>
+          <motion.div className="hero-text mb-12">
+              <div className="flex items-center justify-center gap-6 group/label">
+                <div className="h-[1px] w-12 bg-linear-to-r from-transparent to-electric-violet opacity-30" />
+                <div className="flex items-center gap-4 text-sm md:text-base font-bold tracking-[0.5em] uppercase text-zinc-400">
+                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-violet transition-colors shadow-[0_0_10px_rgba(124,58,237,0.2)]">[</span>
+                    <span className="px-4 group-hover/label:text-white transition-colors cursor-default relative">
+                        ai and things
+                        <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-center" />
+                    </span>
+                    <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-cyan transition-colors shadow-[0_0_10px_rgba(6,182,212,0.2)]">]</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-pulse" />
+                <div className="h-[1px] w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-30" />
               </div>
           </motion.div>
           
@@ -269,10 +272,10 @@ export default function InteractiveHero() {
                  transition={{ delay: 2, duration: 1 }}
                  className="mt-16 flex flex-col items-center gap-4"
                >
-                   <div className="flex items-center gap-3 group/scroll">
-                      <span className="text-zinc-800 font-mono text-xs">[</span>
-                      <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-[0.2em] arabic-impact group-hover/scroll:text-zinc-400 transition-colors">تصفح للأسفل</span>
-                      <span className="text-zinc-800 font-mono text-xs">]</span>
+                   <div className="flex items-center gap-4 group/scroll cursor-default">
+                      <span className="text-zinc-800 font-mono text-sm group-hover/scroll:text-electric-cyan transition-colors">[</span>
+                      <span className="text-xs md:text-sm font-bold text-zinc-500 uppercase tracking-[0.3em] arabic-impact group-hover/scroll:text-white transition-colors">تصفح للأسفل</span>
+                      <span className="text-zinc-800 font-mono text-sm group-hover/scroll:text-electric-violet transition-colors">]</span>
                    </div>
                   <motion.div 
                     animate={{ y: [0, 8, 0] }}
