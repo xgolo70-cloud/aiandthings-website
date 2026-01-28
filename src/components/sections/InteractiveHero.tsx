@@ -181,21 +181,25 @@ export default function InteractiveHero() {
           <motion.h1 
             className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.4] arabic-impact mb-6 relative z-20 pt-2 pb-10 overflow-visible flex flex-col items-center"
           >
-              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center gap-x-4">
-                  {"نحول الأفكار إلى".split(" ").map((word, i) => (
-                    <span key={i} className="word-span inline-block hover-char transition-all duration-300">
-                      {word}
-                    </span>
-                  ))}
-              </div>
-              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center">
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2 flex flex-wrap justify-center gap-x-4">
-                    {"واقع رقمي ذكي".split(" ").map((word, i) => (
-                      <span key={i} className="word-span inline-block hover-char transition-all duration-300">
+              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center items-center">
+                  {"نحول الأفكار إلى".split(" ").map((word, i, arr) => (
+                    <React.Fragment key={i}>
+                      <span className="word-span inline-flex hover-char transition-all duration-300">
                         {word}
                       </span>
-                    ))}
-                  </span>
+                      {i < arr.length - 1 && <span className="inline-block w-[0.25em]" />}
+                    </React.Fragment>
+                  ))}
+              </div>
+              <div className="headline-line overflow-visible py-1 flex flex-wrap justify-center items-center">
+                  {"واقع رقمي ذكي".split(" ").map((word, i, arr) => (
+                    <React.Fragment key={i}>
+                      <span className="word-span inline-flex text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet hover-char transition-all duration-300 pb-4 pt-2">
+                        {word}
+                      </span>
+                      {i < arr.length - 1 && <span className="inline-block w-[0.25em]" />}
+                    </React.Fragment>
+                  ))}
               </div>
           </motion.h1>
 
