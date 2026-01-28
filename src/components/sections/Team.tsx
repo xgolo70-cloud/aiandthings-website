@@ -51,14 +51,19 @@ export default function Team() {
                   delay={i * 0.1}
                   className="glass-vibrant rounded-2xl group transition-all hover:-translate-y-2 duration-500"
                 >
-                    <div className="relative h-full min-h-[500px] flex flex-col p-12 justify-between">
-                        <div>
+                    <div className="relative h-full min-h-[500px] flex flex-col p-12 justify-between overflow-hidden">
+                        {/* Biometric Scanner Effect */}
+                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-electric-violet/50 to-transparent blur-sm animate-scanner" />
+                        </div>
+
+                        <div className="relative z-10">
                              <span className="text-xs text-zinc-600 font-light block group-hover:text-electric-violet transition-colors">
                                  {founder.roleEn}
                              </span>
                         </div>
                         
-                        <div className="text-right">
+                        <div className="text-right relative z-10">
                             <p className="text-zinc-400 text-sm mb-4 font-bold">{founder.role}</p>
                             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2">
                                 {founder.name}
@@ -69,7 +74,7 @@ export default function Team() {
                         </div>
 
                         {/* Detail Decor */}
-                        <div className="absolute top-12 left-12 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        <div className="absolute top-12 left-12 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10">
                              <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center">
                                  <div className="w-1 h-1 rounded-full bg-electric-violet animate-pulse" />
                              </div>

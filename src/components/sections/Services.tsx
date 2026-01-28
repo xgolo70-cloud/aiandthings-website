@@ -16,8 +16,14 @@ interface ServiceCardProps {
 function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: ServiceCardProps) {
   return (
     <SpotlightCard delay={delay} className={`${className} glass-vibrant rounded-2xl group relative overflow-hidden`}>
-      <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className="relative h-full flex flex-col p-12 lg:p-16">
+      {/* Interactive Data Particles */}
+      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-linear-to-b from-transparent via-electric-cyan/20 to-transparent animate-data-flow" style={{ animationDelay: '0s' }} />
+          <div className="absolute top-0 left-2/4 w-px h-full bg-linear-to-b from-transparent via-electric-violet/20 to-transparent animate-data-flow" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-0 left-3/4 w-px h-full bg-linear-to-b from-transparent via-electric-cyan/20 to-transparent animate-data-flow" style={{ animationDelay: '0.5s' }} />
+      </div>
+
+      <div className="relative h-full flex flex-col p-12 lg:p-16 z-10">
         <div className="mb-12">
             <motion.div 
               whileHover={{ rotate: 5, scale: 1.1 }}
