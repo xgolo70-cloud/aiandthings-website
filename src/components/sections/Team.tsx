@@ -12,7 +12,7 @@ const founders = [
     desc: "المعماري التقني وراء النواة العصبية والأنظمة الموزعة."
   },
   {
-    name: "حسان زيني",
+    name: "حسن زيني",
     nameEn: "Hassan Zaini",
     role: "المؤسس الشريك / المدير الإبداعي",
     roleEn: "Creative Director",
