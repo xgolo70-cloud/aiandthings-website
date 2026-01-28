@@ -127,7 +127,7 @@ export default function Footer() {
                 </div>
                  <div className="flex items-center gap-2 text-zinc-600">
                     <Globe size={12} />
-                    <span className="text-[10px] font-mono">Riyadh, SA</span>
+                    <span className="text-[10px] font-mono">Baghdad, IQ</span>
                  </div>
             </div>
 

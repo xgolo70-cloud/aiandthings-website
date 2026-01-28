@@ -38,7 +38,7 @@ export default function Contact() {
                     </div>
                     <div className="text-right">
                         <span className="text-xs font-bold uppercase text-zinc-400 tracking-wider block mb-1">المقر الرئيسي</span>
-                        <p className="text-zinc-900 font-medium">الرياض، المملكة العربية السعودية</p>
+                        <p className="text-zinc-900 font-medium">بغداد، العراق</p>
                     </div>
                 </div>
 
