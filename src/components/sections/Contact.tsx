@@ -34,10 +34,10 @@ export default function Contact() {
 
             <div className="flex flex-col gap-6 items-start">
                 <motion.div 
-                    whileHover={{ x: 10 }}
+                    whileHover={{ x: -10 }}
                     className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-cyan/30 transition-all duration-500"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors order-last">
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors">
                         <MapPin size={16} className="text-electric-cyan" />
                     </div>
                     <div className="text-right">
@@ -47,10 +47,10 @@ export default function Contact() {
                 </motion.div>
 
                 <motion.div 
-                    whileHover={{ x: 10 }}
+                    whileHover={{ x: -10 }}
                     className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-violet/30 transition-all duration-500"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors order-last">
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors">
                         <Mail size={16} className="text-electric-violet" />
                     </div>
                     <div className="text-right">
