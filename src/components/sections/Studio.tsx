@@ -41,7 +41,12 @@ export default function Studio() {
         
         {/* Section Title - Fixed */}
         <div className="absolute top-24 right-6 md:right-20 z-20 text-right pointer-events-none">
-             <span className="text-xs text-zinc-500 mb-4 block font-light uppercase tracking-normal">الفريق الإبداعي</span>
+             <div className="flex items-center justify-end gap-2 mb-4">
+                 <span className="w-2 h-0.5 bg-zinc-500" />
+                 <span className="text-sm font-medium text-zinc-500 arabic-text uppercase tracking-normal">
+                     الفريق الإبداعي
+                 </span>
+             </div>
              <h2 className="text-4xl md:text-7xl font-bold text-white mt-4 arabic-heading">
                  التنفيذ <br/> <span className="text-zinc-600">الإبداعي</span>
              </h2>

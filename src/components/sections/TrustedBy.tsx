@@ -23,9 +23,13 @@ export default function TrustedBy() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-              <span className="text-zinc-600 arabic-text text-[10px] uppercase tracking-[0.3em] block mb-4">
-                  Success Partners
-              </span>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                  <span className="w-2 h-0.5 bg-zinc-600" />
+                  <span className="text-sm font-medium text-zinc-600 arabic-text uppercase tracking-normal">
+                      Success Partners
+                  </span>
+                  <span className="w-2 h-0.5 bg-zinc-600" />
+              </div>
               <h2 className="text-4xl md:text-6xl font-bold text-white arabic-heading">
                   شركاء <span className="text-zinc-500">النجاح</span>
               </h2>

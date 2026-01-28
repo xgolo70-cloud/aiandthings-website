@@ -39,8 +39,8 @@ export default function FAQ() {
       <div className="mb-10">
         <Reveal>
            <div className="flex items-center gap-2 mb-6">
-              <div className="h-px w-8 bg-zinc-900" />
-              <span className="text-[10px] font-bold uppercase tracking-normal text-zinc-900 arabic-text">
+              <span className="w-2 h-0.5 bg-zinc-400" />
+              <span className="text-sm font-medium text-zinc-500 arabic-text uppercase tracking-normal">
                   قاعدة المعرفة
               </span>
           </div>

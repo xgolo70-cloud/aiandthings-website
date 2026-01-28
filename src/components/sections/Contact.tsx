@@ -10,7 +10,7 @@ export default function Contact() {
       
       {/* Background HUD Elements */}
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
@@ -99,8 +99,8 @@ export default function Contact() {
                     }, 1500);
                 }
             }}>
-                <div className="space-y-3">
-                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">الاسم الكامل</label>
+                <div className="space-y-2.5">
+                    <label className="text-sm font-medium text-zinc-300 arabic-text px-1 block">الاسم الكامل</label>
                     <input 
                         type="text" 
                         required
@@ -109,8 +109,8 @@ export default function Contact() {
                     />
                 </div>
                 
-                <div className="space-y-3">
-                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">البريد الإلكتروني</label>
+                <div className="space-y-2.5">
+                    <label className="text-sm font-medium text-zinc-300 arabic-text px-1 block">البريد الإلكتروني</label>
                     <input 
                         type="email" 
                         required
@@ -119,8 +119,8 @@ export default function Contact() {
                     />
                 </div>
 
-                <div className="space-y-3">
-                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">نص الرسالة</label>
+                <div className="space-y-2.5">
+                    <label className="text-sm font-medium text-zinc-300 arabic-text px-1 block">نص الرسالة</label>
                     <textarea 
                         rows={5}
                         required
