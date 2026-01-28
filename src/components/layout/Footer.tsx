@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const footerLinks = {
   sitemap: [
-    { name: 'البداية', href: '#' },
     { name: 'أعمالنا', href: '#works' },
     { name: 'الخبرات', href: '#services' },
     { name: 'الفريق', href: '#studio-collective' },
