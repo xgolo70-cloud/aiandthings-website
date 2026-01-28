@@ -58,7 +58,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-black pt-24 pb-12 px-6 overflow-hidden border-t border-white/[0.03] footer-container">
+    <footer dir="rtl" className="relative bg-black pt-24 pb-12 px-6 overflow-hidden border-t border-white/[0.03] footer-container text-right">
       {/* Cinematic Background Atmosphere */}
       <div className="absolute inset-0 z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-electric-violet/5 blur-[160px] rounded-[100%] mix-blend-screen" />
@@ -170,16 +170,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.03] flex flex-col md:flex-row justify-between items-center gap-6 footer-reveal">
-            <div className="flex items-center gap-8 text-xs font-bold text-zinc-700 uppercase tracking-widest font-mono">
-                <p>© 2026 AI & THINGS</p>
-                <a href="#" className="hover:text-zinc-400 transition-colors">PRIVACY</a>
-                <a href="#" className="hover:text-zinc-400 transition-colors">SECURITY</a>
+        <div className="pt-8 border-t border-white/[0.03] flex flex-col md:flex-row-reverse justify-between items-center gap-6 footer-reveal">
+            <div className="flex items-center gap-8 text-xs font-bold text-zinc-500 arabic-impact tracking-widest">
+                <p>© 2026 الذكاء والأشياء</p>
+                <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+                <a href="#" className="hover:text-white transition-colors">اتفاقية الخدمة</a>
             </div>
             <div className="flex items-center gap-4">
                 <div className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.03] flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
-                  <span className="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.2em]">Live Connection</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em]">اتصال نشط</span>
                 </div>
             </div>
         </div>
