@@ -16,7 +16,7 @@ export default function Metrics() {
         {metrics.map((metric, index) => (
           <div key={index} className="flex flex-col relative group">
              {/* Massive Number */}
-             <div className="text-[25vw] leading-[0.8] font-bold tracking-tighter text-neutral-100 group-hover:text-brand-dark transition-colors duration-700 select-none">
+             <div className="text-[25vw] leading-[0.8] font-bold tracking-tighter text-zinc-100 group-hover:text-zinc-900 transition-colors duration-700 select-none">
                  <Counter value={metric.value} suffix={metric.suffix} />
              </div>
              

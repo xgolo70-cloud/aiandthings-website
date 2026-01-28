@@ -10,9 +10,9 @@ export default function About() {
           
           {/* Left: Huge Title */}
           <div>
-              <h2 className="text-[8vw] leading-[0.9] font-bold tracking-tighter text-brand-dark mb-12">
+              <h2 className="text-[8vw] leading-[0.9] font-bold tracking-tighter text-zinc-900 mb-12">
                   THE<br/>
-                  <span className="text-neutral-200">CORE.</span>
+                  <span className="text-zinc-200">CORE.</span>
               </h2>
           </div>
 

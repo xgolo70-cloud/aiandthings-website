@@ -103,7 +103,6 @@ body::before {
 /* Global Typography Overrides for Lyon Aesthetic */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--color-brand-accent);
 }
 
 p, span, li, a {

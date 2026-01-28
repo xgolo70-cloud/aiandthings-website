@@ -6,75 +6,76 @@ import { MapPin, Mail, Github, Twitter, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 bg-zinc-50 border-t border-zinc-200 text-black overflow-hidden relative">
+    <section id="contact" className="py-40 bg-black text-white overflow-hidden relative border-t border-white/10">
       
-      {/* Texture */}
-      <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply pointer-events-none" />
+      {/* Background HUD Elements */}
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           
           {/* Contact Intro */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-right"
+            className="text-right order-last lg:order-first"
           >
-            <span className="text-zinc-500 arabic-text text-xs uppercase tracking-normal block mb-4">
-                تواصل معنا
-            </span>
-            <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 arabic-heading">
-                لنبدأ <br/> بناء <span className="text-zinc-500">المستقبل</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8">
+               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+               <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 arabic-text">متاح للمشاريع الجديدة</span>
+            </div>
+            
+            <h2 className="text-6xl md:text-8xl font-bold text-white mb-8 arabic-heading leading-[1.1]">
+                لنبدأ <br/> بناء <span className="text-zinc-600">المستقبل</span>
             </h2>
-            <p className="text-zinc-600 text-xl font-light max-w-md leading-relaxed mb-12 arabic-text">
-                نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أخبرنا عن رؤيتك.
+            <p className="text-zinc-400 text-xl font-light max-w-md leading-relaxed mb-12 arabic-text">
+                نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أخبرنا عن رؤيتك لنحولها إلى واقع ملموس.
             </p>
 
-            <div className="space-y-8">
-                <div className="flex items-center gap-6 p-6 bg-white border border-zinc-100 rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
-                    <div className="w-12 h-12 rounded-lg bg-zinc-50 flex items-center justify-center">
-                        <MapPin size={20} className="text-zinc-900" />
+            <div className="grid grid-cols-1 gap-4">
+                {[
+                    { Icon: MapPin, title: "المقر الرئيسي", value: "بغداد، العراق" },
+                    { Icon: Mail, title: "البريد الإلكتروني", value: "hello@aiandthings.com" }
+                ].map((item, i) => (
+                    <div key={i} className="group flex items-center gap-6 p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-white/10 hover:bg-white/5 transition-all duration-500">
+                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <item.Icon size={20} className="text-white" />
+                        </div>
+                        <div className="text-right">
+                            <span className="text-[10px] font-bold uppercase text-zinc-600 tracking-widest block mb-1 arabic-text">{item.title}</span>
+                            <p className="text-white font-medium text-lg">{item.value}</p>
+                        </div>
                     </div>
-                    <div className="text-right">
-                        <span className="text-xs font-bold uppercase text-zinc-400 tracking-normal block mb-1">المقر الرئيسي</span>
-                        <p className="text-zinc-900 font-medium">بغداد، العراق</p>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-6 p-6 bg-white border border-zinc-100 rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
-                    <div className="w-12 h-12 rounded-lg bg-zinc-50 flex items-center justify-center">
-                        <Mail size={20} className="text-zinc-900" />
-                    </div>
-                    <div className="text-right">
-                         <span className="text-xs font-bold uppercase text-zinc-400 tracking-normal block mb-1">البريد الإلكتروني</span>
-                        <p className="text-zinc-900 font-medium">hello@aiandthings.com</p>
-                    </div>
-                </div>
+                ))}
             </div>
 
-            <div className="mt-12 flex gap-4 justify-start">
+            <div className="mt-12 flex gap-3 justify-end lg:justify-start">
                 {[
                     { Icon: Twitter, label: 'twitter' },
                     { Icon: Github, label: 'github' }
                 ].map(({ Icon, label }, i) => (
-                    <a key={i} href="#" className="flex items-center gap-2 px-5 py-3 rounded-lg bg-zinc-100 hover:bg-zinc-200 transition-colors">
-                        <Icon size={16} className="text-zinc-600" />
-                        <span className="text-xs font-bold uppercase text-zinc-600 tracking-normal">{label}</span>
+                    <a key={i} href="#" className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 group">
+                        <Icon size={16} className="group-hover:scale-110" />
+                        <span className="text-xs font-bold uppercase tracking-widest">{label}</span>
                     </a>
                 ))}
             </div>
 
           </motion.div>
 
-          {/* Minimal Form */}
+          {/* Premium Form */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-8 lg:p-12 rounded-2xl border border-zinc-100 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.05)]"
+            className="relative"
           >
-            <form className="space-y-8" dir="rtl" onSubmit={(e) => {
+            {/* Form Glow */}
+            <div className="absolute -inset-4 bg-white/5 blur-3xl rounded-[3rem] pointer-events-none" />
+            
+            <form className="relative space-y-8 p-10 md:p-14 rounded-[2.5rem] bg-zinc-900/40 backdrop-blur-3xl border border-white/10" dir="rtl" onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget;
                 const button = form.querySelector('button');
@@ -85,55 +86,55 @@ export default function Contact() {
                     
                     setTimeout(() => {
                         button.innerHTML = '<span>تم الإرسال بنجاح</span>';
-                        button.classList.add('bg-green-600', 'text-white');
-                        button.classList.remove('bg-black');
+                        button.classList.add('bg-white', 'text-black');
+                        button.classList.remove('bg-white/10');
                         form.reset();
                         
                         setTimeout(() => {
                             button.innerHTML = originalText;
                             button.disabled = false;
-                            button.classList.remove('bg-green-600');
-                            button.classList.add('bg-black');
+                            button.classList.remove('bg-white', 'text-black');
+                            button.classList.add('bg-white/10');
                         }, 3000);
                     }, 1500);
                 }
             }}>
-                <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">الاسم الكامل</label>
+                <div className="space-y-3">
+                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">الاسم الكامل</label>
                     <input 
                         type="text" 
                         required
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-4 text-zinc-900 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all placeholder:text-zinc-400"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-white focus:bg-white/10 transition-all placeholder:text-zinc-700 arabic-text"
                         placeholder="الاسم الكريم"
                     />
                 </div>
                 
-                <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">البريد الإلكتروني</label>
+                <div className="space-y-3">
+                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">البريد الإلكتروني</label>
                     <input 
                         type="email" 
                         required
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-4 text-zinc-900 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all placeholder:text-zinc-400"
-                        placeholder="example@domain.com"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-white focus:bg-white/10 transition-all placeholder:text-zinc-700"
+                        placeholder="email@example.com"
                     />
                 </div>
 
-                <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">نص الرسالة</label>
+                <div className="space-y-3">
+                    <label className="text-[10px] font-bold uppercase text-zinc-500 tracking-widest mr-1 arabic-text">نص الرسالة</label>
                     <textarea 
-                        rows={4}
+                        rows={5}
                         required
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-4 text-zinc-900 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all placeholder:text-zinc-400 resize-none"
-                        placeholder="مشروعي عبارة عن..."
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-white focus:bg-white/10 transition-all placeholder:text-zinc-700 resize-none arabic-text"
+                        placeholder="أخبرنا عن رؤيتك..."
                     />
                 </div>
 
                 <button 
                     type="submit"
-                    className="w-full py-5 bg-black text-white rounded-xl font-bold text-sm hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full py-6 bg-white/10 hover:bg-white hover:text-black transition-all duration-500 rounded-2xl font-bold text-sm tracking-widest flex items-center justify-center gap-3 group disabled:opacity-50"
                 >
-                    <span>إرسال الطلب</span>
-                    <ArrowRight size={16} className="group-hover:-translate-x-1 transition-transform" />
+                    <span className="arabic-text">إرسال الطلب</span>
+                    <ArrowRight size={18} className="group-hover:-translate-x-2 transition-transform duration-500" />
                 </button>
             </form>
           </motion.div>

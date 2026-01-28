@@ -39,15 +39,15 @@ export default function FAQ() {
       <div className="mb-10">
         <Reveal>
            <div className="flex items-center gap-2 mb-6">
-              <div className="h-px w-8 bg-brand-dark" />
-              <span className="text-[10px] font-bold uppercase tracking-normal text-brand-dark arabic-text">
+              <div className="h-px w-8 bg-zinc-900" />
+              <span className="text-[10px] font-bold uppercase tracking-normal text-zinc-900 arabic-text">
                   قاعدة المعرفة
               </span>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <SectionHeading className="text-brand-dark pb-4 pt-2 leading-relaxed text-5xl md:text-7xl">
-             تفاصيل <span className="text-neutral-400">النظام.</span>
+          <SectionHeading className="text-zinc-900 pb-4 pt-2 leading-relaxed text-5xl md:text-7xl">
+             تفاصيل <span className="text-zinc-400">النظام.</span>
           </SectionHeading>
         </Reveal>
       </div>
