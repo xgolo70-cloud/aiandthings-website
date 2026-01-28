@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import './globals.css'; // Global styles
 import Layout from '@/components/layout/Layout';
 import SmoothScroll from '@/components/ui/SmoothScroll';
-import CustomCursor from '@/components/ui/CustomCursor';
 const instrument = Instrument_Sans({ 
   subsets: ['latin'], 
   variable: '--font-instrument',
@@ -57,8 +56,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SmoothScroll>
-                 {/* Custom Cursor can remain if it fits the vibe, checking implementation later */}
-                <CustomCursor /> 
                 <Layout>
                 {children}
                 </Layout>

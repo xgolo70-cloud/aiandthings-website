@@ -3,18 +3,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function InteractiveHero() {
   return (
     <section className="relative w-full h-dvh flex flex-col items-center justify-center bg-black overflow-hidden">
       
-      {/* Background - Elegant Gradient & Grid */}
-      <div className="absolute inset-0 z-0">
+      {/* Background - Elegant Gradient & Grid & Brand Pattern */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-0 inset-x-0 h-[500px] bg-linear-to-b from-white/3 to-transparent pointer-events-none" />
           <div className="absolute bottom-0 inset-x-0 h-[500px] bg-linear-to-t from-black to-transparent pointer-events-none" />
           
           {/* Subtle Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_100%,transparent_0%)] opacity-50" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_100%,transparent_0%)] opacity-30" />
+
+          {/* المميز: Artboard 10 Signature Pattern - CLEARER VISIBILITY */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 0.4, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden"
+          >
+              <div className="relative w-[120%] h-[120%] opacity-50">
+                  <Image 
+                    src="/images/Artboard 10.svg" 
+                    alt="Brand Pattern" 
+                    fill
+                    className="object-contain invert opacity-20"
+                    priority
+                  />
+              </div>
+          </motion.div>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
@@ -36,7 +55,7 @@ export default function InteractiveHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tight text-white mb-8 arabic-heading pb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+            className="text-4xl md:text-6xl lg:text-[7rem] font-bold tracking-tight text-white mb-6 arabic-heading pb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
           >
             نصنع <span className="text-zinc-600">المستقبل</span> <br className="hidden md:block"/>
             بكل <span className="text-transparent bg-clip-text bg-linear-to-br from-white via-white to-zinc-600 pr-1">دقة وإتقان</span>
@@ -47,7 +66,7 @@ export default function InteractiveHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed arabic-text font-light mb-12"
+            className="text-sm md:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed arabic-text font-light mb-10"
           >
             نحول الأفكار المعقدة إلى تجارب رقمية سلسة، تجمع بين قوة الهندسة وجمال التصميم.
           </motion.p>

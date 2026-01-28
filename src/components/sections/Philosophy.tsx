@@ -39,7 +39,7 @@ export default function Philosophy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="text-5xl md:text-8xl font-bold max-w-5xl mx-auto arabic-heading text-white mb-12"
+                    className="text-3xl md:text-5xl font-bold max-w-4xl mx-auto arabic-heading text-white mb-8"
                 >
                     نحن لا نتبع المتداول، <br />
                     بل <span className="text-transparent bg-clip-text bg-linear-to-r from-red-100 via-white to-red-200 pr-1">
@@ -53,9 +53,9 @@ export default function Philosophy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="max-w-2xl mx-auto mb-20"
+                    className="max-w-xl mx-auto mb-12"
                 >
-                    <p className="text-xl md:text-2xl font-light leading-relaxed text-red-100/90 arabic-text">
+                    <p className="text-base md:text-lg font-light leading-relaxed text-red-100/90 arabic-text">
                         في عالم مليء بالضجيج الرقمي، نختار الوضوح. <br className="hidden md:block" />
                         تصميماتنا ليست مجرد واجهات، بل حلول ذكية تخدم أهدافك بدقة متناهية.
                     </p>
@@ -74,9 +74,9 @@ export default function Philosophy() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="group p-8 rounded-2xl bg-white/3 border border-white/8 hover:bg-white/8 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
+                            className="group p-6 rounded-2xl bg-white/3 border border-white/8 hover:bg-white/8 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                         >
-                            <h3 className="text-3xl font-bold mb-4 text-white arabic-heading group-hover:text-red-100 transition-colors">{item.title}</h3>
+                            <h3 className="text-xl font-bold mb-3 text-white arabic-heading group-hover:text-red-100 transition-colors">{item.title}</h3>
                             <p className="text-red-100/60 arabic-text leading-relaxed text-lg">{item.desc}</p>
                         </motion.div>
                     ))}
