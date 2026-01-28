@@ -19,7 +19,7 @@ export default function WorksPage() {
             transition={{ duration: 0.8 }}
             className="mb-24 text-center"
         >
-            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest block mb-4">معرض الأعمال</span>
+            <span className="text-zinc-500 font-mono text-xs uppercase tracking-normal block mb-4">معرض الأعمال</span>
             <h1 className="text-5xl md:text-7xl font-bold arabic-heading mb-6">ابتكاراتنا <span className="text-zinc-600">الرقمية</span></h1>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 مجموعة مختارة من المشاريع التي تحدت الحدود التقنية والإبداعية. نحن نبني ما يعتقد الآخرون أنه مستحيل.
@@ -49,7 +49,7 @@ export default function WorksPage() {
                         </div>
 
                         <div className="text-right">
-                            <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2 block">{work.category}</span>
+                            <span className="text-xs font-bold text-zinc-500 uppercase tracking-normal mb-2 block">{work.category}</span>
                             <h3 className="text-3xl font-bold text-white mb-3 arabic-heading group-hover:text-zinc-300 transition-colors">{work.title}</h3>
                             <p className="text-zinc-400 font-light leading-relaxed">{work.desc}</p>
                         </div>

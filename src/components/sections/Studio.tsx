@@ -41,7 +41,7 @@ export default function Studio() {
         
         {/* Section Title - Fixed */}
         <div className="absolute top-24 right-6 md:right-20 z-20 text-right pointer-events-none">
-             <span className="text-xs text-zinc-500 mb-4 block font-light uppercase tracking-widest">الفريق الإبداعي</span>
+             <span className="text-xs text-zinc-500 mb-4 block font-light uppercase tracking-normal">الفريق الإبداعي</span>
              <h2 className="text-4xl md:text-7xl font-bold text-white mt-4 arabic-heading">
                  التنفيذ <br/> <span className="text-zinc-600">الإبداعي</span>
              </h2>
@@ -73,7 +73,7 @@ export default function Studio() {
           
           {/* Join Us Card */}
           <div className="relative w-[70vw] md:w-[25vw] shrink-0 aspect-3/4 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/20 group cursor-pointer hover:bg-zinc-900 transition-all">
-              <span className="text-sm font-bold text-zinc-500 uppercase group-hover:text-white transition-colors tracking-widest">انضم إلينا</span>
+              <span className="text-sm font-bold text-zinc-500 uppercase group-hover:text-white transition-colors tracking-normal">انضم إلينا</span>
           </div>
 
         </motion.div>

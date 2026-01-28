@@ -123,7 +123,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 order-1 md:order-2">
                 <div className="flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-white/5 rounded-full">
                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                   <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-mono">Systems Normal</span>
+                   <span className="text-[10px] uppercase tracking-normal text-zinc-400 font-mono">Systems Normal</span>
                 </div>
                  <div className="flex items-center gap-2 text-zinc-600">
                     <Globe size={12} />

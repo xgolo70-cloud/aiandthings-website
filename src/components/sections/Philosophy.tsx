@@ -20,7 +20,7 @@ export default function Philosophy() {
             viewport={{ once: true }}
             className="mb-10"
          >
-             <span className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-[0.3em] bg-white px-4 py-2 rounded-full border border-zinc-200">
+             <span className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-normal bg-white px-4 py-2 rounded-full border border-zinc-200">
                 فلسفتنا في العمل
              </span>
          </motion.div>

@@ -24,7 +24,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       
       {/* Navigation Back */}
       <div className="container mx-auto px-6 mb-12">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono group">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm uppercase tracking-normal font-mono group">
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               <span>العودة للمدونة</span>
           </Link>
@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="container mx-auto px-6 max-w-4xl">
           
               <div className="text-center mb-12">
-                  <div className="flex items-center justify-center gap-6 text-xs text-zinc-500 font-mono mb-6 uppercase tracking-wider">
+                  <div className="flex items-center justify-center gap-6 text-xs text-zinc-500 font-mono mb-6 uppercase tracking-normal">
                       <div className="flex items-center gap-2">
                            <Calendar size={14} />
                            <span>{post.date}</span>

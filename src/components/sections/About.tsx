@@ -24,7 +24,7 @@ export default function About() {
                   </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
+              <div className="grid grid-cols-2 gap-8 text-xs font-mono uppercase tracking-normal text-neutral-400">
                   <div className="p-6 bg-neutral-50">
                       Computational Efficiency
                   </div>

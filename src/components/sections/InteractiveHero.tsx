@@ -26,7 +26,7 @@ export default function InteractiveHero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-8"
           >
-              <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-zinc-400 text-sm font-medium tracking-wide">
+              <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-zinc-400 text-sm font-medium tracking-normal">
                   الذكاء الاصطناعي والإبداع
               </span>
           </motion.div>

@@ -8,7 +8,7 @@ interface TypographyProps {
 
 export function SectionEyebrow({ children, className = "" }: TypographyProps) {
   return (
-    <span className={`text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block ${className}`}>
+    <span className={`text-accent-500 text-[10px] font-bold uppercase tracking-normal mb-6 block ${className}`}>
       {children}
     </span>
   );

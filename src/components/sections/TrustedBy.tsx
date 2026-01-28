@@ -17,7 +17,7 @@ export default function TrustedBy() {
   return (
     <section className="py-24 border-y border-zinc-900 bg-black overflow-hidden relative">
       <div className="mb-12 text-center">
-          <span className="text-xs text-zinc-500 mb-2 block font-light uppercase tracking-widest">شركاء النجاح</span>
+          <span className="text-xs text-zinc-500 mb-2 block font-light uppercase tracking-normal">شركاء النجاح</span>
       </div>
 
       <div className="relative flex overflow-hidden">

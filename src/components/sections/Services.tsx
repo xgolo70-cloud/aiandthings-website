@@ -48,7 +48,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-20 text-right"
         >
-            <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest block mb-4">
+            <span className="text-zinc-500 font-mono text-sm uppercase tracking-normal block mb-4">
                 مجالاتنا
             </span>
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 arabic-heading">

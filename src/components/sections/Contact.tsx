@@ -21,7 +21,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-right"
           >
-            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest block mb-4">
+            <span className="text-zinc-500 font-mono text-xs uppercase tracking-normal block mb-4">
                 تواصل معنا
             </span>
             <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 arabic-heading leading-tight">
@@ -37,7 +37,7 @@ export default function Contact() {
                         <MapPin size={20} className="text-zinc-900" />
                     </div>
                     <div className="text-right">
-                        <span className="text-xs font-bold uppercase text-zinc-400 tracking-wider block mb-1">المقر الرئيسي</span>
+                        <span className="text-xs font-bold uppercase text-zinc-400 tracking-normal block mb-1">المقر الرئيسي</span>
                         <p className="text-zinc-900 font-medium">بغداد، العراق</p>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Contact() {
                         <Mail size={20} className="text-zinc-900" />
                     </div>
                     <div className="text-right">
-                         <span className="text-xs font-bold uppercase text-zinc-400 tracking-wider block mb-1">البريد الإلكتروني</span>
+                         <span className="text-xs font-bold uppercase text-zinc-400 tracking-normal block mb-1">البريد الإلكتروني</span>
                         <p className="text-zinc-900 font-medium">hello@aiandthings.com</p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default function Contact() {
                 ].map(({ Icon, label }, i) => (
                     <a key={i} href="#" className="flex items-center gap-2 px-5 py-3 rounded-lg bg-zinc-100 hover:bg-zinc-200 transition-colors">
                         <Icon size={16} className="text-zinc-600" />
-                        <span className="text-xs font-bold uppercase text-zinc-600 tracking-wider">{label}</span>
+                        <span className="text-xs font-bold uppercase text-zinc-600 tracking-normal">{label}</span>
                     </a>
                 ))}
             </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                 }
             }}>
                 <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-wider mr-1">الاسم الكامل</label>
+                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">الاسم الكامل</label>
                     <input 
                         type="text" 
                         required
@@ -109,7 +109,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-wider mr-1">البريد الإلكتروني</label>
+                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">البريد الإلكتروني</label>
                     <input 
                         type="email" 
                         required
@@ -119,7 +119,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-wider mr-1">نص الرسالة</label>
+                    <label className="text-xs font-bold uppercase text-zinc-500 tracking-normal mr-1">نص الرسالة</label>
                     <textarea 
                         rows={4}
                         required

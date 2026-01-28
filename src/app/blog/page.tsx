@@ -16,7 +16,7 @@ export default function BlogPage() {
          <motion.span 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-zinc-500 font-mono text-xs uppercase tracking-widest block mb-4"
+            className="text-zinc-500 font-mono text-xs uppercase tracking-normal block mb-4"
           >
               المدونة
           </motion.span>
@@ -66,7 +66,7 @@ export default function BlogPage() {
                               <p className="text-zinc-400 font-light leading-relaxed mb-6 line-clamp-2">
                                   {post.excerpt}
                               </p>
-                              <span className="text-sm font-bold text-white uppercase tracking-wider group-hover:underline decoration-zinc-700 underline-offset-4">
+                              <span className="text-sm font-bold text-white uppercase tracking-normal group-hover:underline decoration-zinc-700 underline-offset-4">
                                   اقرأ المزيد
                               </span>
                           </div>

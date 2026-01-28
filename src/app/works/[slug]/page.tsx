@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       
       {/* Navigation Back */}
       <div className="container mx-auto px-6 mb-12">
-          <Link href="/works" className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono group">
+          <Link href="/works" className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm uppercase tracking-normal font-mono group">
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               <span>العودة للأعمال</span>
           </Link>
@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* Project Header */}
       <div className="container mx-auto px-6 mb-20 text-center">
-          <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest block mb-6">
+          <span className="text-zinc-500 font-mono text-xs uppercase tracking-normal block mb-6">
               {project.category}
           </span>
           <h1 className="text-5xl md:text-8xl font-bold arabic-heading mb-8">
@@ -74,11 +74,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </div>
               <div className="md:col-span-4 flex flex-col gap-8 text-right md:text-left dir-rtl md:dir-ltr">
                   <div>
-                      <span className="text-zinc-500 text-xs uppercase tracking-widest block mb-1">العميل</span>
+                      <span className="text-zinc-500 text-xs uppercase tracking-normal block mb-1">العميل</span>
                       <span className="text-white text-lg font-medium">{project.client}</span>
                   </div>
                   <div>
-                      <span className="text-zinc-500 text-xs uppercase tracking-widest block mb-1">السنة</span>
+                      <span className="text-zinc-500 text-xs uppercase tracking-normal block mb-1">السنة</span>
                       <span className="text-white text-lg font-medium">{project.year}</span>
                   </div>
               </div>
@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           {/* Gallery */}
            <div className="mb-32">
-              <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-12 text-center">معرض الصور</h3>
+              <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-normal mb-12 text-center">معرض الصور</h3>
               <div className="grid grid-cols-1 gap-8">
                   {project.gallery?.map((img, i) => (
                       <div key={i} className="relative w-full aspect-video rounded-xl overflow-hidden bg-zinc-900">
