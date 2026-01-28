@@ -26,29 +26,28 @@ export default function Footer() {
   useEffect(() => {
     // Reveal animation for footer elements
     gsap.fromTo(".footer-reveal", 
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 30 },
       { 
         opacity: 1, 
         y: 0,
-        duration: 1,
+        duration: 1.2,
         stagger: 0.1,
-        ease: "power2.out",
+        ease: "power3.out",
         scrollTrigger: {
           trigger: ".footer-container",
-          start: "top 80%",
+          start: "top 85%",
         }
       }
     );
 
     // Decorative brand reveal
     gsap.fromTo(".footer-brand-word", 
-      { opacity: 0, scale: 0.9, filter: "blur(10px)" },
+      { opacity: 0, filter: "blur(20px)" },
       { 
-        opacity: 0.05, 
-        scale: 1, 
+        opacity: 0.04, 
         filter: "blur(0px)", 
-        duration: 2,
-        stagger: 0.1,
+        duration: 2.5,
+        stagger: 0.2,
         ease: "expo.out",
         scrollTrigger: {
           trigger: ".footer-brand-chars",
@@ -59,102 +58,103 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-black pt-6 pb-6 px-6 overflow-hidden border-t border-white/5 footer-container">
+    <footer className="relative bg-black pt-24 pb-12 px-6 overflow-hidden border-t border-white/[0.03] footer-container">
       {/* Cinematic Background Atmosphere */}
       <div className="absolute inset-0 z-0">
-          <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-electric-violet/10 blur-[140px] rounded-full mix-blend-screen animate-pulse" />
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-electric-cyan/5 blur-[120px] rounded-full mix-blend-screen" />
-          
-          {/* Precision Grid Overlay - Continuity from Hero */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_100%,#000_60%,transparent_100%)]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-electric-violet/5 blur-[160px] rounded-[100%] mix-blend-screen" />
+          {/* Precision Grid Overlay */}
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6 text-right">
+        <div className="flex flex-col md:flex-row gap-12 lg:gap-24 mb-20 text-right">
           
-          {/* Brand & Manifesto */}
-          <div className="md:col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-right footer-reveal">
-              <a href="#" className="flex items-center gap-4 group mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-electric-violet/20 group-hover:border-electric-violet/50">
-                    <Command size={24} className="text-white" />
+          {/* Brand Column - Anchored Right in RTL */}
+          <div className="flex-1 lg:max-w-xs footer-reveal order-1">
+              <div className="flex items-center justify-end gap-3 mb-8 group">
+                  <span className="text-2xl font-bold text-white arabic-impact">الذكاء والأشياء</span>
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Command size={20} className="text-white" />
                   </div>
-                  <span className="text-3xl font-bold text-white arabic-impact tracking-tighter">
-                      الذكاء والأشياء
-                  </span>
-              </a>
-              <p className="text-zinc-500 text-lg leading-relaxed max-w-sm font-normal mb-8">
+              </div>
+              <p className="text-zinc-600 text-base leading-relaxed mb-8">
                   نبني البنية التحتية الرقمية للمستقبل، حيث الهندسة الدقيقة تلتقي بالإبداع الذي لا يعرف الحدود.
               </p>
-              <div className="flex gap-4">
+              <div className="flex justify-end gap-4">
                   {[Twitter, Github, Linkedin].map((Icon, i) => (
                       <motion.a 
                         key={i} 
                         href="#" 
-                        whileHover={{ y: -5, scale: 1.1 }}
-                        className="w-12 h-12 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-white/20 transition-all duration-300"
+                        whileHover={{ y: -3, scale: 1.1 }}
+                        className="w-10 h-10 rounded-full bg-white/5 border border-white/[0.05] flex items-center justify-center text-zinc-600 hover:text-white hover:border-white/10 transition-all duration-300"
                       >
-                          <Icon size={18} />
+                          <Icon size={16} />
                       </motion.a>
                   ))}
               </div>
           </div>
 
-          {/* Navigation Columns */}
-          <div className="md:col-span-4 lg:col-span-2 footer-reveal">
-              <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-sm">[</span>
-                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">التنقّل</span>
-                  <span className="text-zinc-800 font-mono text-sm">]</span>
+          {/* Navigation - Symmetrical Center */}
+          <div className="flex gap-12 lg:gap-24 footer-reveal order-2">
+              <div>
+                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
+                      <span>التنقّل</span>
+                      <span>[</span> 
+                      <span className="w-1.5 h-1.5 bg-electric-violet rounded-full inline-block animate-pulse" />
+                      <span>]</span>
+                  </div>
+                  <ul className="flex flex-col gap-5">
+                      {footerLinks.sitemap.map((link) => (
+                          <li key={link.name}>
+                              <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                                  <span className="text-base font-medium">{link.name}</span>
+                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                              </a>
+                          </li>
+                      ))}
+                  </ul>
               </div>
-              <ul className="flex flex-col gap-5">
-                  {footerLinks.sitemap.map((link) => (
-                      <li key={link.name}>
-                          <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                              <span className="text-base font-medium">{link.name}</span>
-                              <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                          </a>
-                      </li>
-                  ))}
-              </ul>
+
+              <div>
+                  <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
+                      <span>الشركة</span>
+                      <span>[</span> 
+                      <span className="w-1.5 h-1.5 bg-electric-cyan rounded-full inline-block animate-pulse" />
+                      <span>]</span>
+                  </div>
+                  <ul className="flex flex-col gap-5">
+                      {footerLinks.company.map((link) => (
+                          <li key={link.name}>
+                              <a href={link.href} className="text-zinc-500 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
+                                  <span className="text-base font-medium">{link.name}</span>
+                                  <ArrowUpRight size={14} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                              </a>
+                          </li>
+                      ))}
+                  </ul>
+              </div>
           </div>
 
-          <div className="md:col-span-4 lg:col-span-2 footer-reveal">
-              <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-sm">[</span>
-                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">الشركة</span>
-                  <span className="text-zinc-800 font-mono text-sm">]</span>
+          {/* Newsletter HUD - Anchored Left in RTL */}
+          <div className="flex-1 lg:max-w-sm footer-reveal order-3 lg:mr-auto">
+              <div className="flex items-center justify-end gap-2 mb-8 text-zinc-800 font-mono text-sm uppercase tracking-widest">
+                  <span>المجلة التقنية</span>
+                  <span>[</span> 
+                  <span className="w-1.5 h-1.5 bg-brand-blue rounded-full inline-block animate-pulse" />
+                  <span>]</span>
               </div>
-              <ul className="flex flex-col gap-5">
-                  {footerLinks.company.map((link) => (
-                      <li key={link.name}>
-                          <a href={link.href} className="text-zinc-400 hover:text-white transition-all duration-300 flex items-center justify-end gap-2 group">
-                              <span className="text-base font-medium">{link.name}</span>
-                              <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                          </a>
-                      </li>
-                  ))}
-              </ul>
-          </div>
-
-          {/* Newsletter Redesign */}
-          <div className="md:col-span-12 lg:col-span-3 footer-reveal">
-               <div className="flex items-center justify-end gap-3 mb-8 group/label">
-                  <span className="text-zinc-800 font-mono text-sm">[</span>
-                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest arabic-impact">المجلة التقنية</span>
-                  <span className="text-zinc-800 font-mono text-sm">]</span>
-              </div>
-              <p className="text-zinc-500 text-base mb-6 leading-relaxed">
-                  أنضم لـ 10,000+ مهندس ومبدع.
+              <p className="text-zinc-600 text-base mb-6">
+                  كن أول من يتلقى أحدث الابتكارات التقنية.
               </p>
-              <div className="relative group">
-                  <div className="absolute inset-0 bg-linear-to-r from-electric-violet/20 to-electric-cyan/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative flex bg-zinc-900/50 backdrop-blur-xl border border-white/5 rounded-2xl p-2 focus-within:border-white/20 transition-all">
+              <div className="relative group p-[1px] rounded-2xl bg-white/[0.03] overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-r from-electric-violet/20 via-transparent to-electric-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="relative flex bg-black/40 backdrop-blur-md rounded-[15px] p-1.5">
                     <input 
                         type="email" 
                         placeholder="البريد الإلكتروني" 
-                        className="w-full bg-transparent px-4 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-600"
+                        className="w-full bg-transparent px-5 py-3 text-base text-white focus:outline-none text-right placeholder:text-zinc-700"
                     />
-                    <button className="bg-white text-black px-6 py-3 rounded-xl text-sm font-bold hover:bg-electric-cyan transition-all shrink-0">
+                    <button className="px-6 py-3 rounded-xl text-sm font-bold bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black transition-all duration-500 whitespace-nowrap">
                         اشتراك
                     </button>
                   </div>
@@ -162,30 +162,25 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Cinematic Brand Reveal - Background Text */}
-        <div className="mt-0 mb-2 text-center relative pointer-events-none footer-brand-chars">
-          <h2 className="text-[14vw] font-bold text-white/5 uppercase tracking-tighter leading-none arabic-impact flex justify-center gap-[0.2em] whitespace-nowrap overflow-hidden">
-            {"الذكاء والأشياء".split(" ").map((word, i) => (
-                <span key={i} className="footer-brand-word inline-block">
-                    {word}
-                </span>
-            ))}
+        {/* Cinematic Backdrop Logo */}
+        <div className="mt-12 mb-4 text-center select-none pointer-events-none footer-brand-chars">
+          <h2 className="text-[14vw] font-bold text-white/[0.03] uppercase tracking-tighter leading-none arabic-impact footer-brand-chars">
+             الذكاء والأشياء
           </h2>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 footer-reveal">
-            <div className="flex items-center gap-8 text-xs font-bold text-zinc-500 arabic-impact tracking-widest">
-                <p>© 2026 الذكاء والأشياء</p>
-                <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
-                <a href="#" className="hover:text-white transition-colors">الأمن السحابي</a>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/[0.03] flex flex-col md:flex-row justify-between items-center gap-6 footer-reveal">
+            <div className="flex items-center gap-8 text-xs font-bold text-zinc-700 uppercase tracking-widest font-mono">
+                <p>© 2026 AI & THINGS</p>
+                <a href="#" className="hover:text-zinc-400 transition-colors">PRIVACY</a>
+                <a href="#" className="hover:text-zinc-400 transition-colors">SECURITY</a>
             </div>
-            
             <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs font-mono font-bold text-zinc-400">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                  <span className="tracking-widest uppercase">Systems Active</span>
+                <div className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.03] flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
+                  <span className="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.2em]">Live Connection</span>
                 </div>
-                <span className="text-xs font-bold text-zinc-700 uppercase tracking-widest font-mono">v2.4.0</span>
             </div>
         </div>
       </div>
