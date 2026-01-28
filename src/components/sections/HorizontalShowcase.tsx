@@ -12,19 +12,19 @@ const works = [
   {
     title: "مشروع النبراس",
     category: "الذكاء الاصطناعي / تصميم الهوية",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop&q=80",
+    image: "/images/Artboard 1.svg",
     desc: "نظام رؤية حاسوبية ذكي مخصص لتحليل البيانات الصناعية الكبرى"
   },
   {
     title: "منصة التفاعل",
     category: "تطوير الويب / تجربة المستخدم",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&q=80",
+    image: "/images/Artboard 2.svg",
     desc: "إعادة ابتكار التفاعل الرقمي بين الإنسان والآلة"
   },
   {
       title: "أتمتة الغد",
       category: "تحليل البيانات / أتمتة",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&q=80",
+      image: "/images/Artboard 3.svg",
       desc: "خوارزميات متطورة تعمل في الخلفية لجعل كل شيء أسهل"
   }
 ];

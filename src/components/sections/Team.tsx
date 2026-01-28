@@ -11,7 +11,7 @@ const founders = [
     role: "المؤسس الشريك / المدير التقني",
     roleEn: "CTO / Tech Architect",
     desc: "المعماري التقني وراء النواة العصبية والأنظمة الموزعة.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&q=80",
+    image: "/images/Artboard 4.svg",
     id: "01"
   },
   {
@@ -20,7 +20,7 @@ const founders = [
     role: "المؤسس الشريك / المدير الإبداعي",
     roleEn: "Creative Director",
     desc: "حارس الرؤية الجمالية والنماذج التفاعلية المبتكرة.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=1000&fit=crop&q=80",
+    image: "/images/Artboard 5.svg",
     id: "02"
   },
   {
@@ -29,7 +29,7 @@ const founders = [
     role: "المؤسس الشريك / مدير الأتمتة",
     roleEn: "Automation Director",
     desc: "سيد الكفاءة الخوارزمية والإستراتيجية القائمة على المنطق.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1000&fit=crop&q=80",
+    image: "/images/Artboard 6.svg",
     id: "03"
   }
 ];

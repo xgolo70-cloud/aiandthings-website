@@ -8,22 +8,22 @@ const team = [
   {
     name: "أليكساندر",
     role: "المدير التقني",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop&q=80",
+    image: "/images/Artboard 7.svg",
   },
   {
     name: "سارة ميلر",
     role: "رئيسة المصممين",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=1600&fit=crop&q=80",
+    image: "/images/Artboard 8.svg",
   },
   {
     name: "ديفيد بارك",
     role: "تقني إبداعي",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&h=1600&fit=crop&q=80",
+    image: "/images/Artboard 9.svg",
   },
   {
     name: "إيلينا ر.",
     role: "إستراتيجية",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&h=1600&fit=crop&q=80",
+    image: "/images/Artboard 10.svg",
   }
 ];
 
