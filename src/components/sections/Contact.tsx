@@ -77,18 +77,28 @@ export default function Contact() {
             className="relative"
           >
             <div className="cyber-card glass-vibrant p-10 lg:p-16 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form border border-white/5 hover:border-white/10 transition-all duration-700">
+                {/* Holographic Terminal Header */}
+                <div className="absolute top-0 left-0 right-0 h-10 border-b border-white/5 flex items-center justify-between px-6 bg-white/2">
+                    <div className="flex gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500/20" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500/20" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/20" />
+                    </div>
+                    <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">System_Transmit_v2.0</span>
+                </div>
+
                 {/* Chromatic Border Effect */}
                 <div className="absolute inset-0 z-0 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none"
                     style={{
                         padding: '1px',
-                        background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(124, 58, 237, 0.3))',
+                        background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(124, 58, 237, 0.4))',
                         WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                         WebkitMaskComposite: 'xor',
                         maskComposite: 'exclude',
                     }}
                 />
 
-                <form className="space-y-10 relative z-10" dir="rtl">
+                <form className="space-y-10 relative z-10 mt-6" dir="rtl">
                     <div className="space-y-2 group/input">
                         <label className="text-[10px] text-zinc-500 font-bold uppercase arabic-impact mr-1 group-focus-within/input:text-electric-cyan transition-colors">الاسم الكامل</label>
                         <input 

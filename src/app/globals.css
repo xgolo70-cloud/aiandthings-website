@@ -14,10 +14,34 @@
   --color-neon-lime: #a3e635;
 
   /* Animations */
-  --animate-aurora: aurora 20s linear infinite;
-  --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-float: float 10s ease-in-out infinite;
   --animate-shimmer: shimmer 2s linear infinite;
+  --animate-data-flow: data-flow 3s linear infinite;
+  --animate-scanner: scanner 4s ease-in-out infinite;
+  --animate-ping-slow: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes data-flow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes scanner {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(500px); opacity: 0; }
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.3; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes aurora {
