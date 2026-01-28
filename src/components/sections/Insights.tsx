@@ -1,80 +1,116 @@
 'use client';
 
-import React from 'react';
-import Reveal from '@/components/ui/Reveal';
-import { ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence, useSpring, useMotionValue } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import SilkDivider from '@/components/ui/SilkDivider';
 
 const insights = [
   {
-    category: "Philosophy",
-    title: "Why Minimalist Logic Outlasts Aesthetic Trends",
-    date: "MAR 12, 2026",
-    link: "#"
+    date: "2024 / 03",
+    title: "The Death of Skeuomorphism",
+    category: "Theory",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop&q=80"
   },
   {
-    category: "Intelligence",
-    title: "Bridging the Gap: How We Integrate AI into Real-World Artifacts",
-    date: "FEB 28, 2026",
-    link: "#"
+    date: "2024 / 02",
+    title: "Latency as an Emotion",
+    category: "Engineering",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&q=80"
   },
   {
+    date: "2024 / 01",
+    title: "Interface Fluidity Standards",
     category: "Design",
-    title: "The Emotional Resonance of Geometric Precision",
-    date: "JAN 15, 2026",
-    link: "#"
+    image: "https://images.unsplash.com/photo-1542202229-7d93c33f5d07?w=800&h=600&fit=crop&q=80"
   }
 ];
 
 export default function Insights() {
-  return (
-    <section id="insights" className="py-40 px-6 bg-white border-t border-neutral-100">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-          <div>
-            <Reveal>
-              <span className="text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Thought Leadership</span>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-950 font-display leading-[0.85]">
-                Latest <br />
-                <span className="font-serif italic text-accent-500 font-normal">Insights.</span>
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={0.2}>
-            <button className="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-neutral-950 transition-colors">
-              Explore All Thoughts
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </Reveal>
-        </div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  
+  // Mouse position state for the floating image
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-        <div className="space-y-0 border-t border-neutral-100">
-          {insights.map((item, i) => (
-            <Reveal key={i} delay={i * 0.1} width="100%">
-              <a 
-                href={item.link}
-                className="group flex flex-col md:grid md:grid-cols-12 items-center py-12 md:py-16 border-b border-neutral-100 hover:bg-neutral-50/50 transition-colors px-4 md:px-8"
-              >
-                <div className="md:col-span-2 mb-4 md:mb-0">
-                  <span className="text-accent-500 font-serif italic text-xl">{item.category}</span>
-                </div>
-                <div className="md:col-span-8 mb-6 md:mb-0">
-                  <h3 className="text-3xl md:text-5xl font-black text-neutral-950 uppercase tracking-tighter leading-none group-hover:text-accent-600 transition-colors">
-                    {item.title}
-                  </h3>
-                </div>
-                <div className="md:col-span-2 flex flex-col items-center md:items-end justify-center">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-neutral-400 mb-2">{item.date}</span>
-                  <div className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center group-hover:bg-neutral-950 group-hover:border-neutral-950 transition-all">
-                    <ArrowRight size={16} className="text-neutral-400 group-hover:text-white transition-colors" />
+  // Smooth springs for the image movement
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  return (
+    <section id="insights" className="bg-white py-40 border-b border-neutral-100 relative cursor-default">
+      <div className="container mx-auto px-6 relative z-10">
+          <div className="flex items-end justify-between mb-24">
+              <h2 className="text-7xl md:text-9xl font-display font-extrabold text-brand-dark tracking-tighter">
+                  The Journal.
+              </h2>
+              <span className="text-sm font-mono uppercase tracking-widest text-neutral-400 hidden md:block">Read More</span>
+          </div>
+
+          <div className="flex flex-col">
+              {insights.map((item, index) => (
+                  <div 
+                    key={index}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    className="group border-t border-neutral-200 py-16 flex flex-col md:flex-row justify-between items-baseline hover:bg-neutral-50 transition-colors duration-300 px-4 -mx-4 cursor-none"
+                  >
+                      <div className="w-full md:w-1/4 mb-4 md:mb-0">
+                          <span className="text-sm font-mono text-neutral-500 group-hover:text-brand-accent transition-colors">0{index + 1} / {item.category}</span>
+                      </div>
+                      <div className="w-full md:w-1/2">
+                          <h3 className="text-4xl md:text-6xl font-display font-bold text-neutral-900 group-hover:-translate-x-4 transition-transform duration-500 ease-out">
+                              {item.title}
+                          </h3>
+                      </div>
+                      <div className="w-full md:w-1/4 flex justify-end items-center mt-4 md:mt-0">
+                          <span className="text-sm font-mono text-neutral-400 mr-8">{item.date}</span>
+                          <div className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center group-hover:bg-brand-accent group-hover:border-brand-accent group-hover:text-white transition-all duration-300">
+                            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:rotate-45" />
+                          </div>
+                      </div>
                   </div>
-                </div>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+              ))}
+              <SilkDivider />
+          </div>
       </div>
+
+      {/* Floating Image Portal */}
+      <AnimatePresence>
+        {hoveredIndex !== null && (
+            <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.2 }}
+                style={{ 
+                    x: springX, 
+                    y: springY,
+                    translateX: "-50%",
+                    translateY: "-50%"
+                }}
+                className="fixed top-0 left-0 w-[400px] h-[300px] pointer-events-none z-50 overflow-hidden rounded-lg shadow-2xl hidden md:block"
+            >
+                <Image 
+                    src={insights[hoveredIndex].image}
+                    alt={insights[hoveredIndex].title}
+                    fill
+                    className="object-cover"
+                />
+            </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

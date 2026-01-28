@@ -1,0 +1,196 @@
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+
+class Particle {
+  x: number;
+  y: number;
+  size: number;
+  baseX: number;
+  baseY: number;
+  density: number;
+  color: string;
+  ctx: CanvasRenderingContext2D;
+
+  constructor(x: number, y: number, ctx: CanvasRenderingContext2D) {
+    this.x = x;
+    this.y = y;
+    this.ctx = ctx;
+    this.size = Math.random() * 1.5 + 0.5;
+    this.baseX = this.x;
+    this.baseY = this.y;
+    this.density = (Math.random() * 30) + 1;
+    this.color = Math.random() > 0.5 ? '#7c3aed' : (Math.random() > 0.5 ? '#06b6d4' : '#ffffff');
+  }
+
+  draw() {
+    this.ctx.fillStyle = this.color;
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    this.ctx.closePath();
+    this.ctx.fill();
+  }
+
+  update(mouse: { x: number, y: number, radius: number }) {
+    const dx = mouse.x - this.x;
+    const dy = mouse.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const forceDirectionX = dx / distance;
+    const forceDirectionY = dy / distance;
+    const maxDistance = mouse.radius;
+    const force = (maxDistance - distance) / maxDistance;
+    const directionX = forceDirectionX * force * this.density;
+    const directionY = forceDirectionY * force * this.density;
+
+    if (distance < mouse.radius) {
+      this.x -= directionX;
+      this.y -= directionY;
+    } else {
+      if (this.x !== this.baseX) {
+        const dxBack = this.x - this.baseX;
+        this.x -= dxBack / 15;
+      }
+      if (this.y !== this.baseY) {
+        const dyBack = this.y - this.baseY;
+        this.y -= dyBack / 15;
+      }
+    }
+  }
+}
+
+export default function InteractiveHero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const particles: Particle[] = [];
+    const particleCount = 150;
+    const mouse = { x: -100, y: -100, radius: 150 };
+
+    function init() {
+      particles.length = 0;
+      for (let i = 0; i < particleCount; i++) {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
+        particles.push(new Particle(x, y, ctx!));
+      }
+    }
+
+    function animate() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].draw();
+        particles[i].update(mouse);
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    const handleMouseMove = (e: MouseEvent) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    }
+
+    const handleResize = () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        init();
+    }
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+    
+    // GSAP Introduction
+    gsap.fromTo(".hero-text", 
+        { opacity: 0, y: 40, scale: 0.9 }, 
+        { opacity: 1, y: 0, scale: 1, duration: 2, ease: "expo.out", stagger: 0.3 }
+    );
+
+    return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  return (
+    <section ref={containerRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-zinc-950">
+      
+      {/* Deep Space Gradient Background */}
+      <div className="absolute inset-0 z-0 opacity-40">
+          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-electric-violet blur-[120px] rounded-full mix-blend-screen opacity-40 animate-float" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-electric-cyan blur-[120px] rounded-full mix-blend-screen opacity-40 animate-float" style={{ animationDelay: '-5s' }} />
+      </div>
+
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 bg-transparent" />
+      
+      <div className="relative z-10 text-center px-6">
+          <motion.div className="hero-text mb-4">
+              <span className="text-[10px] font-mono text-zinc-500 uppercase mb-4 block">ai and things</span>
+          </motion.div>
+          
+          <motion.h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.4] arabic-impact mb-8 relative z-20 pt-4 pb-12 overflow-visible">
+              نحول الأفكار إلى <br/>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-8 pt-4">واقع رقمي ذكي</span>
+          </motion.h1>
+
+          <motion.div className="hero-text mt-12 flex flex-col items-center gap-8">
+              <p className="text-zinc-400 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+                  نحن نبني المستقبل بالتفاصيل، حيث تلتقي الهندسة بالإبداع والذكاء الاصطناعي.
+              </p>
+              
+              <div className="flex flex-wrap items-center justify-center gap-6 mt-4">
+                  <motion.button 
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-white text-black rounded-full font-bold text-base hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300 arabic-impact"
+                  >
+                      تواصل معنا
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 glass-vibrant text-white rounded-full font-bold text-base border border-white/5 hover:border-white/20 transition-all duration-300 arabic-impact"
+                  >
+                      رؤية أعمالنا
+                  </motion.button>
+              </div>
+              
+               <motion.div 
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 transition={{ delay: 2, duration: 1 }}
+                 className="mt-16 flex flex-col items-center gap-4"
+               >
+                  <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest arabic-impact">تصفح للأسفل</span>
+                  <motion.div 
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-px h-12 bg-linear-to-b from-electric-cyan to-transparent opacity-50"
+                  />
+              </motion.div>
+          </motion.div>
+      </div>
+
+      {/* Side Details - Cyber Minimalism */}
+      <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-10 opacity-20">
+          <div className="h-40 w-px bg-linear-to-b from-white to-transparent" />
+          <span className="rotate-90 text-[10px] font-mono uppercase origin-left">Creative_Tech</span>
+      </div>
+    </section>
+  );
+}

@@ -1,21 +1,30 @@
 import type { Metadata } from 'next';
-import { Inter, Outfit, EB_Garamond } from 'next/font/google';
+import { Instrument_Sans, Alexandria } from 'next/font/google';
 import './globals.css';
 import Layout from '@/components/layout/Layout';
 import SmoothScroll from '@/components/ui/SmoothScroll';
+import CustomCursor from '@/components/ui/CustomCursor';
+// NoiseOverlay removed for cleaner "Cosmic Glass" look
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
-const ebGaramond = EB_Garamond({ subsets: ['latin'], variable: '--font-eb-garamond' });
+const instrument = Instrument_Sans({ 
+  subsets: ['latin'], 
+  variable: '--font-instrument',
+  display: 'swap',
+});
+
+const alexandria = Alexandria({
+    subsets: ['arabic'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    variable: '--font-alexandria',
+    display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'ai and things',
-  description: 'Crafting Intelligence & Aesthetics.',
+  description: 'Everything is possible.',
 };
 
 import { ThemeProvider } from '@/components/theme-provider';
-
-// ... imports
 
 export default function RootLayout({
   children,
@@ -23,14 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} ${outfit.variable} ${ebGaramond.variable} antialiased font-sans`}>
+    <html lang="ar" dir="rtl" className="scroll-smooth dark" suppressHydrationWarning>
+      <body className={`${instrument.variable} ${alexandria.variable} antialiased font-sans text-white bg-zinc-950 selection:bg-violet-500/30 selection:text-violet-200`}>
         <ThemeProvider
             attribute="class"
-            forcedTheme="light"
+            forcedTheme="dark" 
             disableTransitionOnChange
           >
             <SmoothScroll>
+                 {/* Custom Cursor can remain if it fits the vibe, checking implementation later */}
+                <CustomCursor /> 
                 <Layout>
                 {children}
                 </Layout>

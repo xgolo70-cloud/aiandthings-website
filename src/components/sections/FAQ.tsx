@@ -2,25 +2,31 @@
 
 import React, { useState } from 'react';
 import Reveal from '@/components/ui/Reveal';
+import Section from '@/components/ui/Section';
+import { SectionHeading } from '@/components/ui/Typography';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronRight, Terminal } from 'lucide-react';
 
 const questions = [
   {
-    q: "How long does a typical project take?",
-    a: "Quality takes time. A standard high-fidelity digital artifact usually ranges from 8 to 14 weeks depending on the complexity of the intelligence layers."
+    id: "KB_01",
+    q: "Project Timeline Estimation",
+    a: "Standard deployment cycles range from 8-14 weeks depending on architectural complexity. High-fidelity artifacts require rigorous testing phases."
   },
   {
-    q: "Do you only work with tech companies?",
-    a: "We work with any brand that values depth over breadth. Whether it's high-fashion, specialized finance, or frontier tech, we bring the same level of artisan engineering."
+    id: "KB_02",
+    q: "Target Industries",
+    a: "Our systems are sector-agnostic. We engineer digital solutions for finance, frontier tech, and high-end retail, prioritizing depth over breadth."
   },
   {
-    q: "What is your typical project cost?",
-    a: "Our engagements are bespoke. We work on a project basis that covers research, design, and artisan development. Contact us for a specialized quote."
+    id: "KB_03",
+    q: "Cost Structure",
+    a: "Engagements are bespoke and project-based. We provide detailed technical specifications and fixed-cost proposals after the initial Discovery phase."
   },
   {
-    q: "Do you offer post-launch support?",
-    a: "Yes. Every artifact we build comes with a personalized maintenance ecosystem to ensure the logic remains sharp and the aesthetics remain pristine."
+    id: "KB_04",
+    q: "Maintenance Protocols",
+    a: "All deployed artifacts include a standard maintenance ecosystem. We monitor latency, uptime, and aesthetic integrity post-launch."
   }
 ];
 
@@ -28,53 +34,76 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-40 px-6 bg-white relative">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-24">
-          <Reveal width="100%">
-            <span className="text-accent-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">Common Inquiries</span>
-          </Reveal>
-          <Reveal width="100%" delay={0.1}>
-            <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-950 font-display">
-               The <span className="font-serif italic text-accent-500 font-normal">Details.</span>
-            </h2>
-          </Reveal>
-        </div>
-
-        <div className="space-y-4 border-t border-neutral-100">
-          {questions.map((item, i) => (
-            <div key={i} className="border-b border-neutral-100">
-              <button 
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full py-8 flex items-center justify-between text-left group"
-              >
-                <span className="text-xl md:text-2xl font-black text-neutral-900 uppercase tracking-tighter group-hover:text-accent-600 transition-colors">
-                  {item.q}
-                </span>
-                <div className="ml-4 text-accent-500">
-                  {openIndex === i ? <Minus size={20} /> : <Plus size={20} />}
-                </div>
-              </button>
-              
-              <AnimatePresence>
-                {openIndex === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-10 text-lg text-neutral-500 font-light leading-relaxed max-w-2xl">
-                      {item.a}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+    <Section id="faq" className="bg-neutral-50 border-b border-neutral-100">
+      
+      <div className="mb-20">
+        <Reveal>
+           <div className="flex items-center gap-2 mb-6">
+              <div className="h-px w-8 bg-brand-dark" />
+              <span className="text-[10px] font-bold uppercase tracking-normal text-brand-dark arabic-impact">
+                  قاعدة المعرفة
+              </span>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <SectionHeading className="text-brand-dark pb-8 pt-4 leading-relaxed text-5xl md:text-7xl">
+             تفاصيل <span className="text-neutral-400">النظام.</span>
+          </SectionHeading>
+        </Reveal>
       </div>
-    </section>
+
+      <div className="bg-white border border-neutral-200 divide-y divide-neutral-100">
+        {questions.map((item, i) => (
+            <Reveal key={i} delay={i * 0.05} width="100%">
+                <div className="group">
+                    <button 
+                        onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                        className="w-full flex items-center justify-between p-6 md:p-8 hover:bg-neutral-50 transition-colors text-left"
+                    >
+                        <div className="flex items-center gap-6">
+                            <span className="text-[10px] font-mono text-neutral-400 w-12 shrink-0">
+                                {item.id}
+                            </span>
+                            <span className="text-lg md:text-xl font-bold text-neutral-900 font-mono tracking-tight group-hover:text-brand-accent transition-colors">
+                                {item.q}
+                            </span>
+                        </div>
+                        <div className={`text-neutral-300 transition-transform duration-300 ${openIndex === i ? 'rotate-90 text-brand-dark' : 'group-hover:text-brand-dark'}`}>
+                            <ChevronRight size={20} />
+                        </div>
+                    </button>
+                    
+                    <AnimatePresence>
+                        {openIndex === i && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="overflow-hidden"
+                            >
+                                <div className="px-6 md:px-8 pb-8 pt-0 pl-24 hidden md:block">
+                                    <div className="flex gap-4">
+                                        <Terminal size={16} className="text-brand-accent shrink-0 mt-1" />
+                                        <p className="text-neutral-500 text-sm leading-relaxed max-w-2xl font-mono">
+                                            {item.a}
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* Mobile view without large padding */}
+                                <div className="px-6 pb-8 pt-0 md:hidden">
+                                     <p className="text-neutral-500 text-sm leading-relaxed font-mono pl-12 border-l border-neutral-100 ml-3">
+                                        {item.a}
+                                     </p>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </Reveal>
+        ))}
+      </div>
+
+    </Section>
   );
 }

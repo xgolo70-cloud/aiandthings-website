@@ -1,103 +1,108 @@
 'use client';
 
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
-import Reveal from '@/components/ui/Reveal';
-import { projects } from '@/data/content';
-import Section from '@/components/ui/Section';
-import { SectionEyebrow, SectionHeading, SectionSubheading } from '@/components/ui/Typography';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import SpotlightCard from '../ui/SpotlightCard';
+
+const projects = [
+  {
+    id: "01",
+    client: "Nexus Finance",
+    title: "Algorithmic Trading Interface",
+    description: "Redefining how financial data is visualized for the modern era. High-performance dashboards for real-time decision making.",
+    image: "https://images.unsplash.com/photo-1611974765270-ca12586343bb?w=800&h=600&fit=crop&q=80",
+    color: "from-electric-violet/20",
+    size: "md:col-span-2"
+  },
+  {
+    id: "02",
+    client: "Aether Health",
+    title: "Diagnostic Neural Net",
+    description: "Empowering doctors with intuitive AI-assisted diagnostic tools.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop&q=80",
+    color: "from-electric-cyan/20",
+    size: "md:col-span-1"
+  },
+  {
+    id: "03",
+    client: "Orbital Logistics",
+    title: "Global Fleet Telemetry",
+    description: "Streamlining global supply chains with intelligent routing.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop&q=80",
+    color: "from-brand-blue/20",
+    size: "md:col-span-1"
+  },
+  {
+    id: "04",
+    client: "Synthesis",
+    title: "Unstructured Data Engine",
+    description: "Transforming raw noise into actionable intelligence through autonomous processing.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&q=80",
+    color: "from-electric-violet/20",
+    size: "md:col-span-2"
+  }
+];
 
 export default function Work() {
   return (
-    <Section 
-      id="work" 
-      backgroundDecoration={
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-accent-100/30 rounded-full blur-[120px]" />
-            <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-accent-50/50 rounded-full blur-[100px]" />
+    <section id="work" className="py-32 px-6 bg-black relative overflow-hidden">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+        >
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                Selected <span className="text-zinc-500">projects.</span>
+            </h2>
+            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
+                A showcase of high-precision systems and autonomous interfaces built for industry leaders.
+            </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((project, i) => (
+                <SpotlightCard 
+                  key={project.id} 
+                  delay={i * 0.1}
+                  className={`${project.size} group min-h-[400px] md:min-h-[500px] border-white/5`}
+                >
+                    <div className="relative h-full flex flex-col p-8 md:p-12 overflow-hidden">
+                        {/* Radiant Background */}
+                        <div className={`absolute -top-24 -right-24 w-64 h-64 bg-linear-to-br ${project.color} to-transparent blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700`} />
+                        
+                        <div className="flex justify-between items-start mb-8 relative z-10">
+                            <div>
+                                <p className="text-[10px] font-mono text-zinc-500 mb-1 uppercase tracking-widest">{project.client}</p>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{project.title}</h3>
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+                                <ArrowUpRight size={18} />
+                            </div>
+                        </div>
+
+                        <div className="relative mt-auto pt-8">
+                             <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 mb-8 shadow-2xl">
+                                <Image 
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                             </div>
+                             <p className="text-zinc-500 text-sm md:text-base font-light leading-relaxed max-w-md">
+                                {project.description}
+                             </p>
+                        </div>
+                    </div>
+                </SpotlightCard>
+            ))}
         </div>
-      }
-    >
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-          <div>
-               <Reveal>
-                  <SectionEyebrow>Our Portfolio</SectionEyebrow>
-               </Reveal>
-              <Reveal delay={0.1}>
-                  <SectionHeading className="text-5xl md:text-8xl text-balance leading-[0.9]">
-                      Selected <br />
-                      <span className="font-serif italic text-accent-500 font-normal">Work.</span>
-                  </SectionHeading>
-              </Reveal>
-          </div>
-          
-          <Reveal delay={0.2}>
-              <div className="flex flex-col items-start md:items-end gap-4">
-                  <SectionSubheading className="max-w-sm text-balance md:text-right text-lg">
-                      A curation of our most impactful digital artifacts, merging intelligence with beauty.
-                  </SectionSubheading>
-                  <button className="group hidden md:flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-neutral-800 hover:text-accent-500 transition-colors">
-                      View All Projects
-                      <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </button>
-              </div>
-          </Reveal>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-          {projects.map((project, index) => (
-              <div 
-                  key={index} 
-                  className={`${index % 2 === 1 ? 'md:mt-32' : ''}`} // Staggered Layout for 2nd column
-              >
-               <Reveal delay={index * 0.1} width="100%" fullHeight>
-                  <div className="group block cursor-pointer">
-                      {/* Image Container */}
-                      <div className="relative aspect-4/5 w-full overflow-hidden rounded-sm mb-8">
-                          <Image 
-                              src={project.image} 
-                              alt={project.title}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                              className="object-cover transition-all duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                          />
-                          {/* Premium Overlays */}
-                           <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors duration-500" />
-                           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                           
-                           {/* Hover Border Glow */}
-                           <div className="absolute inset-0 border border-accent-200/0 group-hover:border-accent-300/50 transition-colors duration-500 scale-95 group-hover:scale-100" />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex justify-between items-start border-t border-neutral-200 pt-6 group-hover:border-accent-300/30 transition-colors duration-500">
-                           <div>
-                              <span className="text-xs font-bold tracking-widest text-accent-500 uppercase mb-2 block">
-                                  {project.category}
-                              </span>
-                              <h3 className="text-3xl md:text-4xl font-serif text-neutral-900 group-hover:text-accent-600 transition-colors duration-300">
-                                  {project.title}
-                              </h3>
-                           </div>
-                           <span className="text-neutral-400 font-display text-sm">
-                              {project.year}
-                           </span>
-                      </div>
-                      <p className="mt-3 text-neutral-500 max-w-sm text-sm leading-relaxed line-clamp-2 bg-linear-to-r from-neutral-500 to-neutral-500 bg-size-[0%_1px] bg-no-repeat group-hover:bg-size-[100%_1px] transition-all duration-500 ease-out bg-bottom-left pb-1">
-                          {project.description}
-                      </p>
-                  </div>
-               </Reveal>
-              </div>
-          ))}
-      </div>
-      
-      <div className="mt-24 flex justify-center md:hidden">
-           <button className="flex items-center gap-2 border-b border-neutral-900 pb-1 text-neutral-900 font-medium uppercase tracking-widest text-sm">
-              View all projects <ArrowUpRight size={14} />
-          </button>
-      </div>
-    </Section>
+    </section>
   );
 }

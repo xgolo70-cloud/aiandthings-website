@@ -1,52 +1,55 @@
 'use client';
 
 import React from 'react';
-import Reveal from '@/components/ui/Reveal';
 import { motion } from 'framer-motion';
 
-const logos = [
-  "Lumina", "Vertex", "Oculus", "Nebula", "Quantum", "Apex", "Zenith", "Horizon"
+const brands = [
+  "TechCorp", "NeuralSystems", "FutureLabs", "DataFlow", "CyberDyne", "OmniCorp", "StarkInd"
 ];
+
+const MarqueeItem = ({ text }: { text: string }) => (
+    <motion.div 
+      whileHover={{ scale: 1.1, opacity: 1 }}
+      className="flex items-center gap-6 px-12 opacity-20 transition-all duration-300 cursor-default"
+    >
+        <span className="text-3xl md:text-5xl font-bold text-white font-mono uppercase tracking-tighter">{text}</span>
+    </motion.div>
+);
 
 export default function TrustedBy() {
   return (
-    <section className="py-20 border-b border-neutral-100 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-10">
-            <Reveal>
-                <p className="text-sm font-medium text-neutral-400 uppercase tracking-widest text-center md:text-left">
-                    Trusted by industry leaders
-                </p>
-            </Reveal>
-        </div>
+    <section className="py-32 border-y border-white/5 bg-black overflow-hidden relative">
+      <div className="mb-16 text-center">
+          <span className="text-xs text-zinc-500 mb-4 block font-light">شركاء النجاح</span>
+          <h2 className="text-2xl md:text-4xl font-bold text-white arabic-impact">شركاء الرؤية</h2>
+      </div>
 
-        {/* Infinite Marquee */}
-        <div className="relative flex overflow-x-hidden group">
-            <motion.div 
-                className="flex gap-16 md:gap-32 animate-marquee whitespace-nowrap py-4"
-                animate={{ x: [0, -1000] }}
-                transition={{ 
-                    x: {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: 30,
-                        ease: "linear",
-                    },
-                }}
-            >
-                {[...logos, ...logos, ...logos].map((logo, i) => (
-                    <span 
-                        key={i} 
-                        className="text-3xl md:text-4xl font-display font-bold text-neutral-300 hover:text-accent-500 transition-colors duration-300 cursor-default select-none group-hover/marquee:text-neutral-200 group-hover/marquee:hover:text-accent-500"
-                    >
-                        {logo}
-                    </span>
-                ))}
-            </motion.div>
-        
-             {/* Fade Edges */}
-             <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-white to-transparent pointer-events-none" />
-             <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-white to-transparent pointer-events-none" />
-        </div>
+      <div className="relative flex overflow-hidden">
+        {/* Gradients to fade edges - Using mask-image for cleaner fade */}
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{
+            background: 'linear-gradient(90deg, #000 0%, transparent 15%, transparent 85%, #000 100%)',
+            mixBlendMode: 'multiply'
+        }} />
+
+        {/* Marquee Content x2 for seamless loop */}
+        <motion.div 
+            className="flex whitespace-nowrap"
+            animate={{ x: [0, -2000] }}
+            transition={{ 
+                repeat: Infinity, 
+                ease: "linear", 
+                duration: 40 
+            }}
+        >
+            {[...brands, ...brands, ...brands, ...brands].map((brand, i) => (
+                <MarqueeItem key={`${brand}-${i}`} text={brand} />
+            ))}
+        </motion.div>
+      </div>
+
+      {/* Detail Decor */}
+      <div className="absolute top-10 left-10 w-px h-20 bg-linear-to-b from-zinc-900 to-transparent" />
+      <div className="absolute bottom-10 right-10 w-px h-20 bg-linear-to-t from-zinc-900 to-transparent" />
     </section>
   );
 }

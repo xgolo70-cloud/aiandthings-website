@@ -1,38 +1,22 @@
-import Hero from '@/components/sections/Hero';
-import dynamic from 'next/dynamic';
-
-const TrustedBy = dynamic(() => import('@/components/sections/TrustedBy'));
-const Services = dynamic(() => import('@/components/sections/Services'));
-const Work = dynamic(() => import('@/components/sections/Work'));
-const Studio = dynamic(() => import('@/components/sections/Studio'));
-const Testimonials = dynamic(() => import('@/components/sections/Testimonials'));
-const About = dynamic(() => import('@/components/sections/About'));
-const Contact = dynamic(() => import('@/components/sections/Contact'));
-const Philosophy = dynamic(() => import('@/components/sections/Philosophy'));
-const Process = dynamic(() => import('@/components/sections/Process'));
-const FAQ = dynamic(() => import('@/components/sections/FAQ'));
-const Metrics = dynamic(() => import('@/components/sections/Metrics'));
-const Insights = dynamic(() => import('@/components/sections/Insights'));
-const CTABanner = dynamic(() => import('@/components/sections/CTABanner'));
-const ParticleScrollWrapper = dynamic(() => import('@/components/sections/ParticleScrollWrapper'));
+import InteractiveHero from '@/components/sections/InteractiveHero';
+import Philosophy from '@/components/sections/Philosophy';
+import HorizontalShowcase from '@/components/sections/HorizontalShowcase';
+import Services from '@/components/sections/Services';
+import Team from '@/components/sections/Team';
+import Studio from '@/components/sections/Studio';
+import TrustedBy from '@/components/sections/TrustedBy';
+import Contact from '@/components/sections/Contact';
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <TrustedBy />
-      <ParticleScrollWrapper />
-      <Metrics />
+      <InteractiveHero />
       <Philosophy />
-      <Work />
+      <HorizontalShowcase />
       <Services />
-      <Insights />
-      <Process />
+      <Team />
       <Studio />
-      <Testimonials />
-      <FAQ />
-      <CTABanner />
-      <About />
+      <TrustedBy />
       <Contact />
     </>
   );

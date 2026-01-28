@@ -1,74 +1,65 @@
 'use client';
 
-import React from 'react';
-import Reveal from '@/components/ui/Reveal';
-import { Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "They didn't just build a website; they crafted a digital soul for our brand. The attention to detail is unmatched.",
-    author: "Sarah Jenkins",
-    role: "CEO, Lumina Studios"
+    quote: "INTEGRATION SUCCESSFUL. SYSTEM EFFICIENCY INCREASED BY 400%.",
+    author: "SARAH JENKINS",
+    role: "CEO::LUMINA STUDIOS",
   },
   {
-    quote: "The efficiency of their AI integration saved us countless hours. A perfect blend of art and engineering.",
-    author: "Marcus Chen",
-    role: "CTO, Vertex AI"
+    quote: "ARCHITECTURAL PRECISION UNMATCHED. DEPLOYMENT FLAWLESS.",
+    author: "MARCUS CHEN",
+    role: "CTO::VERTEX AI",
   },
   {
-    quote: "Working with the studio was transformative. They pushed us to reimagine what our user experience could be.",
-    author: "Elena Rodriguez",
-    role: "Product Lead, Nebula"
+    quote: "UX LATENCY REDUCED TO NEAR ZERO. A MASTERPIECE OF LOGIC.",
+    author: "ELENA RODRIGUEZ",
+    role: "LEAD::NEBULA CORP",
   }
 ];
 
 export default function Testimonials() {
+  const [index, setIndex] = useState(0);
+
+  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   return (
-    <section className="py-32 px-6 bg-white border-t border-neutral-100 relative overflow-hidden">
-        {/* Ambient background blur */}
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent-50/20 blur-[150px] rounded-full pointer-events-none" />
+    <section id="testimonials" className="bg-neutral-900 text-white py-40 overflow-hidden relative">
+      
+      <div className="container mx-auto px-6 relative z-10">
+          <div className="flex justify-between items-end mb-20 border-b border-white/20 pb-6">
+              <span className="text-xs font-bold uppercase tracking-normal text-neutral-400 arabic-impact">سجلات النقل</span>
+              <div className="flex gap-4">
+                  <button onClick={prev} className="hover:text-brand-accent transition-colors"><ArrowLeft /></button>
+                  <button onClick={next} className="hover:text-brand-accent transition-colors"><ArrowRight /></button>
+              </div>
+          </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-24 text-center">
-            <Reveal width="100%">
-                 <span className="text-accent-500 text-[10px] uppercase tracking-[0.4em] font-bold mb-6 block">
-                    Voices from the Future
-                </span>
-            </Reveal>
-            <Reveal width="100%" delay={0.1}>
-                 <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 font-display text-neutral-950 leading-[0.85]">
-                    Client <br className="md:hidden" />
-                    <span className="font-serif italic text-accent-500 font-normal">Stories.</span>
-                </h2>
-            </Reveal>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {testimonials.map((item, index) => (
-                <Reveal key={index} delay={index * 0.1}>
-                    <div className="group relative p-10 bg-white border border-neutral-100 hover:border-accent-200 transition-all duration-700 h-full flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.02)]">
-                        {/* Hover elements */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                            <div className="absolute inset-0 bg-accent-50/5" />
-                            <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                        </div>
-
-                        <div className="mb-10 relative z-10">
-                            <div className="flex gap-1.5 mb-8 text-accent-500">
-                                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" strokeWidth={0} />)}
-                            </div>
-                            <p className="text-xl md:text-2xl font-serif italic text-neutral-800 leading-relaxed font-normal group-hover:text-neutral-950 transition-colors">
-                                &quot;{item.quote}&quot;
-                            </p>
-                        </div>
-                        <div className="relative z-10 pt-8 border-t border-neutral-100 group-hover:border-accent-200/50 transition-colors">
-                            <p className="font-bold text-neutral-950 uppercase tracking-widest text-xs mb-1">{item.author}</p>
-                            <p className="text-[10px] text-accent-600 uppercase tracking-widest font-bold">{item.role}</p>
-                        </div>
-                    </div>
-                </Reveal>
-            ))}
-        </div>
+          <div className="h-[40vh] flex items-center">
+              <AnimatePresence mode='wait'>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full"
+                  >
+                      <h2 className="text-[4vw] md:text-[5vw] font-bold leading-relaxed tracking-tight mb-8 pb-10 pt-4 overflow-visible">
+                          &quot;{testimonials[index].quote}&quot;
+                      </h2>
+                      <div className="flex flex-col md:flex-row gap-4 items-baseline">
+                          <span className="text-xl font-mono text-brand-accent">{testimonials[index].author}</span>
+                          <span className="text-sm font-mono text-neutral-500">{testimonials[index].role}</span>
+                      </div>
+                  </motion.div>
+              </AnimatePresence>
+          </div>
       </div>
     </section>
   );

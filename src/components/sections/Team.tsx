@@ -1,0 +1,87 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import SpotlightCard from '../ui/SpotlightCard';
+
+const founders = [
+  {
+    name: "جاسم كريم",
+    nameEn: "Jasim Karim",
+    role: "المؤسس الشريك / المدير التقني",
+    roleEn: "CTO / Tech Architect",
+    desc: "المعماري التقني وراء النواة العصبية والأنظمة الموزعة."
+  },
+  {
+    name: "حسان زيني",
+    nameEn: "Hassan Zaini",
+    role: "المؤسس الشريك / المدير الإبداعي",
+    roleEn: "Creative Director / Visual Soul",
+    desc: "حارس الرؤية الجمالية والنماذج التفاعلية المبتكرة."
+  },
+  {
+    name: "أحمد صبحي",
+    nameEn: "Ahmed Sobhi",
+    role: "المؤسس الشريك / مدير الأتمتة",
+    roleEn: "Automation & Data Director",
+    desc: "سيد الكفاءة الخوارزمية والإستراتيجية القائمة على المنطق."
+  }
+];
+
+export default function Team() {
+  return (
+    <section id="studio" className="py-40 px-6 relative bg-zinc-950 overflow-hidden mesh-gradient-tech">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-32 text-right"
+        >
+            <span className="text-xs text-zinc-500 mb-4 block font-light">مؤسسو التغيير</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-8 pt-4">
+                العقول <br/> <span className="text-zinc-500">خلف العمل</span>
+            </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {founders.map((founder, i) => (
+                <SpotlightCard 
+                  key={founder.name} 
+                  delay={i * 0.1}
+                  className="glass-vibrant rounded-2xl group transition-all hover:-translate-y-2 duration-500"
+                >
+                    <div className="relative h-full min-h-[500px] flex flex-col p-12 justify-between">
+                        <div>
+                             <span className="text-xs text-zinc-600 font-light block group-hover:text-electric-violet transition-colors">
+                                 {founder.roleEn}
+                             </span>
+                        </div>
+                        
+                        <div className="text-right">
+                            <p className="text-zinc-400 text-sm mb-4 font-bold">{founder.role}</p>
+                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-2">
+                                {founder.name}
+                            </h3>
+                            <p className="text-zinc-400 text-base leading-relaxed font-normal max-w-[240px] mr-auto">
+                                {founder.desc}
+                            </p>
+                        </div>
+
+                        {/* Detail Decor */}
+                        <div className="absolute top-12 left-12 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                             <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center">
+                                 <div className="w-1 h-1 rounded-full bg-electric-violet animate-pulse" />
+                             </div>
+                        </div>
+                    </div>
+                </SpotlightCard>
+            ))}
+        </div>
+      </div>
+      
+      {/* Background Decor */}
+      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-linear-to-tl from-zinc-900/20 to-transparent blur-[120px] pointer-events-none" />
+    </section>
+  );
+}

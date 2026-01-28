@@ -1,135 +1,84 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
-import Reveal from '@/components/ui/Reveal';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const team = [
   {
-    name: "Jassem Karim",
-    role: "Co-Founder & CTO",
-    bio: "Leading our technical strategy and AI infrastructure.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1200&fit=crop&q=80", 
-    className: "",
-    yOffset: 0,
+    name: "أليكساندر",
+    role: "المدير التقني",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop&q=80",
   },
   {
-    name: "Hassan Zaini",
-    role: "Co-Founder & Creative Director",
-    bio: "Curating the aesthetic and user experience of every product.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=1200&fit=crop&q=80", 
-    className: "md:mt-32",
-    yOffset: 50,
+    name: "سارة ميلر",
+    role: "رئيسة المصممين",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&h=1600&fit=crop&q=80",
   },
   {
-    name: "Ahmed Sobhi",
-    role: "Co-Founder & Automation Lead",
-    bio: "Streamlining complex workflows with intelligent automation.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=1200&fit=crop&q=80", 
-    className: "md:mt-64",
-    yOffset: 100,
+    name: "ديفيد بارك",
+    role: "تقني إبداعي",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&h=1600&fit=crop&q=80",
+  },
+  {
+    name: "إيلينا ر.",
+    role: "إستراتيجية",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&h=1600&fit=crop&q=80",
   }
 ];
 
-function ParallaxCard({ member, index }: { member: typeof team[0], index: number }) {
-    const ref = React.useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"]
-    });
-    
-    const y = useTransform(scrollYProgress, [0, 1], [0, member.yOffset]);
-
-    return (
-        <Reveal key={index} delay={index * 0.2} className={member.className} width="100%" overflowVisible fullHeight>
-            <motion.div style={{ y }} className="h-full">
-                <motion.div 
-                    ref={ref}
-                    className="group relative h-full w-full overflow-hidden rounded-[2.5rem] bg-neutral-50 shadow-2xl shadow-neutral-200/40 transform-gpu"
-                    whileHover={{ y: -12, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                >
-                <div className="absolute inset-0 z-0">
-                  <Image 
-                    src={member.image} 
-                    alt={member.name}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] scale-100 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                  <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
-                </div>
-                
-                <div className="absolute top-6 right-6 w-12 h-12 rounded-full border border-accent-200/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 scale-50 group-hover:scale-100 focus-within:opacity-100 focus-within:scale-100">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent-300 animate-pulse" />
-                </div>
-
-                <div className="absolute inset-0 flex flex-col justify-end p-10 z-10">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                  >
-                    <p className="text-accent-200/90 text-[10px] uppercase tracking-[0.3em] font-semibold mb-3">{member.role}</p>
-                    <h3 className="text-3xl font-serif text-white mb-3 leading-tight">{member.name}</h3>
-                    <div className="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                        <p className="text-neutral-300 text-xs leading-relaxed max-w-xs pb-4 font-light">
-                            {member.bio}
-                        </p>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.div>
-        </Reveal>
-    );
-}
-
 export default function Studio() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  // Map scroll to horizontal movement (RTL: move positive X to slide left-to-right)
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+
   return (
-    <section id="studio" className="py-24 px-6 bg-white relative">
-      {/* Golden artistic background elements */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-accent-100/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 -translate-x-1/3 w-[800px] h-[800px] bg-accent-200/5 blur-[180px] rounded-full pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32 items-end">
-            <div>
-                <Reveal overflowVisible>
-                    <span className="text-accent-400 font-medium tracking-[0.3em] uppercase text-xs mb-6 block">Our Workspace</span>
-                    <h2 className="text-7xl md:text-9xl font-bold tracking-tighter mb-6 font-display text-neutral-950 leading-[0.85]">
-                        The <br />
-                        <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-500 via-accent-200 to-accent-400 animate-shimmer bg-size-[200%_auto]">Studio.</span>
-                    </h2>
-                </Reveal>
-            </div>
-            <div className="space-y-10 text-xl text-neutral-500 leading-relaxed font-light lg:pb-4">
-                <Reveal delay={0.2} overflowVisible>
-                    <p className="font-serif italic text-3xl text-neutral-900 border-l-2 border-accent-300 pl-8">
-                        &ldquo;Crafting the digital future with an artisan&apos;s touch.&rdquo;
-                    </p>
-                    <p className="mt-8 text-lg max-w-lg">
-                        We don&apos;t just write code; we curate experiences. Our studio is a laboratory 
-                        where pure logic transcends into digital sculpture.
-                    </p>
-                </Reveal>
-            </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[250px] gap-6">
-          {team.map((member, index) => (
-            <ParallaxCard key={index} member={member} index={index} />
-          ))}
-        </div>
+    <section ref={targetRef} id="studio-collective" className="relative h-[300vh] bg-black border-t border-white/5">
+      
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         
-        <div className="mt-40 relative flex items-center justify-center">
-            <div className="w-full h-px bg-linear-to-r from-transparent via-accent-300/20 to-transparent" />
-            <div className="absolute w-2 h-2 rounded-full bg-accent-400/40 blur-xs" />
-            <div className="absolute w-1 h-1 rounded-full bg-accent-500" />
+        {/* Section Title - Fixed */}
+        <div className="absolute top-24 right-6 md:right-20 z-20 text-right">
+             <span className="text-xs text-zinc-500 mb-4 block font-light">الفريق الإبداعي</span>
+             <h2 className="text-4xl md:text-7xl font-bold text-white mt-4 arabic-impact">
+                 التنفيذ <br/> <span className="text-zinc-500">الإبداعي</span>
+             </h2>
         </div>
+
+        <motion.div style={{ x }} className="flex gap-12 pr-[30vw] md:pr-[40vw] items-center">
+          {team.map((member, i) => (
+            <div key={i} className="relative w-[70vw] md:w-[25vw] shrink-0 group">
+               <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-white/5 bg-zinc-900 group-hover:border-electric-violet/30 transition-all duration-700 ease-out shadow-2xl">
+                   <Image 
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                   />
+                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+               </div>
+               
+               <div className="mt-8 px-2 text-right">
+                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 arabic-impact">
+                       {member.name}
+                   </h3>
+                   <p className="text-xs text-zinc-500 font-light">
+                       {member.role}
+                   </p>
+               </div>
+            </div>
+          ))}
+          
+          {/* Join Us Card */}
+          <div className="relative w-[70vw] md:w-[25vw] shrink-0 aspect-3/4 flex items-center justify-center rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/30 group cursor-pointer hover:border-white/20 transition-all">
+              <span className="text-sm font-bold text-zinc-600 uppercase group-hover:text-white transition-colors arabic-impact">انضم إلينا</span>
+              <div className="absolute inset-0 bg-electric-violet/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+
+        </motion.div>
       </div>
+
     </section>
   );
 }

@@ -1,46 +1,34 @@
 'use client';
 
 import React from 'react';
-import Reveal from '@/components/ui/Reveal';
+import Counter from '@/components/ui/Counter';
 
-const stats = [
-  { value: "124", label: "Artifacts Born", suffix: "+" },
-  { value: "98", label: "Client Satisfaction", suffix: "%" },
-  { value: "15", label: "Global Awards", suffix: "" },
-  { value: "24", label: "Hours Avg. Response", suffix: "/7" }
+const metrics = [
+  { label: "Years", value: 12, suffix: "+" },
+  { label: "Experts", value: 45, suffix: "" },
+  { label: "Shipped", value: 180, suffix: "+" },
 ];
 
 export default function Metrics() {
   return (
-    <section className="py-32 px-6 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-8">
-          {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <Reveal delay={i * 0.1}>
-                <div className="flex items-baseline mb-4">
-                  <span className="text-6xl md:text-8xl font-black tracking-tighter text-neutral-950 font-display">
-                    {stat.value}
-                  </span>
-                  <span className="text-2xl md:text-3xl font-serif italic text-accent-500 ml-1">
-                    {stat.suffix}
-                  </span>
-                </div>
-              </Reveal>
-              <Reveal delay={0.2 + i * 0.1}>
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-neutral-400">
-                  {stat.label}
-                </p>
-              </Reveal>
-            </div>
-          ))}
-        </div>
+    <section className="bg-white py-40 px-6">
+      <div className="flex flex-col gap-40">
+        {metrics.map((metric, index) => (
+          <div key={index} className="flex flex-col relative group">
+             {/* Massive Number */}
+             <div className="text-[25vw] leading-[0.8] font-bold tracking-tighter text-neutral-100 group-hover:text-brand-dark transition-colors duration-700 select-none">
+                 <Counter value={metric.value} suffix={metric.suffix} />
+             </div>
+             
+             {/* Tiny Label Overlay */}
+             <div className="absolute top-1/2 left-4 md:left-20 -translate-y-1/2 mix-blend-difference text-white">
+                 <span className="text-sm md:text-xl font-mono uppercase tracking-widest block rotate-90 md:rotate-0 origin-left">
+                     {metric.label}
+                 </span>
+             </div>
+          </div>
+        ))}
       </div>
-      
-      {/* Decorative vertical lines */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-neutral-50 -z-10 hidden lg:block" />
-      <div className="absolute top-0 left-1/2 w-px h-full bg-neutral-50 -z-10 hidden lg:block" />
-      <div className="absolute top-0 left-3/4 w-px h-full bg-neutral-50 -z-10 hidden lg:block" />
     </section>
   );
 }

@@ -2,79 +2,94 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Reveal from '@/components/ui/Reveal';
-import { services } from '@/data/content';
-import Section from '@/components/ui/Section';
-import { SectionEyebrow, SectionHeading, SectionSubheading } from '@/components/ui/Typography';
+import { Code, Brain, Palette } from 'lucide-react';
+import SpotlightCard from '../ui/SpotlightCard';
+
+interface ServiceCardProps {
+  title: string;
+  desc: string;
+  icon: React.ElementType;
+  delay?: number;
+  className?: string;
+}
+
+function ServiceCard({ title, desc, icon: Icon, delay = 0, className = "" }: ServiceCardProps) {
+  return (
+    <SpotlightCard delay={delay} className={`${className} glass-vibrant rounded-2xl group relative overflow-hidden`}>
+      <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative h-full flex flex-col p-12 lg:p-16">
+        <div className="mb-12">
+            <motion.div 
+              whileHover={{ rotate: 5, scale: 1.1 }}
+              className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 transition-transform"
+            >
+                <Icon size={20} className="text-zinc-500 group-hover:text-electric-violet transition-colors" />
+            </motion.div>
+        </div>
+        
+        <div className="mt-auto text-right">
+            <span className="text-xs text-zinc-500 mb-4 block font-light">التخصص الفني</span>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 arabic-impact pb-4 pt-2 leading-relaxed">{title}</h3>
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-normal max-w-sm mr-auto">{desc}</p>
+        </div>
+      </div>
+    </SpotlightCard>
+  );
+}
 
 export default function Services() {
   return (
-    <Section 
-      id="services" 
-      backgroundDecoration={
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-linear-to-b from-white via-accent-50/20 to-white opacity-50" />
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-100/10 blur-[150px] rounded-full" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent-200/5 blur-[150px] rounded-full" />
-        </div>
-      }
-    >
-      <div className="mb-32 text-center md:text-left">
-          <Reveal>
-              <SectionEyebrow>Our Specialized Skills</SectionEyebrow>
-          </Reveal>
-          <Reveal delay={0.1}>
-              <SectionHeading className="leading-[0.85] text-6xl md:text-9xl">
-                  Our <br className="md:hidden" />
-                  <span className="font-serif italic text-accent-500 font-normal ml-2">Expertise.</span>
-              </SectionHeading>
-          </Reveal>
-          <Reveal delay={0.2}>
-              <SectionSubheading className="max-w-2xl text-balance">
-                  We provide high-fidelity solutions ranging from artistic creative direction to complex, 
-                  intelligent engineering systems.
-              </SectionSubheading>
-          </Reveal>
-      </div>
+    <section id="services" className="py-40 bg-zinc-950 relative overflow-hidden border-t border-white/5 mesh-gradient-tech">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-32 text-right"
+        >
+            <span className="text-xs text-zinc-500 mb-4 block font-light">مجالات التميز</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-relaxed arabic-impact pb-8 pt-4">
+                الخبرات <br/> <span className="text-zinc-500">الأساسية</span>
+            </h2>
+            <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mr-auto leading-relaxed">
+                حلول رقمية متكاملة مصممة بدقة لتلبي متطلبات المستقبل الذكي.
+            </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <Reveal key={index} delay={index * 0.05} className={service.className} width="100%">
-          <motion.div 
-             whileHover={{ y: -8 }}
-             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-             className="group relative p-10 md:p-14 bg-white rounded-sm border border-neutral-100 hover:border-accent-200/50 transition-all duration-700 flex flex-col justify-between overflow-hidden min-h-[350px]"
-          >
-            {/* Card Background Effects */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                <div className="absolute inset-0 bg-accent-50/10" />
-                <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 bg-transparent">
+            <ServiceCard 
+                title="هندسة الويب المتطورة" 
+                desc="بناء بنى تحتية رقمية قوية وقابلة للتوسع. معمارية تركز على الأداء الفائق وتجربة المستخدم السلسة."
+                icon={Code}
+                className="md:col-span-8 h-full"
+                delay={0}
+            />
 
-            <div className="flex justify-between items-start mb-12 relative z-10">
-                <div className="text-accent-500 p-2 bg-accent-50/30 rounded-full group-hover:scale-110 group-hover:bg-accent-100 transition-all duration-700">
-                  <service.icon strokeWidth={1} size={32} />
-                </div>
-                <span className="text-6xl font-serif text-neutral-50 group-hover:text-accent-100/50 transition-colors duration-700 select-none">
-                  0{index + 1}
-                </span>
-            </div>
+            <ServiceCard 
+                title="تكامل الذكاء الاصطناعي" 
+                desc="تنفيذ وكلاء عصبيين مخصصين وأتمتة ذكية."
+                icon={Brain}
+                className="md:col-span-4 h-full"
+                delay={0.1}
+            />
+
+            <ServiceCard 
+                title="التوجيه الإبداعي" 
+                desc="تصميم واجهات عالمية تعتمد على العمق والفيزياء."
+                icon={Palette}
+                className="md:col-span-4 h-full"
+                delay={0.2}
+            />
             
-            <div className="relative z-10">
-              <h3 className="text-4xl font-serif text-neutral-900 mb-6 font-normal group-hover:text-accent-700 transition-colors duration-500">
-                  {service.title}
-              </h3>
-              <p className="text-neutral-500 group-hover:text-neutral-600 transition-colors leading-relaxed font-light text-balance">
-                {service.description}
-              </p>
+            <div className="md:col-span-8 glass-vibrant flex items-center justify-center p-20 rounded-2xl group relative overflow-hidden cursor-pointer">
+                <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="text-center group cursor-pointer relative z-10">
+                    <h3 className="text-4xl md:text-6xl font-bold text-white/50 group-hover:text-white transition-colors duration-500">هل لديك فكرة؟</h3>
+                    <p className="mt-4 text-xs font-light text-electric-cyan">لنصنعها معاً</p>
+                </div>
             </div>
-
-            {/* Decorative Accent Line */}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-neutral-100 group-hover:bg-accent-200/50 transition-colors duration-700" />
-          </motion.div>
-          </Reveal>
-        ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

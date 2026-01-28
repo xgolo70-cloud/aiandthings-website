@@ -2,107 +2,58 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Reveal from '@/components/ui/Reveal';
-import { philosophyPrinciples } from '@/data/content';
-import Section from '@/components/ui/Section';
-import { SectionEyebrow, SectionHeading } from '@/components/ui/Typography';
 
 export default function Philosophy() {
   return (
-    <Section 
-      id="philosophy" 
-      backgroundDecoration={
-        <>
-          <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-neutral-100 to-transparent" />
-          {/* Visual background accent - Optimized with will-change and reduced complexity */}
-          <motion.div 
-            animate={{ 
-              rotate: 360,
-            }}
-            transition={{ 
-              rotate: { duration: 60, repeat: Infinity, ease: "linear" }, 
-            }}
-            style={{ willChange: 'transform' }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-neutral-50 rounded-full -z-10 pointer-events-none opacity-50"
-          />
-        </>
-      }
-    >
-      <div className="text-center mb-20">
-        <Reveal width="100%">
-          <SectionEyebrow>Our DNA</SectionEyebrow>
-        </Reveal>
-        <Reveal width="100%" delay={0.1}>
-          <SectionHeading>
-             The <span className="font-serif italic text-accent-500 font-normal">Foundation.</span>
-          </SectionHeading>
-        </Reveal>
+    <section id="philosophy" className="py-40 bg-black text-white overflow-hidden relative border-y border-white/5">
+      {/* Subtle Mesh Glow */}
+      {/* Starfield Parallax - CSS only for performance */}
+      <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-[2px] h-[2px] bg-white rounded-full shadow-[0_0_10px_white] animate-pulse" style={{ top: '10%', left: '20%' }} />
+          <div className="absolute top-0 left-0 w-[3px] h-[3px] bg-electric-violet rounded-full shadow-[0_0_15px_#7c3aed] animate-pulse" style={{ top: '30%', left: '80%', animationDelay: '1s' }} />
+          <div className="absolute top-0 left-0 w-[2px] h-[2px] bg-electric-cyan rounded-full shadow-[0_0_10px_#06b6d4] animate-pulse" style={{ top: '70%', left: '40%', animationDelay: '2s' }} />
+          
+           {/* Nebula Cloud */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[40vw] bg-linear-to-r from-electric-violet/10 via-brand-blue/10 to-electric-cyan/10 blur-[100px] rounded-full mix-blend-screen pointer-events-none animate-aurora" />
       </div>
 
-      <div className="flex flex-col">
-        {philosophyPrinciples.map((p, i) => (
-          <React.Fragment key={i}>
-            <div className={`flex flex-col ${p.align === 'right' ? 'md:items-end' : 'md:items-start'} relative`}>
-              <div className={`max-w-xl ${p.align === 'right' ? 'md:text-right' : 'md:text-left'} bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-neutral-50 shadow-sm relative z-20`}>
-                <Reveal delay={0.2}>
-                  <p className="text-accent-500 font-serif italic text-2xl mb-4">Principle 0{i + 1}</p>
-                </Reveal>
-                <Reveal delay={0.3}>
-                  <h3 className="text-4xl md:text-5xl font-black text-neutral-950 uppercase tracking-tighter mb-6 leading-none">
-                    {p.title}
-                  </h3>
-                </Reveal>
-                <Reveal delay={0.4}>
-                  <p className="text-lg md:text-xl text-neutral-500 font-light leading-relaxed">
-                    {p.description}
-                  </p>
-                </Reveal>
-              </div>
-            </div>
-            
-            {/* Connector */}
-            {i < philosophyPrinciples.length - 1 && (
-              <Connector direction={p.align === 'left' ? 'ltr' : 'rtl'} />
-            )}
-          </React.Fragment>
-        ))}
+      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+         
+         <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="mb-12"
+         >
+            <span className="text-xs text-zinc-500 mb-8 block font-light">رؤيتنا</span>
+            <h2 className="text-4xl md:text-6xl font-bold leading-relaxed max-w-4xl mx-auto arabic-impact pb-8 pt-4">
+              نؤمن بـ <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet to-brand-blue">القصد </span> 
+              والتنفيذ الدقيق.
+            </h2>
+         </motion.div>
+
+         <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto"
+         >
+             <p className="text-xl md:text-2xl font-normal leading-relaxed text-zinc-400">
+                لا ينبغي أن تكون التكنولوجيا مجرد أداة تستخدمها، بل بيئة تعيش فيها. 
+                سلسة، مستجيبة، ولا يمكن تمييزها عن السحر.
+             </p>
+         </motion.div>
+
+         {/* Precision Detail */}
+         <div className="mt-20 flex items-center gap-4">
+            <div className="h-px w-12 bg-zinc-800" />
+            <div className="w-2 h-2 rounded-full border border-zinc-700" />
+            <div className="h-px w-12 bg-zinc-800" />
+         </div>
       </div>
-    </Section>
-  );
-}
 
-function Connector({ direction }: { direction: 'ltr' | 'rtl' }) {
-  const pathD = direction === 'ltr'
-    ? "M 100 0 C 100 100, 900 100, 900 200"
-    : "M 900 0 C 900 100, 100 100, 100 200";
-
-  return (
-    <div className="w-full h-[200px] relative -my-10 z-10 hidden md:block pointer-events-none">
-       <svg 
-         viewBox="0 0 1000 200" 
-         className="w-full h-full" 
-         preserveAspectRatio="none"
-         style={{ overflow: 'visible' }}
-       >
-         <path 
-           d={pathD}
-           fill="none"
-           stroke="currentColor"
-           strokeWidth="1"
-           className="text-neutral-100"
-         />
-         <motion.path 
-            d={pathD}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-accent-400"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-         />
-       </svg>
-    </div>
+    </section>
   );
 }
