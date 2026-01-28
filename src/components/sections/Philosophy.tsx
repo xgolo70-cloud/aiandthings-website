@@ -26,19 +26,19 @@ export default function Philosophy() {
             viewport={{ once: true }}
             className="mb-6"
          >
-             <div className="flex items-center justify-center gap-6 mb-12 group/label">
-                <div className="h-[1px] w-12 bg-linear-to-r from-transparent to-electric-violet opacity-50" />
+             <div className="flex items-center justify-center gap-6 mb-8 group/label">
+                <div className="h-px w-12 bg-linear-to-r from-transparent to-electric-violet opacity-50" />
                 <div className="flex items-center gap-4 text-sm md:text-base font-bold tracking-[0.4em] uppercase text-zinc-400">
                     <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-violet transition-colors">[</span>
                     <span className="arabic-impact px-4 group-hover/label:text-white transition-colors cursor-default relative">
                         رؤيتنا
-                        <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-right" />
+                        <span className="absolute -bottom-2 left-0 w-full h-px bg-electric-violet scale-x-0 group-hover/label:scale-x-100 transition-transform duration-500 origin-right" />
                     </span>
                     <span className="text-zinc-800 font-mono text-xl group-hover/label:text-electric-cyan transition-colors">]</span>
                 </div>
-                <div className="h-[1px] w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-50" />
+                <div className="h-px w-12 bg-linear-to-l from-transparent to-electric-cyan opacity-50" />
              </div>
-            <h2 className="text-4xl md:text-8xl font-bold leading-tight max-w-4xl mx-auto arabic-impact pb-6 pt-2">
+            <h2 className="text-4xl md:text-8xl font-bold leading-[0.9] max-w-4xl mx-auto arabic-impact pb-4 pt-0">
               نؤمن بـ 
               <motion.span 
                 animate={{ 
@@ -47,7 +47,7 @@ export default function Philosophy() {
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 className="relative inline-block mx-4"
               >
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet via-electric-cyan to-brand-blue bg-[length:200%_auto] drop-shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet via-electric-cyan to-brand-blue bg-size-[200%_auto] drop-shadow-[0_0_15px_rgba(124,58,237,0.3)]">
                     القصد
                   </span>
                   {/* Subtle underline glow */}
