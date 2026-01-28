@@ -27,8 +27,26 @@ export default function Philosophy() {
             className="mb-6"
          >
             <span className="text-xs text-zinc-500 mb-8 block font-light">رؤيتنا</span>
-            <h2 className="text-4xl md:text-6xl font-bold leading-relaxed max-w-4xl mx-auto arabic-impact pb-4 pt-1">
-              نؤمن بـ <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet to-brand-blue">القصد </span> 
+            <h2 className="text-4xl md:text-8xl font-bold leading-tight max-w-4xl mx-auto arabic-impact pb-6 pt-2">
+              نؤمن بـ 
+              <motion.span 
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                className="relative inline-block mx-4"
+              >
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet via-electric-cyan to-brand-blue bg-[length:200%_auto] drop-shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+                    القصد
+                  </span>
+                  {/* Subtle underline glow */}
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '100%' }}
+                    transition={{ delay: 0.5, duration: 1.5 }}
+                    className="absolute bottom-0 left-0 h-1 bg-linear-to-r from-electric-violet to-brand-blue blur-[2px] opacity-50"
+                  />
+              </motion.span>
               والتنفيذ الدقيق.
             </h2>
          </motion.div>
