@@ -7,6 +7,12 @@ import { Send, MapPin, Mail, Github, Twitter } from 'lucide-react';
 export default function Contact() {
   return (
     <section id="contact" className="py-40 bg-zinc-950 relative overflow-hidden mesh-gradient-tech">
+      {/* Dynamic Signal Waves Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-electric-cyan/20 rounded-full animate-ping-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-electric-violet/20 rounded-full animate-ping-slow" style={{ animationDelay: '1s' }} />
+      </div>
+
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric-violet/10 blur-[150px] rounded-full mix-blend-screen" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -26,26 +32,32 @@ export default function Contact() {
                 نحن دائماً نبحث عن تحديات جديدة ومشاريع تكسر المألوف. أرسل إشارتك وسنعاود الاتصال بك.
             </p>
 
-            <div className="flex flex-col gap-8 items-end">
-                <div className="flex items-center gap-6 group">
+            <div className="flex flex-col gap-6 items-end">
+                <motion.div 
+                    whileHover={{ x: -10 }}
+                    className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-cyan/30 transition-all duration-500"
+                >
                     <div className="text-right">
-                        <span className="text-[10px] font-bold text-zinc-700 uppercase block arabic-impact">الموقع</span>
-                        <p className="text-white group-hover:text-electric-violet transition-colors">بغداد، العراق // عالمي</p>
+                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">الموقع</span>
+                        <p className="text-sm text-white font-medium">بغداد، العراق // عالمي</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-white/20 transition-all">
-                        <MapPin size={18} className="text-zinc-600" />
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-cyan/10 transition-colors">
+                        <MapPin size={16} className="text-electric-cyan" />
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-6 group">
+                <motion.div 
+                    whileHover={{ x: -10 }}
+                    className="flex items-center gap-6 group glass-vibrant p-4 rounded-2xl border border-white/5 hover:border-electric-violet/30 transition-all duration-500"
+                >
                     <div className="text-right">
-                        <span className="text-[12px] font-bold text-zinc-500 uppercase block mb-2 arabic-impact">البريد المباشر</span>
-                        <p className="text-lg text-white group-hover:text-electric-violet transition-colors font-normal">hello@aiandthings.com</p>
+                        <span className="text-[10px] font-bold text-zinc-500 uppercase block arabic-impact mb-1">البريد المباشر</span>
+                        <p className="text-sm text-white font-medium">hello@aiandthings.com</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-white/20 transition-all">
-                        <Mail size={18} className="text-zinc-600" />
+                    <div className="w-10 h-10 rounded-xl bg-zinc-900/50 border border-white/5 flex items-center justify-center group-hover:bg-electric-violet/10 transition-colors">
+                        <Mail size={16} className="text-electric-violet" />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div className="mt-20 flex gap-8 justify-end">
@@ -64,39 +76,57 @@ export default function Contact() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="cyber-card glass-vibrant p-10 lg:p-16 rounded-3xl backdrop-blur-xl">
-                <form className="space-y-10" dir="rtl">
-                    <div className="space-y-2">
-                        <label className="text-xs text-zinc-500 font-light mr-4">الاسم الكامل</label>
+            <div className="cyber-card glass-vibrant p-10 lg:p-16 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form border border-white/5 hover:border-white/10 transition-all duration-700">
+                {/* Chromatic Border Effect */}
+                <div className="absolute inset-0 z-0 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{
+                        padding: '1px',
+                        background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(124, 58, 237, 0.3))',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMaskComposite: 'xor',
+                        maskComposite: 'exclude',
+                    }}
+                />
+
+                <form className="space-y-10 relative z-10" dir="rtl">
+                    <div className="space-y-2 group/input">
+                        <label className="text-[10px] text-zinc-500 font-bold uppercase arabic-impact mr-1 group-focus-within/input:text-electric-cyan transition-colors">الاسم الكامل</label>
                         <input 
                             type="text" 
                             placeholder="ما هو اسمك؟"
-                            className="w-full bg-transparent border-b border-white/10 py-4 text-xl text-white focus:outline-none focus:border-electric-violet transition-all placeholder:text-zinc-800"
+                            className="w-full bg-transparent border-b border-white/5 py-4 text-lg text-white focus:outline-none focus:border-electric-cyan transition-all placeholder:text-zinc-800"
                         />
                     </div>
                     
-                    <div className="space-y-2">
-                        <label className="text-xs text-zinc-500 font-light mr-4">عنوان البريد</label>
+                    <div className="space-y-2 group/input">
+                        <label className="text-[10px] text-zinc-500 font-bold uppercase arabic-impact mr-1 group-focus-within/input:text-electric-violet transition-colors">عنوان البريد</label>
                         <input 
                             type="email" 
                             placeholder="بريدك الإلكتروني"
-                            className="w-full bg-transparent border-b border-white/10 py-4 text-xl text-white focus:outline-none focus:border-electric-violet transition-all placeholder:text-zinc-800"
+                            className="w-full bg-transparent border-b border-white/5 py-4 text-lg text-white focus:outline-none focus:border-electric-violet transition-all placeholder:text-zinc-800"
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-xs text-zinc-500 font-light mr-4">نص الرسالة</label>
+                    <div className="space-y-2 group/input">
+                        <label className="text-[10px] text-zinc-500 font-bold uppercase arabic-impact mr-1 group-focus-within/input:text-white transition-colors">نص الرسالة</label>
                         <textarea 
-                            rows={4}
+                            rows={3}
                             placeholder="أخبرنا عن مشروعك..."
-                            className="w-full bg-transparent border-b border-white/10 py-4 text-xl text-white focus:outline-none focus:border-electric-violet transition-all placeholder:text-zinc-800 resize-none"
+                            className="w-full bg-transparent border-b border-white/5 py-4 text-lg text-white focus:outline-none focus:border-white/20 transition-all placeholder:text-zinc-800 resize-none"
                         />
                     </div>
 
-                    <button className="w-full py-6 bg-white text-black rounded-2xl font-bold uppercase text-sm hover:bg-electric-violet hover:text-white transition-all flex items-center justify-center gap-4 group">
-                        <span>إرسال الطلب</span>
-                        <Send size={16} className="group-hover:translate-x-[-10px] group-hover:translate-y-[-5px] transition-transform" />
-                    </button>
+                    <motion.button 
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-6 bg-white text-black rounded-2xl font-bold uppercase text-sm hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all flex items-center justify-center gap-4 group/btn relative overflow-hidden"
+                    >
+                        <span className="relative z-10">إرسال الطلب</span>
+                        <Send size={16} className="relative z-10 group-hover/btn:translate-x-[-4px] group-hover/btn:translate-y-[-2px] transition-transform" />
+                        
+                        {/* Animated Signal Pulse */}
+                        <div className="absolute inset-0 bg-linear-to-r from-electric-cyan to-electric-violet opacity-0 group-hover/btn:opacity-20 transition-opacity" />
+                    </motion.button>
                 </form>
             </div>
 
