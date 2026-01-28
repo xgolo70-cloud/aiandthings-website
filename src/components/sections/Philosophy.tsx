@@ -24,10 +24,10 @@ export default function Philosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-6"
          >
             <span className="text-xs text-zinc-500 mb-8 block font-light">رؤيتنا</span>
-            <h2 className="text-4xl md:text-6xl font-bold leading-relaxed max-w-4xl mx-auto arabic-impact pb-8 pt-4">
+            <h2 className="text-4xl md:text-6xl font-bold leading-relaxed max-w-4xl mx-auto arabic-impact pb-4 pt-1">
               نؤمن بـ <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-violet to-brand-blue">القصد </span> 
               والتنفيذ الدقيق.
             </h2>

@@ -143,9 +143,9 @@ export default function InteractiveHero() {
               <span className="text-[10px] font-mono text-zinc-500 uppercase mb-4 block">ai and things</span>
           </motion.div>
           
-          <motion.h1 className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.3] arabic-impact mb-6 relative z-20 pt-2 pb-6 overflow-visible">
+          <motion.h1 className="hero-text text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.3] arabic-impact mb-6 relative z-20 pt-1 pb-4 overflow-visible">
               نحول الأفكار إلى <br/>
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-4 pt-2">واقع رقمي ذكي</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-electric-cyan via-white to-electric-violet inline-block pb-2 pt-1">واقع رقمي ذكي</span>
           </motion.h1>
 
           <motion.div className="hero-text mt-12 flex flex-col items-center gap-8">

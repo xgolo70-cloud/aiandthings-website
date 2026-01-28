@@ -23,13 +23,13 @@ export default function Footer() {
     <footer className="relative bg-zinc-950 pt-32 pb-12 px-6 overflow-hidden border-t border-white/5 mesh-gradient-tech">
       <div className="absolute bottom-0 left-0 w-full h-[300px] bg-linear-to-t from-electric-violet/10 to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 text-right">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-12 text-right">
           
           {/* Brand & Manifesto */}
           <div className="md:col-span-12 lg:col-span-5 flex flex-col gap-8 items-center lg:items-start lg:text-right text-right">
               <a href="#" className="flex items-center gap-3 group w-fit">
                   <Command size={24} className="text-white group-hover:scale-110 transition-transform duration-500" />
-                  <span className="text-2xl font-bold text-white arabic-impact pb-4 pt-2">
+                  <span className="text-2xl font-bold text-white arabic-impact pb-2 pt-1">
                       الذكاء والأشياء
                   </span>
               </a>
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-8 text-[11px] font-bold text-zinc-600 arabic-impact">
                 <p>© 2026 الذكاء والأشياء</p>
                 <a href="#" className="hover:text-white transition-colors">الخصوصية</a>

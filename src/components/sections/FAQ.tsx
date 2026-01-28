@@ -36,7 +36,7 @@ export default function FAQ() {
   return (
     <Section id="faq" className="bg-neutral-50 border-b border-neutral-100">
       
-      <div className="mb-20">
+      <div className="mb-10">
         <Reveal>
            <div className="flex items-center gap-2 mb-6">
               <div className="h-px w-8 bg-brand-dark" />
@@ -46,7 +46,7 @@ export default function FAQ() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <SectionHeading className="text-brand-dark pb-8 pt-4 leading-relaxed text-5xl md:text-7xl">
+          <SectionHeading className="text-brand-dark pb-4 pt-2 leading-relaxed text-5xl md:text-7xl">
              تفاصيل <span className="text-neutral-400">النظام.</span>
           </SectionHeading>
         </Reveal>

@@ -36,10 +36,10 @@ export default function Team() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mb-32 text-right"
+            className="mb-16 text-right"
         >
             <span className="text-xs text-zinc-500 mb-4 block font-light">مؤسسو التغيير</span>
-            <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-8 pt-4">
+            <h2 className="text-5xl md:text-7xl font-bold text-white leading-relaxed arabic-impact pb-4 pt-2">
                 العقول <br/> <span className="text-zinc-500">خلف العمل</span>
             </h2>
         </motion.div>
